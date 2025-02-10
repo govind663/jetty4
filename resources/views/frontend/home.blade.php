@@ -20,7 +20,7 @@ J4C Group | Home
             <!--Slider-4-->
             <div class="carousel-item hero-area active">
                 <video width="100%" class="elVideo" loop="loop" autoPlay playsInline muted
-                    src="frontend/assets/images/banner/banner-video1.mp4" id='video-slider-3'>
+                    src="{{ asset('frontend/assets/images/banner/banner-video1.mp4') }}" id='video-slider-3'>
                 </video>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Building Tomorrow’s Business <br>Spaces with Precision and Excellence</h5>
@@ -33,7 +33,7 @@ J4C Group | Home
 
             <!--Slider-3-->
             <div class="carousel-item hero-area">
-                <img src="frontend/assets/images/banner/banner3.webp" class="d-block w-100" alt="..." loading="lazy">
+                <img src="{{ asset('frontend/assets/images/banner/banner3.webp') }}" class="d-block w-100" alt="..." loading="lazy">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Brick By Brick,<br> We Build Your Vision.</h5>
                     <div class="button" id="button-2" data-animation="fadeInUp" data-delay="1000ms">
@@ -45,7 +45,7 @@ J4C Group | Home
 
             <!--Slider-2-->
             <div class="carousel-item hero-area">
-                <img src="frontend/assets/images/banner/banner4.webp" class="d-block w-100" alt="..." loading="lazy">
+                <img src="{{ asset('frontend/assets/images/banner/banner4.webp') }}" class="d-block w-100" alt="..." loading="lazy">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Transforming the<br> vision into realties.</h5>
                     <div class="button" id="button-2" data-animation="fadeInUp" data-delay="1000ms">
@@ -58,7 +58,7 @@ J4C Group | Home
             <!--Slider-1-->
             <div class="carousel-item hero-area">
                 <video width="100%" class="elVideo" loop="loop" autoPlay playsInline muted
-                    src="frontend/assets/images/banner/banner-video2.mp4" id='video-slider-3'>
+                    src="{{ asset('frontend/assets/images/banner/banner-video2.mp4') }}" id='video-slider-3'>
                 </video>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Leading the way, INDIA's premier developer of Data Center Buildings.</h5>
@@ -629,7 +629,7 @@ J4C Group | Home
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-box">
                         <div class="single-home-blog-thumb-sec">
-                            {{-- <img src="frontend/assets/images/blog/blog-home-1.webp" alt=""> --}}
+                            <img src="frontend/assets/images/blog/blog-home-1.webp" alt="">
                         </div>
                         <div class="home-blog-content-sec">
                             <div class="home-blog-date-sec">
