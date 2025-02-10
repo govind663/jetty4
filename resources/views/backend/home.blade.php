@@ -1,89 +1,172 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Damian Corporate | Home
+J4C Group | Dashboard
 @endsection
 
 @push('styles')
 @endpush
 
 @section('content')
-<div class="xs-pd-20-10 pd-ltr-20">
-
-    <div class="page-header">
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <div class="title">
-                    <h4>Dashboard</h4>
-                </div>
-                <nav aria-label="breadcrumb" role="navigation">
-                    <ol class="breadcrumb">
-                        {{-- <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li> --}}
-                        <li class="breadcrumb-item active" aria-current="page">
-                            Dashboard
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="title pb-20">
-        <h2 class="h3 mb-0">Project Overview</h2>
-    </div>
-
-    <div class="row pb-10">
-        <!-- Total Projects -->
-        <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
-            <div class="card-box height-100-p widget-style3">
-                <div class="d-flex flex-wrap">
-                    <div class="widget-data">
-                        <div class="weight-700 font-24 text-dark">
-                            {{ $totalProjects ?? '0' }}
-                        </div>
-                        <div class="font-14 text-secondary weight-500">
-                            <span class="text-secondary">Total Projects</span>
-                        </div>
-                    </div>
-                    <div class="widget-icon">
-                        <div class="icon" data-color="#ffffff">
-                            <i class="icon-copy dw dw-file"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dynamic Category Projects -->
-        @foreach ($projectCounts as $categoryName => $count)
-            <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
-                <div class="card-box height-100-p widget-style3">
-                    <div class="d-flex flex-wrap">
-                        <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">
-                                {{ $count ?? '0' }}
+            <div class="page-body">
+                <div class="container-fluid">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4>
+                                    Project Management </h4>
                             </div>
-                            <div class="font-14 text-secondary weight-500">
-                                <span class="text-secondary">Total {{ $categoryName }} Projects</span>
-                            </div>
-                        </div>
-                        <div class="widget-icon">
-                            <div class="icon" data-color="#ffffff">
-                                <i class="icon-copy dw dw-file"></i>
+                            <div class="col-6">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ route('admin.dashboard') }}">
+                                            <svg class="stroke-icon">
+                                                <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-home') }}"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item">Dashboard</li>
+                                    <li class="breadcrumb-item active">Project-Management</li>
+                                </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Container-fluid starts-->
+                <div class="container-fluid">
+                    <div class="row size-column">
+                        <div class="col-xxl-12 box-col-12">
+                            <div class="row">
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card o-hidden small-widget">
+                                        <div class="card-body total-project border-b-primary border-2">
+                                            <span class="f-light f-w-500 f-14">Total Project</span>
+                                            <div class="project-details">
+                                                <div class="project-counter">
+                                                    <h2 class="f-w-600">1,523</h2>
+                                                    <span class="f-12 f-w-400">
+                                                        (This month)
+                                                    </span>
+                                                </div>
+                                                <div class="product-sub bg-primary-light">
+                                                    <svg class="invoice-icon">
+                                                        <use href="{{ asset('backend/assets/svg/icon-sprite.svg#color-swatch') }}"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="bubbles">
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card o-hidden small-widget">
+                                        <div class="card-body total-Progress border-b-warning border-2">
+                                            <span class="f-light f-w-500 f-14">In Progress</span>
+                                            <div class="project-details">
+                                                <div class="project-counter">
+                                                    <h2 class="f-w-600">836</h2>
+                                                    <span class="f-12 f-w-400">
+                                                        (This month)
+                                                    </span>
+                                                </div>
+                                                <div class="product-sub bg-warning-light">
+                                                    <svg class="invoice-icon">
+                                                        <use href="{{ asset('backend/assets/svg/icon-sprite.svg#tick-circle') }}"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="bubbles">
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card o-hidden small-widget">
+                                        <div class="card-body total-Complete border-b-secondary border-2">
+                                            <span class="f-light f-w-500 f-14">Complete</span>
+                                            <div class="project-details">
+                                                <div class="project-counter">
+                                                    <h2 class="f-w-600">475</h2>
+                                                    <span class="f-12 f-w-400">
+                                                        (This month)
+                                                    </span>
+                                                </div>
+                                                <div class="product-sub bg-secondary-light">
+                                                    <svg class="invoice-icon">
+                                                        <use href="{{ asset('backend/assets/svg/icon-sprite.svg#add-square') }}"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="bubbles">
+                                                <li class="bubble"> </li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"> </li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"> </li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card o-hidden small-widget">
+                                        <div class="card-body total-upcoming">
+                                            <span class="f-light f-w-500 f-14">Upcoming</span>
+                                            <div class="project-details">
+                                                <div class="project-counter">
+                                                    <h2 class="f-w-600">189</h2>
+                                                    <span class="f-12 f-w-400">
+                                                        (This month)
+                                                    </span>
+                                                </div>
+                                                <div class="product-sub bg-light-light">
+                                                    <svg class="invoice-icon">
+                                                        <use href="{{ asset('backend/assets/svg/icon-sprite.svg#edit-2') }}"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <ul class="bubbles">
+                                                <li class="bubble"> </li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                                <li class="bubble"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Container-fluid Ends-->
             </div>
-        @endforeach
-    </div>
-
-    <!-- Footer Start -->
-    <x-backend.footer />
-    <!-- Footer Start -->
-
-</div>
 @endsection
 
 @push('scripts')

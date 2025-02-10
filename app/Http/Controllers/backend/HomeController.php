@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,28 +12,8 @@ class HomeController extends Controller
 {
     public function adminHome()
     {
-        // ==== Get Categories (assuming you need to display category-wise project count)
-        $categories = Category::orderBy("id", "desc")->whereNull('deleted_at')->get();
 
-        // ==== Count Projects per Category
-        $projectCounts = $categories->mapWithKeys(function ($category) {
-            $projectCount = Project::whereNull('deleted_at')
-                ->where('category_id', $category->id) // Match category_id with the category's id
-                ->count();
-
-            return [$category->category_name => $projectCount]; // Assuming 'name' is the category name field
-        });
-        // dd($projectCounts);
-
-        // ==== Total Projects
-        $totalProjects = Project::orderBy("id", "desc")
-            ->whereNull('deleted_at')
-            ->count();
-
-        return view('backend.home', [
-            'totalProjects' => $totalProjects,
-            'projectCounts' => $projectCounts, // Pass category-wise project counts
-        ]);
+        return view('backend.home');
     }
 
     public function changePassword(Request $request)

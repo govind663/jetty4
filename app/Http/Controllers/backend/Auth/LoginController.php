@@ -28,7 +28,7 @@ class LoginController extends Controller
             // Regenerate session ID for security
             $request->session()->regenerate();
 
-            return redirect()->route('admin.dashboard')->with('message', 'You are successfully logged in!');
+            return redirect()->route('admin.dashboard')->with('success', 'You are successfully logged in!');
         }
         else{
             return redirect()->route('admin.login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Email id and Password do not match our records!']);
@@ -42,6 +42,6 @@ class LoginController extends Controller
         // Log the user out of their current session
         Auth::logout();
 
-        return redirect()->route('admin.login')->with('message', 'You are logout Successfully.');
+        return redirect()->route('admin.login')->with('success', 'You are logout Successfully.');
     }
 }

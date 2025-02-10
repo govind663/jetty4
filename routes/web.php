@@ -75,6 +75,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
     // ===== Admin Dashboard
     Route::get('home', [HomeController::class, 'adminHome'])->name('admin.dashboard');
 
+    // ==== Update Password
+    Route::get('/change-password', [HomeController::class, 'changePassword'])->name('change-password');
+    Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('update-password');
+
 });
 
 // ==== Robots

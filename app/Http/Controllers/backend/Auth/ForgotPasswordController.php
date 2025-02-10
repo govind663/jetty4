@@ -39,11 +39,12 @@ class ForgotPasswordController extends Controller
         );
 
         Mail::send('backend.auth.verify',['token' => $token], function($message) use ($request) {
-            $message->from('contact@damiancorporate.com','Damian Corporate');
+            $message->from('info@jett4.com','J4C Group');
             $message->to($request->email);
+            // $message->to('codingthunder1997@gmail.com', 'J4C Group');
             $message->subject('Reset Password Notification', 'Password Reset Link');
         });
 
-        return back()->with('message', 'Password reset link has been sent to your email.');
+        return back()->with('success', 'Password reset link has been sent to your email.');
     }
 }

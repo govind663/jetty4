@@ -35,6 +35,6 @@ class RegisterController extends Controller
 
         User::where('id', $data->id)->update($update);
 
-        return redirect()->route('admin.login')->with('message', 'You are Register Sucessfully.');
+        return redirect()->route('admin.login')->with('success', 'You are Register Sucessfully.');
     }
 }

@@ -81,7 +81,7 @@ class ResetPasswordController extends Controller
 
         DB::table('password_reset_tokens')->where(['email' => $request->email])->delete();
 
-        return redirect()->route('admin.login')->with('message', 'Your password has been changed successfully. You can now log in with your new password.');
+        return redirect()->route('admin.login')->with('success', 'Your password has been changed successfully. You can now log in with your new password.');
 
     }
 }

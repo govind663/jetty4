@@ -8,6 +8,7 @@ J4C Group | Home
 @endpush
 
 @section('content')
+ 
     <div id="carouselExampleCaptions" class="main_slider carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
