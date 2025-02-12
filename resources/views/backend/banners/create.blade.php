@@ -84,6 +84,17 @@
                                     </div>
 
                                     <div class="form-group row mt-3">
+                                        <label class="col-sm-2"><b>Title : <span class="text-danger">*</span></b></label>
+                                        <div class="col-sm-4 col-md-4">
+                                            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{old('title')}}" placeholder="Enter Title.">
+                                            @error('title')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+
                                         <label class="col-sm-2"><b>Status : <span class="text-danger">*</span></b></label>
                                         <div class="col-sm-4 col-md-4">
                                             <select name="status" id="status" class="myselect form-control @error('status') is-invalid @enderror">

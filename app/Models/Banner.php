@@ -14,6 +14,7 @@ class Banner extends Model
         'id',
         'banner_image',
         'banner_video',
+        'title',
         'status',
         'inserted_by',
         'inserted_at',

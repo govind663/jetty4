@@ -34,11 +34,11 @@
                 {{-- Dashboard --}}
                 <li class="sidebar-list">
                     <i class="fa fa-thumb-tack"> </i>
-                    <a class="sidebar-link sidebar-title {{
+                    <a class="sidebar-link  {{
                         (Route::currentRouteName() === 'admin.dashboard')
                         || (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit')
                         || (Route::currentRouteName() === 'statistics.index') || (Route::currentRouteName() === 'statistics.create') || (Route::currentRouteName() === 'statistics.edit')
-                        ? 'show' : '' }}"
+                        ? 'active' : '' }} sidebar-title"
                     href="javascript:void(0)">
                         <svg class="stroke-icon">
                             <use href="{{ asset('backend/assets/svg/icon-sprite.svg#stroke-home') }}"></use>

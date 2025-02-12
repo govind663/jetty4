@@ -21,7 +21,7 @@
 
 
 {{-- Font Awesome --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="all">
 
 <!-- bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" type="text/css" media="all">
@@ -64,4 +64,4 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}" type="text/css" media="all">
 
 <!-- modernizr js -->
-<script src="{{ asset('frontend/assets/js/modernizr-3.5.0.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/modernizr-3.5.0.min.js') }}" defer></script>

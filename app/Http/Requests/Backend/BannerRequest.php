@@ -25,12 +25,14 @@ class BannerRequest extends FormRequest
             $rule = [
                 'banner_image' => 'mimes:jpeg,png,jpg,webp|max:2048',
                 'banner_video' => 'mimes:mp4|max:10000',
+                'title' => 'required|string|max:255',
                 'status' => 'required|numeric',
             ];
         }else{
             $rule = [
                 'banner_image' => 'mimes:jpeg,png,jpg,webp|max:2048',
                 'banner_video' => 'mimes:mp4|max:10000',
+                'title' => 'required|string|max:255',
                 'status' => 'required|numeric',
             ];
         }
@@ -46,6 +48,10 @@ class BannerRequest extends FormRequest
 
             'banner_video.mimes' => __('Banner video must be a file of type: mp4.'),
             'banner_video.max' => __('The size of banner video should not exceed 10MB.'),
+
+            'title.required' => __('Title is required'),
+            'title.string' => __('Title must be a string.'),
+            'title.max' => __('Title must not exceed 255 characters.'),
 
             'status.required' => __('Status is required'),
             'status.numeric' => __('Status must be a number.'),

@@ -63,6 +63,7 @@ class BannerController extends Controller
                 $banner->banner_image = null; // Clear the image if a video is uploaded
             }
 
+            $banner->title = $request->title;
             $banner->status = $request->status;
             $banner->inserted_at = Carbon::now();
             $banner->inserted_by = Auth::user()->id;
@@ -148,7 +149,7 @@ class BannerController extends Controller
                 $banner->banner_image = null; // Clear the image if a video is uploaded
             }
 
-            // Update other banner details
+            $banner->title = $request->title;
             $banner->status = $request->status;
             $banner->modified_at = Carbon::now();
             $banner->modified_by = Auth::user()->id;

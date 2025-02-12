@@ -471,9 +471,9 @@ J4C Group | Home
                     <!--  <div class="echofy-button" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                 <a href="#">Become Our Associate</a>
                 </div> -->
-                    <div class="button" id="button-2">
+                    <div class="button" id="button-2" data-bs-toggle="modal" data-bs-target="#associateModal">
                         <div id="slide"></div>
-                        <a href="#">Become Our Associate</a>
+                        <a href="javascript:void(0)">Become Our Associate</a>
                     </div>
                 </div>
             </div>
@@ -690,7 +690,149 @@ J4C Group | Home
             </div>
         </div>
     </div>
+
+    <!-- Modal Popup -->
+    <div class="modal fade enquiry-now-modal-sec" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header enquiry-now-modal-header-sec">
+                    <h5 class="modal-title enquiry-now-modal-title-sec" id="enquiryModalLabel">Enquiry Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="enquiryForm">
+                        <div class="row">
+                        <div class="col-lg-6">
+                    <div class="single-input-box crs-input-box-sec">
+                    <input type="text" name="name" placeholder="Your Name*" pattern="[A-Za-z\s]+" title="Please enter alphabetic characters only." required="">
+                    </div>
+                </div>
+                        <div class="col-lg-6">
+                    <div class="single-input-box crs-input-box-sec">
+                    <input type="text" name="Email" placeholder="Your Email*" required="">
+                    </div>
+                </div>
+                        <div class="col-lg-6">
+                    <div class="single-input-box crs-input-box-sec">
+                    <input type="text" name="Phone" placeholder="Phone Number*" required="">
+                    </div>
+                </div>
+                        <div class="col-lg-6">
+                    <div class="single-input-box crs-input-box-sec">
+                    <input type="text" name="Subject" placeholder="Subject*" required="">
+                    </div>
+                </div>
+                        <div class="col-lg-12">
+                    <div class="single-input-box crs-input-box-sec">
+                    <textarea name="Massage" placeholder="Write Message"></textarea>
+                    </div>
+                </div>
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <div class="button" id="button-2">
+                                    <div id="slide"></div>
+                                    <a href="#">Submit</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade associ-modal-sec" id="associateModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header assco-header-sec">
+                    <h5 class="modal-title assco-title-sec" id="modalLabel">Become Our Associate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="assci-input-box">
+                                <input type="text" class="form-control" id="name" required placeholder="Your Name*">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="assci-input-box">
+                                <input type="tel" class="form-control" id="number" required placeholder="Phone Number*">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="assci-input-box">
+                                <input type="email" class="form-control" id="email" required placeholder="Your Email*">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="assci-input-box">
+                                <input type="text" class="form-control" id="location" required placeholder="Your Location">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="assci-input-box">
+                                <textarea class="form-control" id="message" rows="3" required placeholder="Your Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <div class="button" id="button-2">
+                                    <div id="slide"></div>
+                                    <a href="#">Submit</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
+    <script>
+        var swiper = new Swiper(".brand-slider", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 }
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".associate-slider", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 }
+            }
+        });
+    </script>
 @endpush
