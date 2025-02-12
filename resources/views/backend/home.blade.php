@@ -13,8 +13,7 @@ J4C Group | Dashboard
                     <div class="page-title">
                         <div class="row">
                             <div class="col-6">
-                                <h4>
-                                    Project Management </h4>
+                                <h4>Project Management</h4>
                             </div>
                             <div class="col-6">
                                 <ol class="breadcrumb">
@@ -25,8 +24,8 @@ J4C Group | Dashboard
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item">Dashboard</li>
-                                    <li class="breadcrumb-item active">Project-Management</li>
+                                    <li class="breadcrumb-item active">Home</li>
+                                    {{-- <li class="breadcrumb-item active">Project-Management</li> --}}
                                 </ol>
                             </div>
                         </div>

@@ -16,8 +16,8 @@
 <script src="{{ asset('backend/assets/js/config.js') }}"></script>
 
 <!-- Plugins JS start-->
-{{-- <script src="{{ asset('backend/assets/js/sidebar-menu.js') }}"></script> --}}
-<script src="{{ asset('backend/assets/js/sidebar-pin.js') }}"></script>
+<script src="{{ asset('backend/assets/js/sidebar-menu.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/js/sidebar-pin.js') }}"></script> --}}
 <script src="{{ asset('backend/assets/js/slick/slick.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/slick/slick.js') }}"></script>
 <script src="{{ asset('backend/assets/js/header-slick.js') }}"></script>
@@ -39,11 +39,18 @@
 <script src="{{ asset('backend/assets/js/calendar/custom-calendar.js') }}"></script> --}}
 {{-- <script src="{{ asset('backend/assets/js/dashboard/dashboard_2.js') }}"></script> --}}
 <script src="{{ asset('backend/assets/js/animation/wow/wow.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
 <!-- Plugins JS Ends-->
 
 <!-- Theme js-->
 <script src="{{ asset('backend/assets/js/script.js') }}"></script>
 {{-- <script src="{{ asset('backend/assets/js/theme-customizer/customizer.js') }}"></script> --}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+{{-- Summernote Js --}}
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 
 
 <script>

@@ -14,6 +14,8 @@ use App\Http\Controllers\backend\Auth\LoginController;
 use App\Http\Controllers\backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\backend\Auth\ResetPasswordController;
 use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\BannerController;
+use App\Http\Controllers\backend\StatisticsController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -59,7 +61,6 @@ Route::post('admin/register/store', [RegisterController::class,'store'])->name('
 // ===== Admin Login/Logout
 Route::get('admin/login', [LoginController::class, 'login'])->name('admin.login');
 Route::post('admin/login/store', [LoginController::class, 'authenticate'])->name('admin.login.store');
-Route::post('admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 // ===== Send Password Reset Link
 Route::get('admin/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.forget-password.request');
@@ -78,6 +79,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
     // ==== Update Password
     Route::get('/change-password', [HomeController::class, 'changePassword'])->name('change-password');
     Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('update-password');
+
+    // ==== Logout
+    Route::post('admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+    // ==== Banner Management
+    Route::resource('banner', BannerController::class);
+
+    // ==== Statistics Management
+    Route::resource('statistics', StatisticsController::class);
 
 });
 

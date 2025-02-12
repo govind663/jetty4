@@ -43,11 +43,13 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/slick-theme.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/scrollbar.css') }}">
+
 <!-- Range slider css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/rangeslider/rSlider.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/animate.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/prism.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/fullcalender.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/datatables.css') }}">
 <!-- Plugins css Ends-->
 
 <!-- Bootstrap css-->
@@ -59,6 +61,12 @@
 
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}">
+
+<!-- Select2 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+<!-- Summernot CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 
 <!-- Toaster Message -->
 <script src="{{ asset('toaster/js/jquery.min.js') }}"></script>

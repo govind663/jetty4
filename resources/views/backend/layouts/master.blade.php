@@ -9,7 +9,7 @@
 
 <body>
     {{-- Pre Loader Start --}}
-    <x-backend.pre-loader />
+    {{-- <x-backend.pre-loader /> --}}
     {{-- Pre Loader End --}}
 
     <!-- tap on top starts-->
