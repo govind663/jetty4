@@ -44,7 +44,7 @@
                             <a href="{{ route('banner.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Add Banner
+                                    Banner
                                 </b>
                             </a>
                         </div>
@@ -56,6 +56,7 @@
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>Banner Image / Video</th>
+                                            <th>Title</th>
                                             <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -74,6 +75,10 @@
                                                             Your browser does not support the video tag.
                                                         </video>
                                                     @endif
+                                                </td>
+
+                                                <td class="text-wrap text-justify">
+                                                    {{ $slider->title }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">

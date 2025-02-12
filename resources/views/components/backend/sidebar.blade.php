@@ -38,6 +38,7 @@
                         (Route::currentRouteName() === 'admin.dashboard')
                         || (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit')
                         || (Route::currentRouteName() === 'statistics.index') || (Route::currentRouteName() === 'statistics.create') || (Route::currentRouteName() === 'statistics.edit')
+                        || (Route::currentRouteName() === 'construction-solutions.index') || (Route::currentRouteName() === 'construction-solutions.create') || (Route::currentRouteName() === 'construction-solutions.edit')
                         ? 'active' : '' }} sidebar-title"
                     href="javascript:void(0)">
                         <svg class="stroke-icon">
@@ -60,7 +61,9 @@
                         <li>
                             <a href="{{ route('statistics.index') }}" class="{{ (Route::currentRouteName() === 'statistics.index') || (Route::currentRouteName() === 'statistics.create') || (Route::currentRouteName() === 'statistics.edit') ? 'active' : '' }}">Statistics</a>
                         </li>
-
+                        <li>
+                            <a href="{{ route('construction-solutions.index') }}" class="{{ (Route::currentRouteName() === 'construction-solutions.index') || (Route::currentRouteName() === 'construction-solutions.create') || (Route::currentRouteName() === 'construction-solutions.edit') ? 'active' : '' }}">Construction Solutions</a>
+                        </li>
                     </ul>
                 </li>
 

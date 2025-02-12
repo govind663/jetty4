@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Statistics
+    J4C Group | Manaage Construction Solutions
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Statistics</h4>
+                        <h4>Manaage Construction Solutions</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Statistics</li>
+                            <li class="breadcrumb-item active">Manaage Construction Solutions</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Statistics List</h4>
+                                <h4>All Construction Solutions List</h4>
                             </div>
-
-                            <a href="{{ route('statistics.create') }}" class="btn btn-primary">
+                            {{-- Add Construction Solutions Button --}}
+                            <a href="{{ route('construction-solutions.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Statistics
+                                    Construction Solutions
                                 </b>
                             </a>
                         </div>
@@ -55,32 +55,33 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
+                                            <th>Image</th>
                                             <th>Title</th>
                                             <th>Description</th>
-                                            <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($statistics as $key => $value)
+                                        @foreach ($constructionSolutions as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
                                                 <td class="text-wrap text-justify">
-                                                    {{ $value->title }}
-                                                </td>
-                                                <td class="text-wrap text-justify">
-                                                    {!! $value->description !!}
-                                                </td>
-                                                <td class="text-wrap text-justify">
-                                                    @if ($value->status == 1)
-                                                        <span class="badge badge-success">Active</span>
-                                                    @elseif ($value->status == 2)
-                                                        <span class="badge badge-danger">Inactive</span>
+                                                    @if($value->image)
+                                                        <img src="{{ asset('/j4c_Group/construction-solutions/image/' . $value->image) }}" alt="Banner Image" style="width: 300px; height: auto;">
                                                     @endif
                                                 </td>
+
+                                                <td class="text-wrap text-justify">
+                                                    {{ $value->title }}
+                                                </td>
+
+                                                <td class="text-wrap text-justify">
+                                                    {{ $value->description }}
+                                                </td>
+
                                                 <td>
-                                                    <a href="{{ route('statistics.edit', $value->id) }}">
+                                                    <a href="{{ route('construction-solutions.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -90,7 +91,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('statistics.destroy', $value->id) }}" method="post">
+                                                    <form action="{{ route('construction-solutions.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">
@@ -117,4 +118,4 @@
 @endsection
 
 @push('scripts')
-@endpush
+@endpushp
