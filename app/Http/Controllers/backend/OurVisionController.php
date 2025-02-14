@@ -158,7 +158,7 @@ class OurVisionController extends Controller
             $ourvision->modified_by = Auth::user()->id;
             $ourvision->save();
 
-            return redirect()->route('our-vission.index')->with('success', 'Our Vission updated successfully.');
+            return redirect()->route('our-vision.index')->with('success', 'Our Vission updated successfully.');
 
         } catch (\Exception $e) {
 

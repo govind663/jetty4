@@ -76,6 +76,11 @@
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title
                     {{ (Route::currentRouteName() === 'about-j4c.index') || (Route::currentRouteName() === 'about-j4c.create') || (Route::currentRouteName() === 'about-j4c.edit')
+                       || (Route::currentRouteName() === 'who-we-are.index') || (Route::currentRouteName() === 'who-we-are.create') || (Route::currentRouteName() === 'who-we-are.edit')
+                       || (Route::currentRouteName() === 'our-mission.index') || (Route::currentRouteName() === 'our-mission.create') || (Route::currentRouteName() === 'our-mission.edit')
+                       || (Route::currentRouteName() === 'our-vision.index') || (Route::currentRouteName() === 'our-vision.create') || (Route::currentRouteName() === 'our-vision.edit')
+                       || (Route::currentRouteName() === 'certification.index') || (Route::currentRouteName() === 'certification.create') || (Route::currentRouteName() === 'certification.edit')
+                       || (Route::currentRouteName() === 'award.index') || (Route::currentRouteName() === 'award.create') || (Route::currentRouteName() === 'award.edit')
                         ? 'active' : '' }}"
                         href="javascript:void(0)">
                         <b>
@@ -99,14 +104,14 @@
                             <a href="{{ route('our-vision.index') }}" class="{{ (Route::currentRouteName() === 'our-vision.index') || (Route::currentRouteName() === 'our-vision.create') || (Route::currentRouteName() === 'our-vision.edit') ? 'active' : '' }}">Our Vision</a>
                         </li>
                         <li>
-                            <a href="#" class="">Certifications</a>
+                            <a href="{{ route('certification.index') }}" class="{{ (Route::currentRouteName() === 'certification.index') || (Route::currentRouteName() === 'certification.create') || (Route::currentRouteName() === 'certification.edit') ? 'active' : '' }}">Certification</a>
                         </li>
                         <li>
-                            <a href="#" class="">Awards</a>
+                            <a href="{{ route('award.index') }}" class="{{ (Route::currentRouteName() === 'award.index') || (Route::currentRouteName() === 'award.create') || (Route::currentRouteName() === 'award.edit') ? 'active' : '' }}">Award</a>
                         </li>
-                        <li>
-                      <a href="#" class="">Our USP</a>
-                        </li>
+                        {{-- <li>
+                            <a href="{{ route('our-usp.index') }}" class="{{ (Route::currentRouteName() === 'our-our-usp.index') || (Route::currentRouteName() === 'our-our-usp.create') || (Route::currentRouteName() === 'our-our-usp.edit') ? 'active' : '' }}">Our USP</a>
+                        </li> --}}
                     </ul>
                 </li>
 

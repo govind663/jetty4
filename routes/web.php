@@ -24,7 +24,8 @@ use App\Http\Controllers\backend\AboutJ4cController;
 use App\Http\Controllers\backend\WhoWeAreController;
 use App\Http\Controllers\backend\OurMissionController;
 use App\Http\Controllers\backend\OurVisionController;
-
+use App\Http\Controllers\backend\CertificationController;
+use App\Http\Controllers\backend\AwardController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -115,12 +116,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Who We Are Management
     Route::resource('who-we-are', WhoWeAreController::class);
-    
+
     // ==== Our Mission Management
     Route::resource('our-mission', OurMissionController::class);
 
     // ==== Our Vision Management
     Route::resource('our-vision', OurVisionController::class);
+
+    // ==== Our Certification Management
+    Route::resource('certification', CertificationController::class);
+
+    // ==== Our Award Management
+    Route::resource('award', AwardController::class);
 
 });
 

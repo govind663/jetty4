@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Our Mission
+    J4C Group | Manaage Certification
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Our Mission </h4>
+                        <h4>Manaage Certification</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Our Mission  </li>
+                            <li class="breadcrumb-item active">Manaage Certification</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Our Mission  List</h4>
+                                <h4>All Certification List</h4>
                             </div>
                             {{-- Add Team Button --}}
-                            <a href="{{ route('our-mission.create') }}" class="btn btn-primary">
+                            <a href="{{ route('certification.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Our Mission
+                                    Certification
                                 </b>
                             </a>
                         </div>
@@ -56,7 +56,6 @@
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>Image</th>
-                                            <th>Icon</th>
                                             <th>Title</th>
                                             <th>Description</th>
                                             <th>Edit</th>
@@ -64,19 +63,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($ourmission as $key => $value)
+                                        @foreach ($certifications as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
 
                                                 <td class="text-wrap text-justify">
                                                     @if($value->image)
-                                                        <img src="{{ asset('/j4c_Group/our-mission/image/' . $value->image) }}" alt="Banner Image" style="width: 100%; height: 100px;">
-                                                    @endif
-                                                </td>
-
-                                                <td class="text-wrap text-justify">
-                                                    @if($value->icon)
-                                                        <img src="{{ asset('/j4c_Group/our-mission/icon/' . $value->icon) }}" alt="Banner Image" style="width: 100%; height: 100px;">
+                                                        <img src="{{ asset('/j4c_Group/certification/image/' . $value->image) }}" alt="Banner Image" style="width: 100%; height: 100px;">
                                                     @endif
                                                 </td>
 
@@ -89,7 +82,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('our-mission.edit', $value->id) }}">
+                                                    <a href="{{ route('certification.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -99,7 +92,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('our-mission.destroy', $value->id) }}" method="post">
+                                                    <form action="{{ route('certification.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">
