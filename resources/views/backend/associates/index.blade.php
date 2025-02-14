@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Construction Solutions
+    J4C Group | Manaage Associates
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Construction Solutions</h4>
+                        <h4>Manaage Associates</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Construction Solutions</li>
+                            <li class="breadcrumb-item active">Manaage Associates</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Construction Solutions List</h4>
+                                <h4>All Associates List</h4>
                             </div>
-                            {{-- Add Construction Solutions Button --}}
-                            <a href="{{ route('construction-solutions.create') }}" class="btn btn-primary">
+                            {{-- Add Team Button --}}
+                            <a href="{{ route('associates.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Construction Solutions
+                                    Associates
                                 </b>
                             </a>
                         </div>
@@ -55,28 +55,27 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
-                                            <th>Image</th>
                                             <th>Title</th>
+                                            <th>Description</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($constructionSolutions as $key => $value)
+                                        @foreach ($associates as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
+
                                                 <td class="text-wrap text-justify">
-                                                    @if($value->image)
-                                                        <img src="{{ asset('/j4c_Group/construction-solutions/image/' . $value->image) }}" alt="Banner Image" style="width: 100%; height: 100px;">
-                                                    @endif
+                                                    {{ $value->title ?? '' }}
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {{ $value->title }}
+                                                    {!! $value->description !!}
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('construction-solutions.edit', $value->id) }}">
+                                                    <a href="{{ route('associates.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -86,7 +85,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('construction-solutions.destroy', $value->id) }}" method="post">
+                                                    <form action="{{ route('associates.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

@@ -23,15 +23,21 @@ class ConstructionSolutionsRequest extends FormRequest
     {
         if ($this->id){
             $rule = [
-                'title' => 'required|string|max:255',
-                'description' => 'required|string',
-                'image' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
+                'title' => ['required', 'string', 'max:255'],
+                'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'],
+                'solution_name' => ['required', 'array', 'min:1'],
+                'solution_name.*' => ['required', 'string', 'max:255'],
+                'solution_description' => ['required', 'array', 'min:1'],
+                'solution_description.*' => ['required', 'string', 'max:1000'],
             ];
         }else{
             $rule = [
-                'title' => 'required|string|max:255',
-                'description' => 'required|string',
-                'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
+                'title' => ['required', 'string', 'max:255'],
+                'image' => ['required', 'mimes:jpeg,png,jpg,gif,webp', 'max:2048'],
+                'solution_name' => ['required', 'array', 'min:1'],
+                'solution_name.*' => ['required', 'string', 'max:255'],
+                'solution_description' => ['required', 'array', 'min:1'],
+                'solution_description.*' => ['required', 'string', 'max:1000'],
             ];
         }
         return $rule;
@@ -44,12 +50,21 @@ class ConstructionSolutionsRequest extends FormRequest
             'title.string' => __('Title must be a string'),
             'title.max' => __('The size of title should not exceed 255.'),
 
-            'description.required' => __('Description is required'),
-            'description.string' => __('Description must be a string'),
-
             'image.required' => __('Image is required'),
-            'image.mimes' => __('Image must be a file of type: jpeg, png, jpg, gif.'),
+            'image.mimes' => __('Image must be a file of type: jpeg, png, jpg, gif, webp.'),
             'image.max' => __('The size of image should not exceed 2 MB.'),
+
+            'solution_name.*.required' => __('Solution name is required'),
+            'solution_name.*.array' => __('Solution name must be an array'),
+            'solution_name.*.min' => __('Solution name must have at least one value'),
+            'solution_name.*.string' => __('Solution name must be a string'),
+            'solution_name.*.max' => __('The size of solution name should not exceed 255.'),
+
+            'solution_description.*.required' => __('Solution description is required'),
+            'solution_description.*.array' => __('Solution description must be an array'),
+            'solution_description.*.min' => __('Solution description must have at least one value'),
+            'solution_description.*.string' => __('Solution description must be a string'),
+            'solution_description.*.max' => __('The size of solution description should not exceed 1000.'),
         ];
     }
 }

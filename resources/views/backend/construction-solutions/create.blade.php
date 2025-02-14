@@ -74,43 +74,67 @@ J4C Group | Add Construction Solutions
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <table class="table table-bordered p-3"  id="dynamicAmenitiesTable">
+                                <div class="form-group row mt-3 p-3">
+                                    <table class="table table-bordered p-3" id="dynamicAmenitiesTable">
                                         <thead>
                                             <tr>
-                                                <th>Solution Name : <span class="text-danger">*</span></th>
-                                                <th>Solution Description : <span class="text-danger">*</span></th>
-                                                <th>Action</th>
+                                                <th><b>Solution Name : <span class="text-danger">*</span></b></th>
+                                                <th><b>Solution Description : <span class="text-danger">*</span></b></th>
+                                                <th><b>Action</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>      
-                                                <td>
-                                                    <div class="col-sm-12 col-md-12">
-                                                        <input type="text" name="solution_name[]" id="solution_name_0" class="form-control @error('solution_name.*') is-invalid @enderror" placeholder="Enter Solution Name">
-                                                        @error('solution_name.*')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </td>
+                                            @if(old('solution_name'))
+                                                @foreach(old('solution_name') as $index => $value)
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="solution_name[]" value="{{ old("solution_name.$index") }}" class="form-control @error("solution_name.$index") is-invalid @enderror" placeholder="Enter Solution Name">
+                                                            @error("solution_name.$index")
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </td>
 
-                                                <td>
-                                                    <div class="col-sm-12 col-md-12">
-                                                        <input type="text" name="solution_description[]" id="solution_description_0" class="form-control @error('solution_description.*') is-invalid @enderror" placeholder="Enter Solution Name">
-                                                        @error('solution_description.*')
+                                                        <td>
+                                                            <textarea name="solution_description[]" class="form-control @error("solution_description.$index") is-invalid @enderror" placeholder="Enter Solution Description">{{ old("solution_description.$index") }}</textarea>
+                                                            @error("solution_description.$index")
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </td>
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger removeAmenitiesRow"><b>Remove</b></button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" name="solution_name[]" class="form-control @error('solution_name.0') is-invalid @enderror" placeholder="Enter Solution Name">
+                                                        @error('solution_name.0')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror
-                                                    </div>
-                                                </td>
-                
-                                                <td>
-                                                    <button type="button" class="btn btn-primary" id="addAmenitiesRow">Add More</button>
-                                                </td>
-                                            </tr>
+                                                    </td>
+
+                                                    <td>
+                                                        <textarea name="solution_description[]" class="form-control @error('solution_description.0') is-invalid @enderror" placeholder="Enter Solution Description"></textarea>
+                                                        @error('solution_description.0')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </td>
+
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary" id="addAmenitiesRow"><b>Add More</b></button>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -136,8 +160,10 @@ J4C Group | Add Construction Solutions
 @endsection
 
 @push('scripts')
+{{-- Jquery  --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
-<script>    
+<script>
     // Existing function for agent image/PDF preview (if needed)
     function agentPreviewFile() {
         const fileInput = document.getElementById('image');
@@ -177,7 +203,7 @@ J4C Group | Add Construction Solutions
 {{-- Add More Solution Details --}}
 <script>
     $(document).ready(function () {
-        let rowId = 0;
+        let rowId = {{ old('solution_name') ? count(old('solution_name')) : 0 }};
 
         // Add a new row
         $('#addAmenitiesRow').click(function () {
@@ -185,27 +211,16 @@ J4C Group | Add Construction Solutions
             const newRow = `
                 <tr>
                     <td>
-                        <div class="col-sm-12 col-md-12">
-                            <input type="text" name="solution_name[]" id="solution_name_${rowId}" class="form-control @error('solution_name.*') is-invalid @enderror" placeholder="Enter Solution Name">
-                            @error('solution_name.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                        <input type="text" name="solution_name[]" class="form-control" placeholder="Enter Solution Name">
                     </td>
 
                     <td>
-                        <div class="col-sm-12 col-md-12">
-                            <input type="text" name="solution_description[]" id="solution_description_${rowId}" class="form-control @error('solution_description.*') is-invalid @enderror" placeholder="Enter Solution Name">
-                            @error('solution_description.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                        <textarea name="solution_description[]" class="form-control" placeholder="Enter Solution Description"></textarea>
                     </td>
-                    <td><button type="button" class="btn btn-danger removeAmenitiesRow">Remove</button></td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger removeAmenitiesRow">Remove</button>
+                    </td>
                 </tr>`;
             $('#dynamicAmenitiesTable tbody').append(newRow);
         });
@@ -215,6 +230,5 @@ J4C Group | Add Construction Solutions
             $(this).closest('tr').remove();
         });
     });
-
 </script>
-@endpus
+@endpush

@@ -17,6 +17,10 @@ use App\Http\Controllers\backend\HomeController;
 use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\backend\StatisticsController;
 use App\Http\Controllers\backend\ConstructionSolutionsController;
+use App\Http\Controllers\backend\TeamsController;
+use App\Http\Controllers\backend\ClientController;
+use App\Http\Controllers\backend\AssociateController;
+
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -92,6 +96,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ===== Construction Solutions Management
     Route::resource('construction-solutions', ConstructionSolutionsController::class);
+
+    // ===== Teams Management
+    Route::resource('teams', TeamsController::class);
+
+    // ==== Clients Management
+    Route::resource('clients', ClientController::class);
+
+    // ==== Associates Management
+    Route::resource('associates', AssociateController::class);
 
 });
 

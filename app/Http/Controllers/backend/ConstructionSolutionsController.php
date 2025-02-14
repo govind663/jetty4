@@ -17,7 +17,7 @@ class ConstructionSolutionsController extends Controller
     public function index()
     {
         $constructionSolutions = ConstructionSolutions::orderBy("id","desc")->whereNull('deleted_at')->get();
-        
+
         return view('backend.construction-solutions.index', [
             'constructionSolutions' => $constructionSolutions
         ]);
@@ -53,7 +53,8 @@ class ConstructionSolutionsController extends Controller
             }
 
             $constructionSolutions->title = $request->title;
-            $constructionSolutions->description = $request->description;
+            $constructionSolutions->solution_name = json_encode($request->solution_name);
+            $constructionSolutions->solution_description = json_encode($request->solution_description);
             $constructionSolutions->inserted_at = Carbon::now();
             $constructionSolutions->inserted_by = Auth::user()->id;
             $constructionSolutions->save();
@@ -81,8 +82,14 @@ class ConstructionSolutionsController extends Controller
     {
         $constructionSolutions = ConstructionSolutions::findOrFail($id);
 
+        // Decode JSON fields
+        $solutions = json_decode($constructionSolutions->solution_name, true);
+        $descriptions = json_decode($constructionSolutions->solution_description, true);
+
         return view('backend.construction-solutions.edit', [
-            'constructionSolutions' => $constructionSolutions
+            'constructionSolutions' => $constructionSolutions,
+            'solutions' => $solutions,
+            'descriptions' => $descriptions,
         ]);
     }
 
@@ -116,18 +123,20 @@ class ConstructionSolutionsController extends Controller
                 // Update the banner object with the new image path
                 $constructionSolutions->image = $new_name;
             }
-            
+
             $constructionSolutions->title = $request->title;
-            $constructionSolutions->description = $request->description;
+            $constructionSolutions->solution_name = json_encode($request->solution_name);
+            $constructionSolutions->solution_description = json_encode($request->solution_description);
             $constructionSolutions->modified_at = Carbon::now();
             $constructionSolutions->modified_by = Auth::user()->id;
             $constructionSolutions->save();
 
+            return redirect()->route('construction-solutions.index')->with('success', 'Construction Solutions updated successfully.');
+
         } catch (\Exception $e) {
+
             return redirect()->back()->with('error', $e->getMessage());
         }
-
-        return redirect()->route('construction-solutions.index')->with('success', 'Construction Solutions updated successfully.');
     }
 
     /**
@@ -149,4 +158,4 @@ class ConstructionSolutionsController extends Controller
             return redirect()->back()->with('error','Something Went Wrong - '.$ex->getMessage());
         }
     }
-}   
+}

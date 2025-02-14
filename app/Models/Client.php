@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ConstructionSolutions extends Model
+class Client extends Model
 {
     use HasFactory, SoftDeletes;
     public $timestamps = false;
     protected $fillable = [
         'id',
-        'title',        
+        'title',
+        'description',
         'image',
-        'solution_name',
-        'solution_description',
         'inserted_by',
         'inserted_at',
         'modified_by',
