@@ -20,6 +20,10 @@ use App\Http\Controllers\backend\ConstructionSolutionsController;
 use App\Http\Controllers\backend\TeamsController;
 use App\Http\Controllers\backend\ClientController;
 use App\Http\Controllers\backend\AssociateController;
+use App\Http\Controllers\backend\AboutJ4cController;
+use App\Http\Controllers\backend\WhoWeAreController;
+use App\Http\Controllers\backend\OurMissionController;
+use App\Http\Controllers\backend\OurVisionController;
 
 
 Route::get('/login', function () {
@@ -105,6 +109,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Associates Management
     Route::resource('associates', AssociateController::class);
+
+    // ==== About J4C Management
+    Route::resource('about-j4c', AboutJ4cController::class);
+
+    // ==== Who We Are Management
+    Route::resource('who-we-are', WhoWeAreController::class);
+    
+    // ==== Our Mission Management
+    Route::resource('our-mission', OurMissionController::class);
+
+    // ==== Our Vision Management
+    Route::resource('our-vision', OurVisionController::class);
 
 });
 

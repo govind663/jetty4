@@ -74,7 +74,10 @@
 
                 {{-- About J4C --}}
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                    <a class="sidebar-link sidebar-title
+                    {{ (Route::currentRouteName() === 'about-j4c.index') || (Route::currentRouteName() === 'about-j4c.create') || (Route::currentRouteName() === 'about-j4c.edit')
+                        ? 'active' : '' }}"
+                        href="javascript:void(0)">
                         <b>
                             <span>
                                 <i class="icon-info"></i>
@@ -84,13 +87,16 @@
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="#" class="">About J4C</a>
+                            <a href="{{ route('about-j4c.index') }}" class="{{ (Route::currentRouteName() === 'about-j4c.index') || (Route::currentRouteName() === 'about-j4c.create') || (Route::currentRouteName() === 'about-j4c.edit') ? 'active' : '' }}">About J4C</a>
                         </li>
                         <li>
-                            <a href="#" class="">Our Mission</a>
+                            <a href="{{ route('who-we-are.index') }}" class="{{ (Route::currentRouteName() === 'who-we-are.index') || (Route::currentRouteName() === 'who-we-are.create') || (Route::currentRouteName() === 'who-we-are.edit') ? 'active' : '' }}">Who We Are</a>
                         </li>
                         <li>
-                            <a href="#" class="">Our Vision</a>
+                            <a href="{{ route('our-mission.index') }}" class="{{ (Route::currentRouteName() === 'our-mission.index') || (Route::currentRouteName() === 'our-mission.create') || (Route::currentRouteName() === 'our-mission.edit') ? 'active' : '' }}">Our Mission</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('our-vision.index') }}" class="{{ (Route::currentRouteName() === 'our-vision.index') || (Route::currentRouteName() === 'our-vision.create') || (Route::currentRouteName() === 'our-vision.edit') ? 'active' : '' }}">Our Vision</a>
                         </li>
                         <li>
                             <a href="#" class="">Certifications</a>
