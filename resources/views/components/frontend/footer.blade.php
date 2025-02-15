@@ -110,3 +110,54 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Popup -->
+<div class="modal fade enquiry-now-modal-sec" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header enquiry-now-modal-header-sec">
+                <h5 class="modal-title enquiry-now-modal-title-sec" id="enquiryModalLabel">Enquiry Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="enquiryForm">
+                    <div class="row">
+                    <div class="col-lg-6">
+                <div class="single-input-box crs-input-box-sec">
+                <input type="text" name="name" placeholder="Your Name*" pattern="[A-Za-z\s]+" title="Please enter alphabetic characters only." required="">
+                </div>
+            </div>
+                    <div class="col-lg-6">
+                <div class="single-input-box crs-input-box-sec">
+                <input type="text" name="Email" placeholder="Your Email*" required="">
+                </div>
+            </div>
+                    <div class="col-lg-6">
+                <div class="single-input-box crs-input-box-sec">
+                <input type="text" name="Phone" placeholder="Phone Number*" required="">
+                </div>
+            </div>
+                    <div class="col-lg-6">
+                <div class="single-input-box crs-input-box-sec">
+                <input type="text" name="Subject" placeholder="Subject*" required="">
+                </div>
+            </div>
+                    <div class="col-lg-12">
+                <div class="single-input-box crs-input-box-sec">
+                <textarea name="Massage" placeholder="Write Message"></textarea>
+                </div>
+            </div>
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <div class="button" id="button-2">
+                                <div id="slide"></div>
+                                <a href="#">Submit</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

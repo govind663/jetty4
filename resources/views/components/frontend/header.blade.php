@@ -12,11 +12,11 @@
                 <div class="header-menu">
                     <ul>
                         <li class="menu-item-has-children">
-                            <a href="{{ route('frontend.about-us') }}">About J4C<i class="fa fa-chevron-down"></i></a>
-                            <ul class="sub-menu">                                
-                                <li><a href="about-us.html">About J4C</a></li>
-                                <li><a href="mission-vision.html">Mission & Vision</a></li>
-                                <li><a href="awards-certifications.html">Awards & Certifications</a></li>
+                            <a href="Javascript:void(0)">About J4C<i class="fa fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="{{ route('frontend.about-us') }}">About J4C</a></li>
+                                <li><a href="{{ route('frontend.mission-vision') }}">Mission & Vision</a></li>
+                                <li><a href="{{ route('frontend.awards-certifications') }}">Awards & Certifications</a></li>
                                 <li><a href="{{ route('frontend.our-usp') }}">Our USP</a></li>
                             </ul>
                         </li>

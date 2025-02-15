@@ -46,6 +46,12 @@ Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddlewar
     // ==== About Us
     Route::get('about-us', [FrontendHomeController::class, 'aboutUs'])->name('frontend.about-us');
 
+    // === Mission & Vision
+    Route::get('mission-vision', [FrontendHomeController::class, 'missionVision'])->name('frontend.mission-vision');
+
+    // === Awards & Certifications
+    Route::get('awards-certifications', [FrontendHomeController::class, 'awardsCertifications'])->name('frontend.awards-certifications');
+
     // ==== Our USP
     Route::get('our-usp', [FrontendHomeController::class, 'ourUsp'])->name('frontend.our-usp');
 

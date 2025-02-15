@@ -41,102 +41,93 @@
         </div>
     </div>
     <!--breadcrumb section end-->
-    <section class="bg-grey-sec"></section>
-
-    <div class="container">
-        <div class="row align-items-center">
+    <section class="j4c_usp_sec home-three">
+        <div class="container">
+          <div class="row align-items-center">
             <div class="col-md-5">
-                <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
-                    <h1>The J4C Group USP</h1>
-                    <p>Jett 4 Construction specializes in the full spectrum of construction services, offering end-to-end
-                        solutions under one roof. We handle every stage of the construction process, from conceptualization
-                        and
-                        design to delivery of completed premises. Here are some key areas where our expertise shines: </p>
-                </div>
+              <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
+                <h1>The J4C USP</h1>
+                <p>J4C specializes in the full spectrum of construction services, offering end-to-end
+                  solutions under one roof. We handle every stage of the construction process, from conceptualization and
+                  design to delivery of completed premises. Here are some key areas where our expertise shines: </p>
+              </div>
             </div>
             <div class="col-md-7">
-                <div class="j4c_usp_slider owl-carousel">
-                    <div class="item">
-                        <div class="single-service-box our-usp-ser-box our-usp-sub-sec-1">
-                            <div class="services-icon-thumb">
-                                <img src="frontend/assets/images/icons/building-types.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h4>Building Types</h4>
-                                <p>We design, construct, and deliver various structures, including residential buildings,
-                                    commercial
-                                    complexes, IT parks, and data centers.</p>
-                            </div>
-                        </div>
+              <div class="j4c_usp_slider owl-carousel">
+                <div class="item">
+                  <div class="single-service-box our-usp-ser-box our-usp-sub-sec-1">
+                    <div class="services-icon-thumb">
+                      <img src="{{ asset('frontend/assets/images/icons/building-types.png') }}" alt="">
                     </div>
-                    <!-- === -->
-                    <div class="item">
-                        <div class="single-service-box our-usp-ser-box our-usp-sub-sec-2">
-                            <div class="services-icon-thumb">
-                                <img src="frontend/assets/images/icons/government-approval.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h4>Government Approvals</h4>
-                                <p>Our team has an in-depth understanding of approval processes, helping us navigate
-                                    regulatory
-                                    requirements quickly and effectively.</p>
-                            </div>
-                        </div>
+                    <div class="services-content">
+                      <h4>Building Types</h4>
+                      <p>We design, construct, and deliver various structures, including residential buildings, commercial
+                        complexes, IT parks, and data centers.</p>
                     </div>
-                    <!-- === -->
-                    <div class="item">
-                        <div class="single-service-box our-usp-ser-box our-usp-sub-sec-3">
-                            <div class="services-icon-thumb">
-                                <img src="frontend/assets/images/icons/diverse-workforce.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h4>Diverse Workforce</h4>
-                                <p>We draw from a broad labor pool with offices across West Bengal, Orissa, Bihar, and Uttar
-                                    Pradesh,
-                                    ensuring that we have the right skills for every project. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- === -->
-                    <div class="item">
-                        <div class="single-service-box our-usp-ser-box our-usp-sub-sec-4">
-                            <div class="services-icon-thumb">
-                                <img src="frontend/assets/images/icons/safety-standard.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h4>Safety Standards</h4>
-                                <p>Our robust safety protocols and efficient management practices are the foundation of our
-                                    success.
-                                    We provide a conducive work environment that prioritizes the safety and well-being of
-                                    our workforce,
-                                    fostering productivity and encouraging excellence. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- === -->
-                    <div class="item">
-                        <div class="single-service-box our-usp-ser-box our-usp-sub-sec-5">
-                            <div class="services-icon-thumb">
-                                <img src="frontend/assets/images/icons/commitment.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h4>Our Commitment</h4>
-                                <p>Jett 4 Construction’s comprehensive approach to safety and quality reflects our
-                                    commitment to the
-                                    health, safety, and satisfaction of our workforce and clients. By upholding rigorous
-                                    safety
-                                    standards, continuously improving our quality management systems, and fostering a
-                                    proactive culture,
-                                    we strive to set the standard for excellence in the construction industry. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- === -->
+                  </div>
                 </div>
+                <!-- === -->
+                <div class="item">
+                  <div class="single-service-box our-usp-ser-box our-usp-sub-sec-2">
+                    <div class="services-icon-thumb">
+                      <img src="{{ asset('frontend/assets/images/icons/government-approval.png') }}" alt="">
+                    </div>
+                    <div class="services-content">
+                      <h4>Government Approvals</h4>
+                      <p>Our team has an in-depth understanding of approval processes, helping us navigate regulatory
+                        requirements quickly and effectively.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- === -->
+                <div class="item">
+                  <div class="single-service-box our-usp-ser-box our-usp-sub-sec-3">
+                    <div class="services-icon-thumb">
+                      <img src="{{ asset('frontend/assets/images/icons/diverse-workforce.png') }}" alt="">
+                    </div>
+                    <div class="services-content">
+                      <h4>Diverse Workforce</h4>
+                      <p>We draw from a broad labor pool with offices across West Bengal, Orissa, Bihar, and Uttar Pradesh,
+                        ensuring that we have the right skills for every project. </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- === -->
+                <div class="item">
+                  <div class="single-service-box our-usp-ser-box our-usp-sub-sec-4">
+                    <div class="services-icon-thumb">
+                      <img src="{{ asset('frontend/assets/images/icons/safety-standard.png') }}" alt="">
+                    </div>
+                    <div class="services-content">
+                      <h4>Safety Standards</h4>
+                      <p>Our robust safety protocols and efficient management practices are the foundation of our success.
+                        We provide a conducive work environment that prioritizes the safety and well-being of our workforce,
+                        fostering productivity and encouraging excellence. </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- === -->
+                <div class="item">
+                  <div class="single-service-box our-usp-ser-box our-usp-sub-sec-5">
+                    <div class="services-icon-thumb">
+                      <img src="{{ asset('frontend/assets/images/icons/commitment.png') }}" alt="">
+                    </div>
+                    <div class="services-content">
+                      <h4>Our Commitment</h4>
+                      <p>J4C’s comprehensive approach to safety and quality reflects our commitment to the
+                        health, safety, and satisfaction of our workforce and clients. By upholding rigorous safety
+                        standards, continuously improving our quality management systems, and fostering a proactive culture,
+                        we strive to set the standard for excellence in the construction industry. </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- === -->
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    </section>
+      </section>
+
     <div class="unique_approach_sec">
         <div class="container">
             <div class="row align-items-center">

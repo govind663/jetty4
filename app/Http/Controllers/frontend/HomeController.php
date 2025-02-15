@@ -19,6 +19,18 @@ class HomeController extends Controller
         return view('frontend.about-us');
     }
 
+    // === Mission & Vision
+    public function missionVision(Request $request)
+    {
+        return view('frontend.mission-vision');
+    }
+
+    // === Awards & Certifications
+    public function awardsCertifications(Request $request)
+    {
+        return view('frontend.awards-certifications');
+    }
+
     // ==== Our USP
     public function ourUsp(Request $request)
     {
