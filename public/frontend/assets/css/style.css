@@ -8251,7 +8251,7 @@ p.blog-list-desc {
 ======================================================---*/
 
 .home-six.why-choose-area {
-    background: url(../images/home6/why-choose-us-bg.jpg);
+    /* background: url(../images/home6/why-choose-us-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

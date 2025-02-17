@@ -41,8 +41,27 @@
         </div>
     </div>
     <!--breadcrumb section end-->
-    <section class="bg-grey-sec"></section>
 
+    <section class="careers_sec">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="careers_img" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
+                        <img src="{{ asset('frontend/assets/images/careers/career-img.jpg') }}" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="careers_text" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
+                        <div class="section-title">
+                            <h1>Join a Legacy of Innovation and Excellence</h1>
+                        </div>
+                        <p>At J4C, we are more than builders. We are innovators, leaders, and collaborators, driving excellence in constructing commercial and residential spaces & data centers. With an unwavering commitment to quality and sustainability, our projects redefine industry standards and set new benchmarks globally.</p>
+                        <p>As a member of the Jett 4 team, you’ll work alongside a diverse, skilled workforce on some of the most impactful projects in the field, where every role plays a part in creating meaningful spaces and solutions for communities around the world. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="openings_sec">
         <div class="container">

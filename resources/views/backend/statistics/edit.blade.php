@@ -78,7 +78,7 @@
 
                                     <div class="form-group row mt-3">
                                         <label class="col-sm-2"><b>Description : <span class="text-danger">*</span></b></label>
-                                        <div class="col-sm-10 col-md-10">
+                                        <div class="col-sm-4 col-md-4">
                                             <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" placeholder="Enter Description" value="{{ $statistics->description }}">{{ $statistics->description }}</textarea>
                                             @error('description')
                                             <span class="invalid-feedback" role="alert">
@@ -115,7 +115,7 @@
 
 </script>
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#description').summernote({
             placeholder: 'Enter your description here...',
@@ -123,5 +123,5 @@
             height: 100,
         });
     });
-</script>
+</script> --}}
 @endpush
