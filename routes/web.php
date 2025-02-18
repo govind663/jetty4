@@ -26,6 +26,7 @@ use App\Http\Controllers\backend\OurMissionController;
 use App\Http\Controllers\backend\OurVisionController;
 use App\Http\Controllers\backend\CertificationController;
 use App\Http\Controllers\backend\AwardController;
+use App\Http\Controllers\backend\OurUspController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -135,27 +136,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
     // ==== Our Award Management
     Route::resource('award', AwardController::class);
 
+    // ==== Our USP Management
+    Route::resource('our-usp', OurUspController::class);
+
 });
 
 // ==== Robots
 Route::get('/robots.txt', function () {
     return response("User-agent: *\nDisallow:", 200)
-        ->header('Content-Type', 'text/plain')
-        ->header('X-Robots-Tag', 'noindex')
-        ->header('X-Content-Type-Options', 'nosniff')
-        ->header('X-XSS-Protection', '1; mode=block')
-        ->header('X-Frame-Options', 'SAMEORIGIN');
+    ->header('Content-Type', 'text/plain')
+    ->header('X-Robots-Tag', 'noindex')
+    ->header('X-Content-Type-Options', 'nosniff')
+    ->header('X-XSS-Protection', '1; mode=block')
+    ->header('X-Frame-Options', 'SAMEORIGIN');
 });
 
 // ==== Sitemap
 Route::get('/sitemap.xml', function () {
     return response()->view('sitemap')
-        ->header('Content-Type', 'text/xml')
-        ->header('X-Robots-Tag', 'noindex')
-        ->header('X-Content-Type-Options', 'nosniff')
-        ->header('X-XSS-Protection', '1; mode=block')
-        ->header('X-Frame-Options', 'SAMEORIGIN')
-        ->header('Content-Type', 'application/xml')
-        ->header('Content-Disposition', 'attachment; filename="sitemap.xml"')
-        ->header('Content-Transfer-Encoding', 'binary');
+    ->header('Content-Type', 'text/xml')
+    ->header('X-Robots-Tag', 'noindex')
+    ->header('X-Content-Type-Options', 'nosniff')
+    ->header('X-XSS-Protection', '1; mode=block')
+    ->header('X-Frame-Options', 'SAMEORIGIN')
+    ->header('Content-Type', 'application/xml')
+    ->header('Content-Disposition', 'attachment; filename="sitemap.xml"')
+    ->header('Content-Transfer-Encoding', 'binary');
 });

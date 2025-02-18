@@ -43,12 +43,10 @@
                         || (Route::currentRouteName() === 'associates.index') || (Route::currentRouteName() === 'associates.create') || (Route::currentRouteName() === 'associates.edit')
                         ? 'active' : '' }} sidebar-title" href="javascript:void(0)">
 
-                        <b>
-                            <span>
-                                <i class="icon-home"></i>
-                                Home
-                            </span>
-                        </b>
+                        <span>
+                            <i class="icon-home"></i>
+                            Home
+                        </span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
@@ -83,12 +81,10 @@
                        || (Route::currentRouteName() === 'award.index') || (Route::currentRouteName() === 'award.create') || (Route::currentRouteName() === 'award.edit')
                         ? 'active' : '' }}"
                         href="javascript:void(0)">
-                        <b>
-                            <span>
-                                <i class="icon-info"></i>
-                                About Us
-                            </span>
-                        </b>
+                        <span>
+                            <i class="icon-info"></i>
+                            About Us
+                        </span>
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
@@ -112,6 +108,28 @@
                         {{-- <li>
                             <a href="{{ route('our-usp.index') }}" class="{{ (Route::currentRouteName() === 'our-our-usp.index') || (Route::currentRouteName() === 'our-our-usp.create') || (Route::currentRouteName() === 'our-our-usp.edit') ? 'active' : '' }}">Our USP</a>
                         </li> --}}
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title
+                    {{ (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit')
+                        ? 'active' : '' }}" href="javascript:void(0)">
+                        <span>
+                            <i class="icon-layout"></i>
+                            Our USP
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('our-usp.index') }}" class="{{ (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit') ? 'active' : ''  }}">About J4C USP</a>
+                        </li>
+                        <li>
+                            <a href="#" >Unique Approach</a>
+                        </li>
+                        <li>
+                            <a href="#" >Our Management</a>
+                        </li>
                     </ul>
                 </li>
 
