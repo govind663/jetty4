@@ -25,11 +25,13 @@ class AboutJ4cRequest extends FormRequest
             $rule = [
                 'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string', 'min:1'],
+                'image' => ['nullable', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
             ];
         }else{
             $rule = [
                 'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string', 'min:1'],
+                'image' => ['required', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
             ];
         }
         return $rule;
@@ -45,6 +47,10 @@ class AboutJ4cRequest extends FormRequest
             'description.required' => 'Description is required',
             'description.string' => 'Description must be a string',
             'description.min' => 'Description must have at least one character',
+            
+            'image.required' => __('Image is required'),
+            'image.mimes' => __('Image must be a file of type: jpeg, png, jpg, webp.'),
+            'image.max' => __('The size of image should not exceed 2 MB.'),
         ];
     }
 }

@@ -13,6 +13,7 @@ class AboutJ4C extends Model
     protected $fillable = [
         'id',
         'title',
+        'image',
         'description',
         'inserted_by',
         'inserted_at',

@@ -42,6 +42,19 @@ class AboutJ4cController extends Controller
 
             $aboutj4c = new AboutJ4C();
 
+            // ==== Upload (image)
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/about-us/image'), $new_name);
+
+                $image_path = "/j4c_Group/about-us/image/" . $new_name;
+                $aboutj4c->image = $new_name;
+            } else {
+                $aboutj4c->image = '';
+            }
+
             $aboutj4c->title = $request->title;
             $aboutj4c->description = $request->description;
             $aboutj4c->inserted_at = Carbon::now();
@@ -85,6 +98,26 @@ class AboutJ4cController extends Controller
         try {
 
             $aboutj4c = AboutJ4C::findOrFail($id);
+
+            // Check and upload the image
+            if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($aboutj4c->image) {
+                    $oldImagePath = public_path('/j4c_Group/about-us/image/' . $aboutj4c->image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath); // Delete the old image file
+                    }
+                }
+
+                // Process the new image
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/about-us/image'), $new_name);
+
+                // Update the banner object with the new image path
+                $aboutj4c->image = $new_name;
+            }
 
             $aboutj4c->title = $request->title;
             $aboutj4c->description = $request->description;
