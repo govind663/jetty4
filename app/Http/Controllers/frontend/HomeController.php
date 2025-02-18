@@ -10,6 +10,11 @@ use App\Models\Teams;
 use App\Models\Client;
 use App\Models\Associate;
 use App\Models\ConstructionSolutions;
+use App\Models\WhoWeAre;
+use App\Models\OurMission;
+use App\Models\OurVission;
+use App\Models\Award;
+use App\Models\Certification;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -62,19 +67,46 @@ class HomeController extends Controller
     // ==== About Us
     public function aboutUs(Request $request)
     {
-        return view('frontend.about-us');
+        // ===== About J4C
+        $aboutj4c = AboutJ4C::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        // ===== Who We Are
+        $whoweare = WhoWeAre::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        return view('frontend.about-us',[
+            'aboutj4c'=> $aboutj4c,
+            'whoweare' => $whoweare,
+        ]);
     }
 
     // === Mission & Vision
     public function missionVision(Request $request)
     {
-        return view('frontend.mission-vision');
+        // ==== Our Mission
+        $ourmission = OurMission::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        // ==== Our Vision
+        $ourvision = OurVission::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        return view('frontend.mission-vision',[
+            'ourmission' => $ourmission,
+            'ourvision' => $ourvision
+        ]);
     }
 
     // === Awards & Certifications
     public function awardsCertifications(Request $request)
     {
-        return view('frontend.awards-certifications');
+        // ==== Awards
+        $awards = Award::orderBy("id","asc")->whereNull('deleted_at')->get();
+
+        // ==== Certifications
+        $certifications = Certification::orderBy("id","asc")->whereNull('deleted_at')->get();
+
+        return view('frontend.awards-certifications',[
+            'awards' => $awards,
+            'certifications' => $certifications
+        ]);
     }
 
     // ==== Our USP

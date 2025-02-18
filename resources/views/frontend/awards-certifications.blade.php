@@ -46,41 +46,19 @@
                         <h1>Certifications</h1>
                     </div>
                 </div>
+                @foreach($certifications as $key => $value)
                 <div class="col-md-3 col-sm-6">
                     <div class="certificate-box-sec">
-                        <a href="{{ asset('frontend/assets/images/certificate/certificate-1.png') }}" data-fancybox="gallery" data-caption="Certificate 1">
-                            <img src="{{ asset('frontend/assets/images/certificate/certificate-1.png') }}" alt="Certificate 1">
+                        <a href="{{ asset('/j4c_Group/certification/image/' . $value->image) }}" data-fancybox="gallery" data-caption="{{ $value->title }}">
+                            <img src="{{ asset('/j4c_Group/certification/image/' . $value->image) }}" alt="{{ $value->title }}">
                         </a>
                         <div class="awards-certifi-content-sec">
-                            <h3>ISO 9001 : 2015</h3>
-                            <p>Quality Management System</p>
+                            <h3>{{ $value->title }}</h3>
+                            <p>{!! $value->description !!}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="certificate-box-sec">
-                        <a href="{{ asset('frontend/assets/images/certificate/certificate-2.png') }}" data-fancybox="gallery" data-caption="Certificate 1">
-                            <img src="{{ asset('frontend/assets/images/certificate/certificate-2.png') }}" alt="Certificate 2">
-                        </a>
-                        <div class="awards-certifi-content-sec">
-                            <h3>ISO 14001 : 2015</h3>
-                            <p>Environmental Management System</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="certificate-box-sec">
-                        <a href="{{ asset('frontend/assets/images/certificate/certificate-3.png') }}" data-fancybox="gallery" data-caption="Certificate 1">
-                            <img src="{{ asset('frontend/assets/images/certificate/certificate-3.png') }}" alt="Certificate 3">
-                        </a>
-                        <div class="awards-certifi-content-sec">
-                            <h3>ISO 45001 : 2018</h3>
-                            <p>Occupational Health and Safety Management System</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -93,17 +71,19 @@
                         <h1>Awards</h1>
                     </div>
                 </div>
+                @foreach($awards as $key => $value)
                 <div class="col-md-3 col-sm-6">
                     <div class="awards-box-sec">
-                        <a href="{{ asset('frontend/assets/images/certificate/apex-certi-img.jpg') }}" data-fancybox="gallery" data-caption="Certificate 1">
-                            <img src="{{ asset('frontend/assets/images/certificate/apex-certi-img.jpg') }}" alt="Certificate 1">
+                        <a href="{{ asset('/j4c_Group/award/image/' . $value->image) }}" data-fancybox="gallery" data-caption="{{ $value->title }}">
+                            <img src="{{ asset('/j4c_Group/award/image/' . $value->image) }}" alt="{{ $value->title }}">
                         </a>
                         <div class="awards-content-sec">
-                            <h3>Gold Awards</h3>
-                            <p>9th Apex India Occupational Health & Safety Award 2024</p>
+                            <h3>{{ $value->title }}</h3>
+                            <p>{!! $value->description !!}</p>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>

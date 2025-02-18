@@ -81,7 +81,8 @@ J4C Group | Home
                             <!--  <h4>About J4C</h4> -->
                             <h1>{{ $aboutj4c->title }}</h1>
                         </div>
-                        {!! $aboutj4c->description !!}
+                        {!! Str::limit($aboutj4c->description, 620) !!}
+
                         <div class="button" id="button-2">
                             <div id="slide"></div>
                             <a href="{{ route('frontend.about-us') }}">Read More</a>
@@ -342,7 +343,7 @@ J4C Group | Home
             </div>
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade associ-modal-sec" id="associateModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -398,43 +399,4 @@ J4C Group | Home
 @endsection
 
 @push('scripts')
-    <script>
-        var swiper = new Swiper(".brand-slider", {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            breakpoints: {
-                768: { slidesPerView: 4 },
-                1024: { slidesPerView: 5 }
-            }
-        });
-    </script>3
-
-    <script>
-        var swiper = new Swiper(".associate-slider", {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            breakpoints: {
-                768: { slidesPerView: 4 },
-                1024: { slidesPerView: 5 }
-            }
-        });
-    </script>
 @endpush
