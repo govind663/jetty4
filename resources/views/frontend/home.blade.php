@@ -71,7 +71,7 @@ J4C Group | Home
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-thumb" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
-                        <img src="frontend/assets/images/about-img.webp" width="546" height="478" alt="About us image">
+                        <img src="{{ asset('/j4c_Group/about-us/image/' . $aboutj4c->image) }}" width="546" height="478" alt="About us image">
                         <img class="about-thumb-shape" src="frontend/assets/images/shape/about-sahpe.png" alt="">
                     </div>
                 </div>
@@ -82,7 +82,6 @@ J4C Group | Home
                             <h1>{{ $aboutj4c->title }}</h1>
                         </div>
                         {!! Str::limit($aboutj4c->description, 620) !!}
-
                         <div class="button" id="button-2">
                             <div id="slide"></div>
                             <a href="{{ route('frontend.about-us') }}">Read More</a>
