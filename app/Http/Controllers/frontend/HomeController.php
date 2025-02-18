@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // ===== Banner
-        $banners = Banner::orderBy("id","desc")->whereNull('deleted_at')->get();
+        $banners = Banner::orderBy("id","asc")->whereNull('deleted_at')->get();
 
         // ===== Statistics
         $statistics = Statistics::orderBy("id","desc")->whereNull('deleted_at')->get();
