@@ -41,20 +41,6 @@ class OurUspController extends Controller
 
             $ourUsp = new OurUsp();
 
-            // Check if new banner_icon are uploaded
-            if ($request->hasFile('banner_icon')) {
-                // Add new banner_icon to the paths array
-                foreach ($request->file('banner_icon') as $image) {
-                    // Generate a unique filename using time() and rand()
-                    $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
-                    $image->move(public_path('/j4c_Group/our_usp/banner_icon'), $new_name);
-                    $imagePaths[] = $new_name; // Add the new banner_icon to the array
-                }
-            }
-
-            // Update the banner_icon with the new image paths
-            $ourUsp->banner_icon = json_encode($imagePaths);
-
             // Check if new banner_image are uploaded
             if ($request->hasFile('banner_image')) {
                 // Add new banner_image to the paths array
@@ -62,13 +48,27 @@ class OurUspController extends Controller
                     // Generate a unique filename using time() and rand()
                     $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
                     $image->move(public_path('/j4c_Group/our_usp/banner_image'), $new_name);
-                    $imagePaths[] = $new_name; // Add the new banner_image to the array
+                    $bannerImagePaths[] = $new_name; // Add the new banner_image to the array
                 }
             }
 
             // Update the banner_image with the new image paths
-            $ourUsp->baner_image = json_encode($imagePaths);
+            $ourUsp->baner_image = json_encode($bannerImagePaths);
 
+
+            // Check if new banner_icon are uploaded
+            if ($request->hasFile('banner_icon')) {
+                // Add new banner_icon to the paths array
+                foreach ($request->file('banner_icon') as $image) {
+                    // Generate a unique filename using time() and rand()
+                    $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('/j4c_Group/our_usp/banner_icon'), $new_name);
+                    $bannerIconPaths[] = $new_name; // Add the new banner_icon to the array
+                }
+            }
+
+            // Update the banner_icon with the new image paths
+            $ourUsp->banner_icon = json_encode($bannerIconPaths);
 
             $ourUsp->title = $request->title;
             $ourUsp->description = $request->description;
@@ -113,15 +113,35 @@ class OurUspController extends Controller
     {
         $request->validated();
         try {
-            $ourUsp = OurUsp::findOrFail($id);
 
-            // Update text fields
-            $ourUsp->title = $request->title;
-            $ourUsp->description = $request->description;
-            $ourUsp->banner_title = json_encode($request->banner_title);
-            $ourUsp->banner_description = json_encode($request->banner_description);
-            $ourUsp->modified_at = Carbon::now();
-            $ourUsp->modified_by = Auth::user()->id;
+            $ourUsp = OurUsp::findOrFail($id);
+            
+            // Handle existing banner images
+            $existingBannerImages = $request->input('existing_banner_image', []);
+            $storedBannerImages = json_decode($ourUsp->banner_image, true) ?? [];
+            $uploadedBannerImages = [];
+
+            if ($request->hasFile('banner_image')) {
+                foreach ($request->file('banner_image') as $image) {
+                    $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('/j4c_Group/our_usp/banner_image'), $new_name);
+                    $uploadedBannerImages[] = $new_name;
+                }
+            }
+
+            // Merge existing and new images
+            $allBannerImages = array_merge($existingBannerImages, $uploadedBannerImages);
+            $imagesToDelete = array_diff($storedBannerImages, $existingBannerImages);
+
+            // Delete removed banner images
+            foreach ($imagesToDelete as $oldImage) {
+                $imagePath = public_path("/j4c_Group/our_usp/banner_image/{$oldImage}");
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+
+            $ourUsp->baner_image = json_encode(array_unique($allBannerImages));
 
             // Handle existing banner icons
             $existingBannerIcons = $request->input('existing_banner_icon', []);
@@ -150,34 +170,13 @@ class OurUspController extends Controller
 
             $ourUsp->banner_icon = json_encode(array_unique($allBannerIcons));
 
-            // Handle existing banner images
-            $existingBannerImages = $request->input('existing_banner_image', []);
-            $storedBannerImages = json_decode($ourUsp->banner_image, true) ?? [];
-            $uploadedBannerImages = [];
-
-            if ($request->hasFile('banner_image')) {
-                foreach ($request->file('banner_image') as $image) {
-                    $new_name = time() . rand(10, 999) . '.' . $image->getClientOriginalExtension();
-                    $image->move(public_path('/j4c_Group/our_usp/banner_image'), $new_name);
-                    $uploadedBannerImages[] = $new_name;
-                }
-            }
-
-            // Merge existing and new images
-            $allBannerImages = array_merge($existingBannerImages, $uploadedBannerImages);
-            $imagesToDelete = array_diff($storedBannerImages, $existingBannerImages);
-
-            // Delete removed banner images
-            foreach ($imagesToDelete as $oldImage) {
-                $imagePath = public_path("/j4c_Group/our_usp/banner_image/{$oldImage}");
-                if (file_exists($imagePath)) {
-                    unlink($imagePath);
-                }
-            }
-
-            $ourUsp->baner_image = json_encode(array_unique($allBannerImages));
-
-            // Save updated record
+            // Update text fields
+            $ourUsp->title = $request->title;
+            $ourUsp->description = $request->description;
+            $ourUsp->banner_title = json_encode($request->banner_title);
+            $ourUsp->banner_description = json_encode($request->banner_description);
+            $ourUsp->modified_at = Carbon::now();
+            $ourUsp->modified_by = Auth::user()->id;
             $ourUsp->save();
 
             return redirect()->route('our-usp.index')->with('success', 'Our Usp updated successfully.');

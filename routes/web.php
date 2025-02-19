@@ -27,6 +27,8 @@ use App\Http\Controllers\backend\OurVisionController;
 use App\Http\Controllers\backend\CertificationController;
 use App\Http\Controllers\backend\AwardController;
 use App\Http\Controllers\backend\OurUspController;
+use App\Http\Controllers\backend\UniqueApproachController;
+use App\Http\Controllers\backend\OurManagementController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -138,6 +140,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Our USP Management
     Route::resource('our-usp', OurUspController::class);
+
+    // ==== Unique Approach Management
+    Route::resource('unique-approach', UniqueApproachController::class);
+
+    // ==== Our Management
+    Route::resource('our-management', OurManagementController::class);
 
 });
 

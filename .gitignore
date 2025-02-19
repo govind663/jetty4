@@ -1,6 +1,7 @@
 /.phpunit.cache
 /node_modules
 /public/build
+/public/j4c_Group
 /public/damian_corporate
 /public/frontend/assets/video
 /public/hot

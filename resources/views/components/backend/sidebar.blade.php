@@ -114,6 +114,9 @@
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title
                     {{ (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit')
+                        || (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit')
+                        || (Route::currentRouteName() === 'unique-approach.index') || (Route::currentRouteName() === 'unique-approach.create') || (Route::currentRouteName() === 'unique-approach.edit')
+                        || (Route::currentRouteName() === 'our-management.index') || (Route::currentRouteName() === 'our-management.create') || (Route::currentRouteName() === 'our-management.edit')
                         ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-layout"></i>
@@ -125,10 +128,10 @@
                             <a href="{{ route('our-usp.index') }}" class="{{ (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit') ? 'active' : ''  }}">About J4C USP</a>
                         </li>
                         <li>
-                            <a href="#" >Unique Approach</a>
+                            <a href="{{ route('unique-approach.index') }}" class="{{ (Route::currentRouteName() === 'unique-approach.index') || (Route::currentRouteName() === 'unique-approach.create') || (Route::currentRouteName() === 'unique-approach.edit') ? 'active' : ''  }}">Unique Approach</a>
                         </li>
                         <li>
-                            <a href="#" >Our Management</a>
+                            <a href="{{ route('our-management.index') }}" class="{{ (Route::currentRouteName() === 'our-management.index') || (Route::currentRouteName() === 'our-management.create') || (Route::currentRouteName() === 'our-management.edit') ? 'active' : ''  }}">Our Management</a>
                         </li>
                     </ul>
                 </li>
