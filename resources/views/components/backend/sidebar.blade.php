@@ -105,9 +105,6 @@
                         <li>
                             <a href="{{ route('award.index') }}" class="{{ (Route::currentRouteName() === 'award.index') || (Route::currentRouteName() === 'award.create') || (Route::currentRouteName() === 'award.edit') ? 'active' : '' }}">Award</a>
                         </li>
-                        {{-- <li>
-                            <a href="{{ route('our-usp.index') }}" class="{{ (Route::currentRouteName() === 'our-our-usp.index') || (Route::currentRouteName() === 'our-our-usp.create') || (Route::currentRouteName() === 'our-our-usp.edit') ? 'active' : '' }}">Our USP</a>
-                        </li> --}}
                     </ul>
                 </li>
 
@@ -132,6 +129,25 @@
                         </li>
                         <li>
                             <a href="{{ route('our-management.index') }}" class="{{ (Route::currentRouteName() === 'our-management.index') || (Route::currentRouteName() === 'our-management.create') || (Route::currentRouteName() === 'our-management.edit') ? 'active' : ''  }}">Our Management</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'about-career.index') || (Route::currentRouteName() === 'about-career.create') || (Route::currentRouteName() === 'about-career.edit')
+                        || (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit')
+                        ? 'active' : '' }}" href="javascript:void(0)">
+                        <span>
+                            <i class="icon-bag"></i>
+                            Careers
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('about-career.index') }}" class="{{ (Route::currentRouteName() === 'about-career.index') || (Route::currentRouteName() === 'about-career.create') || (Route::currentRouteName() === 'about-career.edit') ? 'active' : ''  }}">About Career</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('current-opening.index') }}" class="{{ (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit') ? 'active' : ''  }}">Current Openings</a>
                         </li>
                     </ul>
                 </li>
