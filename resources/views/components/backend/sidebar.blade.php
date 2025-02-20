@@ -134,7 +134,9 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                    <a class="sidebar-link sidebar-title {{
+                        (Route::currentRouteName() === 'about-sustainability.index') || (Route::currentRouteName() === 'about-sustainability.create') || (Route::currentRouteName() === 'about-sustainability.edit') ? 'active' : '' }}
+                        " href="javascript:void(0)">
                         <span>
                             <i class="icon-basketball"></i>
                             Sustainability
@@ -142,7 +144,7 @@
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="#" class="">About Sustainability</a>
+                            <a href="{{ route('about-sustainability.index') }}" class="{{ (Route::currentRouteName() === 'about-sustainability.index') || (Route::currentRouteName() === 'about-sustainability.create') || (Route::currentRouteName() === 'about-sustainability.edit') ? 'active' : '' }}">About Sustainability</a>
                         </li>
                         <li>
                             <a href="#" class="">Safety Commitment</a>

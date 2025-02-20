@@ -31,6 +31,7 @@ use App\Http\Controllers\backend\UniqueApproachController;
 use App\Http\Controllers\backend\OurManagementController;
 use App\Http\Controllers\backend\AboutCareerController;
 use App\Http\Controllers\backend\CurrentOpeningController;
+use App\Http\Controllers\backend\AboutSustainabilityController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -148,12 +149,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Our Management
     Route::resource('our-management', OurManagementController::class);
- 
+
     // === About Career Management
     Route::resource('about-career', AboutCareerController::class);
 
     // ==== Our Current Openings Management
     Route::resource('current-opening', CurrentOpeningController::class);
+
+    // ==== About Sustainability Management
+    Route::resource('about-sustainability', AboutSustainabilityController::class);
 
 });
 
