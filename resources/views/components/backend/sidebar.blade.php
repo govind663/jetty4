@@ -134,6 +134,26 @@
                 </li>
 
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                        <span>
+                            <i class="icon-basketball"></i>
+                            Sustainability
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#" class="">About Sustainability</a>
+                        </li>
+                        <li>
+                            <a href="#" class="">Safety Commitment</a>
+                        </li>
+                        <li>
+                            <a href="#" class="">Safety Initiatives</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'about-career.index') || (Route::currentRouteName() === 'about-career.create') || (Route::currentRouteName() === 'about-career.edit')
                         || (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit')
                         ? 'active' : '' }}" href="javascript:void(0)">
@@ -148,6 +168,37 @@
                         </li>
                         <li>
                             <a href="{{ route('current-opening.index') }}" class="{{ (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit') ? 'active' : ''  }}">Current Openings</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                        <span>
+                            <i class="icon-info"></i>
+                            Media & Events
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#" class="">Media & Events</a>
+                        </li>
+                        <li>
+                            <a href="#" class="">Media & Eents Details</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                        <span>
+                            <i class="icon-info"></i>
+                            Contact US
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#" class="">Contact Details</a>
                         </li>
                     </ul>
                 </li>
