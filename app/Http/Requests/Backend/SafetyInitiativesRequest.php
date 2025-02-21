@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AboutSustainabilityRequest extends FormRequest
+class SafetyInitiativesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,18 +26,16 @@ class AboutSustainabilityRequest extends FormRequest
                 'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string', 'min:1'],
                 'image' => ['nullable', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
-                'pillers_title.*' => ['required', 'string', 'max:255'],
-                'pillers_description.*' => ['required', 'string', 'min:1'],
-                'other_description' => ['required', 'string', 'min:1'],
+                'icon' => ['nullable', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
+                'status' => ['required', 'integer', 'min:0', 'max:1'],
             ];
         }else{
             $rule = [
                 'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string', 'min:1'],
                 'image' => ['required', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
-                'pillers_title.*' => ['required', 'string', 'max:255'],
-                'pillers_description.*' => ['required', 'string', 'min:1'],
-                'other_description' => ['required', 'string', 'min:1'],
+                'icon' => ['required', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
+                'status' => ['required', 'integer', 'min:0', 'max:1'],
             ];
         }
         return $rule;
@@ -58,17 +56,14 @@ class AboutSustainabilityRequest extends FormRequest
             'image.mimes' => 'Image must be a file of type: jpeg, png, jpg, svg, webp',
             'image.max' => 'Image must not be greater than 2MB',
 
-            'pillers_title.*.required' => 'Pillers title is required',
-            'pillers_title.*.string' => 'Pillers title must be a string',
-            'pillers_title.*.max' => 'Pillers title must not be greater than 255 characters',
+            'icon.required' => 'Icon is required',
+            'icon.mimes' => 'Icon must be a file of type: jpeg, png, jpg, svg, webp',
+            'icon.max' => 'Icon must not be greater than 2MB',
 
-            'pillers_description.*.required' => 'Pillers description is required',
-            'pillers_description.*.string' => 'Pillers description must be a string',
-            'pillers_description.*.min' => 'Pillers description must have at least one character',
-
-            'other_description.required' => 'Other description is required',
-            'other_description.string' => 'Other description must be a string',
-            'other_description.min' => 'Other description must have at least one character',
+            'status.required' => 'Status is required',
+            'status.integer' => 'Status must be an integer',
+            'status.min' => 'Status must be greater than or equal to 0',
+            'status.max' => 'Status must be less than or equal to 1',
         ];
     }
 }

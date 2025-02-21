@@ -35,6 +35,3 @@
 <!-- barfiller -->
 <script src="{{ asset('frontend/assets/js/vanilla-tilt.min.js') }}" defer></script>
 <script src="{{ asset('frontend/assets/js/silik-slider.js') }}" defer></script>
-
- <!-- Swiper JS -->
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

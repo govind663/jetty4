@@ -135,7 +135,10 @@
 
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{
-                        (Route::currentRouteName() === 'about-sustainability.index') || (Route::currentRouteName() === 'about-sustainability.create') || (Route::currentRouteName() === 'about-sustainability.edit') ? 'active' : '' }}
+                        (Route::currentRouteName() === 'about-sustainability.index') || (Route::currentRouteName() === 'about-sustainability.create') || (Route::currentRouteName() === 'about-sustainability.edit')
+                        || (Route::currentRouteName() === 'safety-commitment.index') || (Route::currentRouteName() === 'safety-commitment.create') || (Route::currentRouteName() === 'safety-commitment.edit')
+                        || (Route::currentRouteName() === 'safety-initiatives.index') || (Route::currentRouteName() === 'safety-initiatives.create') || (Route::currentRouteName() === 'safety-initiatives.edit')
+                        ? 'active' : '' }}
                         " href="javascript:void(0)">
                         <span>
                             <i class="icon-basketball"></i>
@@ -147,10 +150,10 @@
                             <a href="{{ route('about-sustainability.index') }}" class="{{ (Route::currentRouteName() === 'about-sustainability.index') || (Route::currentRouteName() === 'about-sustainability.create') || (Route::currentRouteName() === 'about-sustainability.edit') ? 'active' : '' }}">About Sustainability</a>
                         </li>
                         <li>
-                            <a href="#" class="">Safety Commitment</a>
+                            <a href="{{ route('safety-commitment.index') }}" class="{{ (Route::currentRouteName() === 'safety-commitment.index') || (Route::currentRouteName() === 'safety-commitment.create') || (Route::currentRouteName() === 'safety-commitment.edit') ? 'active' : '' }}">Safety Commitment</a>
                         </li>
                         <li>
-                            <a href="#" class="">Safety Initiatives</a>
+                            <a href="{{ route('safety-initiatives.index') }}" class="{{ (Route::currentRouteName() === 'safety-initiatives.index') || (Route::currentRouteName() === 'safety-initiatives.create') || (Route::currentRouteName() === 'safety-initiatives.edit') ? 'active' : '' }}">Safety Initiatives</a>
                         </li>
                     </ul>
                 </li>
@@ -192,7 +195,9 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                    <a class="sidebar-link sidebar-title {{
+                        (Route::currentRouteName() === 'contact-details.index') || (Route::currentRouteName() === 'contact-details.create') || (Route::currentRouteName() === 'contact-details.edit')
+                        ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-info"></i>
                             Contact US
@@ -200,7 +205,7 @@
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="#" class="">Contact Details</a>
+                            <a href="{{ route('contact-details.index') }}" class="{{ (Route::currentRouteName() === 'contact-details.index') || (Route::currentRouteName() === 'contact-details.create') || (Route::currentRouteName() === 'contact-details.edit') ? 'active' : ''  }}">Contact Details</a>
                         </li>
                     </ul>
                 </li>

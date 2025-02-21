@@ -65,6 +65,3 @@
 
 <!-- modernizr js -->
 <script src="{{ asset('frontend/assets/js/modernizr-3.5.0.min.js') }}" defer></script>
-
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

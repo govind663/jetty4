@@ -5,6 +5,8 @@
 @endsection
 
 @push('styles')
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 @endpush
 
 @section('content')
@@ -100,73 +102,6 @@
         </div>
     </section>
 
-    {{-- <section class="services-area residential-main-page-sec">
-        <div class="container">
-            <div class="section-title sus-title-sec" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
-                <h1>Our Safety Initiatives</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="swiper our-safety-initiatives-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="res-single-services">
-                                    <img src="frontend/assets/images/sustainability/regular-safety-meeting.jpg" alt="Image" class="img-responsive">
-                                    <div class="services-content">
-                                        <h3>Regular Safety Meetings</h3>
-                                        <p>We conduct regular safety meetings to promote awareness and address on-site risks. These sessions
-                                            cover
-                                            hazard identification, emergency preparedness, proper PPE usage, ergonomic practices, and more,
-                                            ensuring
-                                            a well-informed and safety-conscious workforce.</p>
-                                        <span><img src="frontend/assets/images/icons/safety-meeting.png" alt="Exterior Spray Treatments"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="res-single-services">
-                                    <img src="frontend/assets/images/sustainability/safety-nets.jpg" alt="Image" class="img-responsive">
-                                    <div class="services-content">
-                                        <h3>Safety Nets for Height Work</h3>
-                                        <p>Safety nets are installed and inspected regularly to protect employees working at heights. This
-                                            proactive measure minimizes fall risks and reinforces our commitment to secure working conditions.</p>
-                                        <span><img src="frontend/assets/images/icons/safety-net.png" alt="Exterior Spray Treatments"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="res-single-services">
-                                    <img src="frontend/assets/images/sustainability/fire-drills.jpg" alt="Image" class="img-responsive">
-                                    <div class="services-content">
-                                        <h3>Fire Drills</h3>
-                                        <p>Regular fire drills prepare our teams to handle emergencies effectively. Training focuses on evacuation
-                                            routes, assembly points, and using firefighting equipment, ensuring readiness and safety for all.</p>
-                                        <span><img src="frontend/assets/images/icons/fire-drills.png" alt="Exterior Spray Treatments"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="res-single-services">
-                                    <img src="frontend/assets/images/sustainability/demo-bg.jpg" alt="Image" class="img-responsive">
-                                    <div class="services-content">
-                                        <h3>Lorem ipsum</h3>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In accusantium odio sint quod harum assumenda, quos commodi nam, voluptates, obcaecati ex nisi porro. Iste et dicta reprehenderit explicabo excepturi est! Quia, delectus?</p>
-                                        <span><img src="frontend/assets/images/icons/safety-meeting.png" alt="Exterior Spray Treatments"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Navigation Buttons -->
-                        <div class="swiper-navigation">
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
     <section class="services-area residential-main-page-sec">
         <div class="container">
             <div class="section-title sus-title-sec" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
@@ -212,54 +147,59 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="swiper-slide">
+                                <div class="res-single-services">
+                                    <img src="frontend/assets/images/sustainability/fire-drills.jpg" alt="Image" class="img-responsive">
+                                    <div class="services-content">
+                                        <h3>Lorem ipsum</h3>
+                                        <p>
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. In accusantium odio sint quod harum assumenda,
+                                            quos commodi nam, voluptates, obcaecati ex nisi porro. Iste et dicta reprehenderit explicabo excepturi est! Quia, delectus?
+                                        </p>
+                                        <span><img src="frontend/assets/images/icons/fire-drills.png" alt="Exterior Spray Treatments"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Navigation Buttons -->
-                        {{-- <div class="swiper-navigation">
+                        <div class="swiper-navigation">
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 @endsection
 
 @push('scripts')
-<script>
-    var swiper = new Swiper(".our-safety-initiatives-slider", {
-        slidesPerView: 3, // Default for large screens
-        spaceBetween: 20
-        , loop: true
-        , autoplay: {
-            delay: 3000
-            , disableOnInteraction: false
-        , }
-        , navigation: {
-            nextEl: ".swiper-button-next"
-            , prevEl: ".swiper-button-prev"
-        , }
-        , breakpoints: {
-            320: {
-                slidesPerView: 1
-            }, // Mobile screens
-            576: {
-                slidesPerView: 2
-            }, // Small screens
-            768: {
-                slidesPerView: 2
-            }, // Tablets
-            1024: {
-                slidesPerView: 3
-            }, // Laptops
-            1280: {
-                slidesPerView: 3
-            } // Large desktops
-        }
-    });
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".our-safety-initiatives-slider", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                320: { slidesPerView: 1 },
+                576: { slidesPerView: 2 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 3 }
+            }
+        });
+    });
 </script>
 
 @endpush

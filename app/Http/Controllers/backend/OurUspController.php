@@ -115,7 +115,7 @@ class OurUspController extends Controller
         try {
 
             $ourUsp = OurUsp::findOrFail($id);
-            
+
             // Handle existing banner images
             $existingBannerImages = $request->input('existing_banner_image', []);
             $storedBannerImages = json_decode($ourUsp->banner_image, true) ?? [];
