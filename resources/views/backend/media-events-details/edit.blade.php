@@ -25,7 +25,7 @@ J4C Group | Edit Media & Eents Details
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('media-events-details.index') }}">Media & Eents Details</a>
+                            <a href="{{ route('media-details.index') }}">Media & Eents Details</a>
                         </li>
                         <li class="breadcrumb-item active">Edit Media & Eents Details</li>
                     </ol>
@@ -40,7 +40,7 @@ J4C Group | Edit Media & Eents Details
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body add-post">
-                        <form method="POST" action="{{ route('media-events-details.update', $media_events_details->id) }}" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('media-details.update', $media_events_details->id) }}" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
 
@@ -171,7 +171,7 @@ J4C Group | Edit Media & Eents Details
                                 <div class="form-group row mt-4">
                                     <label class="col-md-3"></label>
                                     <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                        <a href="{{ route('media-events-details.index') }}" class="btn btn-danger"><b>Cancel</b></a>&nbsp;&nbsp;
+                                        <a href="{{ route('media-details.index') }}" class="btn btn-danger"><b>Cancel</b></a>&nbsp;&nbsp;
                                         <button type="submit" class="btn btn-success"><b>Submit</b></button>
                                     </div>
                                 </div>

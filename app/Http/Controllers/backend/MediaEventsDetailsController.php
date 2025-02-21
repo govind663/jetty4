@@ -78,7 +78,7 @@ class MediaEventsDetailsController extends Controller
             $media_events_details->inserted_by = Auth::user()->id;
             $media_events_details->save();
 
-            return redirect()->route('media-events-details.index')->with('success','Media Events Details has been successfully created.');
+            return redirect()->route('media-details.index')->with('success','Media Events Details has been successfully created.');
 
         } catch(\Exception $ex){
 
@@ -173,7 +173,7 @@ class MediaEventsDetailsController extends Controller
             $media_events_details->modified_by = Auth::user()->id;
             $media_events_details->save();
 
-            return redirect()->route('media-events-details.index')->with('success','Media Events Details has been successfully updated.');
+            return redirect()->route('media-details.index')->with('success','Media Events Details has been successfully updated.');
         } catch(\Exception $ex){
 
             return redirect()->back()->with('error','Something Went Wrong  - '.$ex->getMessage());
@@ -192,7 +192,7 @@ class MediaEventsDetailsController extends Controller
             $media_events_details = MediaEventsDetails::findOrFail($id);
             $media_events_details->update($data);
 
-            return redirect()->route('media-events-details.index')->with('success','Media Events Details has been successfully deleted.');
+            return redirect()->route('media-details.index')->with('success','Media Events Details has been successfully deleted.');
         } catch(\Exception $ex){
 
             return redirect()->back()->with('error','Something Went Wrong  - '.$ex->getMessage());

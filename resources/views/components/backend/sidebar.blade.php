@@ -179,7 +179,7 @@
 
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit')
-                        || (Route::currentRouteName() === 'media-events-details.index') || (Route::currentRouteName() === 'media-events-details.create') || (Route::currentRouteName() === 'media-events-details.edit')
+                        || (Route::currentRouteName() === 'media-details.index') || (Route::currentRouteName() === 'media-details.create') || (Route::currentRouteName() === 'media-details.edit')
                         ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-info"></i>
@@ -191,15 +191,13 @@
                             <a href="{{ route('media-events.index') }}" class="{{ (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit') ? 'active' : '' }}">Media & Events</a>
                         </li>
                         <li>
-                            <a href="{{ route('media-events-details.index') }}" class="{{ (Route::currentRouteName() === 'media-events-details.index') || (Route::currentRouteName() === 'media-events-details.create') || (Route::currentRouteName() === 'media-events-details.edit') ? 'active' : '' }}">Media & Eents Details</a>
+                            <a href="{{ route('media-details.index') }}" class="{{ (Route::currentRouteName() === 'media-details.index') || (Route::currentRouteName() === 'media-details.create') || (Route::currentRouteName() === 'media-details.edit') ? 'active' : '' }}">Media & Eents Details</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title {{
-                        (Route::currentRouteName() === 'contact-details.index') || (Route::currentRouteName() === 'contact-details.create') || (Route::currentRouteName() === 'contact-details.edit')
-                        ? 'active' : '' }}" href="javascript:void(0)">
+                    <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'contact-details.index') || (Route::currentRouteName() === 'contact-details.create') || (Route::currentRouteName() === 'contact-details.edit') ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-info"></i>
                             Contact US

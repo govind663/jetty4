@@ -41,7 +41,7 @@
                                 <h4>All Media & Eents Details List</h4>
                             </div>
                             {{-- Add Team Button --}}
-                            <a href="{{ route('media-events-details.create') }}" class="btn btn-primary">
+                            <a href="{{ route('media-details.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
                                     Media & Eents Details
@@ -82,7 +82,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ route('media-events-details.edit', $value->id) }}">
+                                                    <a href="{{ route('media-details.edit', $value->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
@@ -92,7 +92,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('media-events-details.destroy', $value->id) }}" method="post">
+                                                    <form action="{{ route('media-details.destroy', $value->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input name="_method" type="hidden" value="DELETE">

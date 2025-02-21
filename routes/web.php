@@ -177,8 +177,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
     Route::resource('media-events', MediaEventsController::class);
 
     // ==== Media & Eents Details Management
-    Route::resource('media-events-details', MediaEventsDetailsController::class);
-    Route::post ('fetch-media-event-slug', [MediaEventsDetailsController::class, 'fetchMediaEventSlug'])->name('fetch-media-event-slug'); 
+    Route::resource('media-details', MediaEventsDetailsController::class);
+    Route::post ('fetch-media-event-slug', [MediaEventsDetailsController::class, 'fetchMediaEventSlug'])->name('fetch-media-event-slug');
 
 });
 
