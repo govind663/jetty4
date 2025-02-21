@@ -178,11 +178,9 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title {{
-                        (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit')
+                    <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit')
                         || (Route::currentRouteName() === 'media-events-details.index') || (Route::currentRouteName() === 'media-events-details.create') || (Route::currentRouteName() === 'media-events-details.edit')
-                        ? 'active' : ''
-                         }}" href="javascript:void(0)">
+                        ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-info"></i>
                             Media & Events
