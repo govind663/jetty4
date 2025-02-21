@@ -1,0 +1,84 @@
+<?php
+
+namespace App\Http\Requests\Backend;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class ProjectDetailsRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        if ($this->id){
+            $rule = [
+                'image.*' => ['nullable', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+                'project_name' => ['required', 'string', 'max:255'],
+                'project_slug' => ['required', 'string', 'max:255'],
+                'built_up_area' => ['required', 'string', 'max:255'],
+                'it_load' => ['required', 'string', 'max:255'],
+                'developers' => ['required', 'string', 'max:255'],
+                'client_name' => ['required', 'string', 'max:255'],
+                'structural_consultant' => ['required', 'string', 'max:255'],
+                'architect' => ['required', 'string', 'max:255'],
+            ];
+        }else{
+            $rule = [
+                'image.*' => ['required', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+                'project_name' => ['required', 'string', 'max:255'],
+                'project_slug' => ['required', 'string', 'max:255'],
+                'built_up_area' => ['required', 'string', 'max:255'],
+                'it_load' => ['required', 'string', 'max:255'],
+                'developers' => ['required', 'string', 'max:255'],
+                'client_name' => ['required', 'string', 'max:255'],
+                'structural_consultant' => ['required', 'string', 'max:255'],
+                'architect' => ['required', 'string', 'max:255'],
+            ];
+        }
+        return $rule;
+    }
+    
+    public function messages()
+    {
+        return [
+            'image.*.required' => 'Project Image is required',
+            'image.*.mimes' => 'Project Image must be a file of type: jpeg, png, jpg, webp',
+            'image.*.max' => 'The size of project image should not exceed 2 MB',
+
+            'project_name.required' => 'Project Name is required',
+            'project_name.string' => 'Please enter a valid project name',
+            'project_name.max' => 'The project name should not exceed 255 characters',
+
+            'project_slug.required' => 'Project slug is required',
+            'project_slug.string' => 'Please enter a valid slug',
+            'project_slug.max' => 'The slug should not exceed 255 characters',
+
+            'built_up_area.required' => 'Built up area is required',
+            'built_up_area.string' => 'Please enter a valid built up area',
+            'built_up_area.max' => 'The built up area should not exceed 255 characters',
+
+            'it_load.required' => 'IT Load is required',
+            'it_load.string' => 'Please enter a valid IT Load',
+            'it_load.max' => 'The IT Load should not exceed 255 characters',
+
+            'developers.required' => 'Developer Name is required',
+            'developers.string' => 'Please enter a valid developer name',
+            'developers.max' => 'The developer name should not exceed 255 characters',
+
+            'client_name.required' => 'Client Name is required',
+            'client_name.string' => 'Please enter a valid client name',
+            'client_name.max' => 'The client name should not exceed 255 characters',
+        ];
+    }
+}

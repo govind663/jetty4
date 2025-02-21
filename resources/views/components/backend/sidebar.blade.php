@@ -109,6 +109,29 @@
                 </li>
 
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'project-type.index') || (Route::currentRouteName() === 'project-type.create') || (Route::currentRouteName() === 'project-type.edit')
+                        || (Route::currentRouteName() === 'projects.index') || (Route::currentRouteName() === 'projects.create') || (Route::currentRouteName() === 'projects.edit')
+                        || (Route::currentRouteName() === 'project-details.index') || (Route::currentRouteName() === 'project-details.create') || (Route::currentRouteName() === 'project-details.edit')
+                        ? 'active' : '' }}" href="javascript:void(0)">
+                        <span>
+                            <i class="icon-package"></i>
+                            Projects
+                        </span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('project-type.index') }}" class="{{ (Route::currentRouteName() === 'project-type.index') || (Route::currentRouteName() === 'project-type.create') || (Route::currentRouteName() === 'project-type.edit') ? 'active' : '' }}">Project Type</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('projects.index') }}" class="{{ (Route::currentRouteName() === 'projects.index') || (Route::currentRouteName() === 'projects.create') || (Route::currentRouteName() === 'projects.edit') ? 'active' : '' }}">Project</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('project-details.index') }}" class="{{ (Route::currentRouteName() === 'project-details.index') || (Route::currentRouteName() === 'project-details.create') || (Route::currentRouteName() === 'project-detail.edit') ? 'active' : '' }}">Project Details</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title
                     {{ (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit')
                         || (Route::currentRouteName() === 'our-usp.index') || (Route::currentRouteName() === 'our-usp.create') || (Route::currentRouteName() === 'our-usp.edit')
@@ -199,7 +222,7 @@
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'contact-details.index') || (Route::currentRouteName() === 'contact-details.create') || (Route::currentRouteName() === 'contact-details.edit') ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
-                            <i class="icon-info"></i>
+                            <i class="icon-mobile"></i>
                             Contact US
                         </span>
                     </a>

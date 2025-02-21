@@ -37,6 +37,9 @@ use App\Http\Controllers\backend\SafetyInitiativesController;
 use App\Http\Controllers\backend\ContactDetailsController;
 use App\Http\Controllers\backend\MediaEventsController;
 use App\Http\Controllers\backend\MediaEventsDetailsController;
+use App\Http\Controllers\backend\ProjectTypeController;
+use App\Http\Controllers\backend\ProjectsController;
+use App\Http\Controllers\backend\ProjectDetailsController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -179,6 +182,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
     // ==== Media & Eents Details Management
     Route::resource('media-details', MediaEventsDetailsController::class);
     Route::post ('fetch-media-event-slug', [MediaEventsDetailsController::class, 'fetchMediaEventSlug'])->name('fetch-media-event-slug');
+
+    // ==== Project Type Management
+    Route::resource('project-type', ProjectTypeController::class);
+
+    // ==== Projects Management
+    Route::resource('projects', ProjectsController::class);
+
+    // ==== Project Details Management
+    Route::resource('project-details', ProjectDetailsController::class);
+    Route::post ('fetch-project-slug', [ProjectDetailsController::class, 'fetchProjectSlug'])->name('fetch-project-slug');
 
 });
 
