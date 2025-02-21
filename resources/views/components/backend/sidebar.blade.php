@@ -178,7 +178,11 @@
                 </li>
 
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title " href="javascript:void(0)">
+                    <a class="sidebar-link sidebar-title {{
+                        (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit')
+                        || (Route::currentRouteName() === 'media-events-details.index') || (Route::currentRouteName() === 'media-events-details.create') || (Route::currentRouteName() === 'media-events-details.edit')
+                        ? 'active' : ''
+                         }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-info"></i>
                             Media & Events
@@ -186,10 +190,10 @@
                     </a>
                     <ul class="sidebar-submenu">
                         <li>
-                            <a href="#" class="">Media & Events</a>
+                            <a href="{{ route('media-events.index') }}" class="{{ (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit') ? 'active' : '' }}">Media & Events</a>
                         </li>
                         <li>
-                            <a href="#" class="">Media & Eents Details</a>
+                            <a href="{{ route('media-events-details.index') }}" class="{{ (Route::currentRouteName() === 'media-events-details.index') || (Route::currentRouteName() === 'media-events-details.create') || (Route::currentRouteName() === 'media-events-details.edit') ? 'active' : '' }}">Media & Eents Details</a>
                         </li>
                     </ul>
                 </li>

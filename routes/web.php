@@ -35,6 +35,8 @@ use App\Http\Controllers\backend\AboutSustainabilityController;
 use App\Http\Controllers\backend\SafetyCommitmentController;
 use App\Http\Controllers\backend\SafetyInitiativesController;
 use App\Http\Controllers\backend\ContactDetailsController;
+use App\Http\Controllers\backend\MediaEventsController;
+use App\Http\Controllers\backend\MediaEventsDetailsController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -170,6 +172,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Contact Details Management
     Route::resource('contact-details', ContactDetailsController::class);
+
+    // ==== Media & Events Management
+    Route::resource('media-events', MediaEventsController::class);
+
+    // ==== Media & Eents Details Management
+    Route::resource('media-events-details', MediaEventsDetailsController::class);
+    Route::post ('fetch-media-event-slug', [MediaEventsDetailsController::class, 'fetchMediaEventSlug'])->name('fetch-media-event-slug'); 
 
 });
 
