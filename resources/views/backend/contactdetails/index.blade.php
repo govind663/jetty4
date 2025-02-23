@@ -76,7 +76,7 @@
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {!! $value->company_address !!}
+                                                    {{ $value->company_address }}
                                                 </td>
 
                                                 <td>

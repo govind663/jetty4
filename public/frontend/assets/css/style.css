@@ -11740,7 +11740,7 @@ img{
 
 .event-area {
     position: relative;
-    background-image: url(../images/kpi-bg.jpg);
+    /* background-image: url(../images/kpi-bg.jpg); */
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -11965,31 +11965,31 @@ img{
 
 /*Our-usp-JSP-section*/
 .home-three .our-usp-sub-sec-1 {
-    background-image: url(../images/banner/building-types-bg.jpg);
+    /* background-image: url(../images/banner/building-types-bg.jpg); */
     background-size: cover;
     background-position: center;
 }
 
 .home-three .our-usp-sub-sec-2 {
-    background-image: url(../images/banner/government-approvals-bg.jpg);
+    /* background-image: url(../images/banner/government-approvals-bg.jpg); */
     background-size: cover;
     background-position: center;
 }
 
 .home-three .our-usp-sub-sec-3 {
-    background-image: url(../images/banner/diverse-workforce-bg.jpg);
+    /* background-image: url(../images/banner/diverse-workforce-bg.jpg); */
     background-size: cover;
     background-position: center;
 }
 
 .home-three .our-usp-sub-sec-4 {
-    background-image: url(../images/banner/safety-standards-bg.jpg);
+    /* background-image: url(../images/banner/safety-standards-bg.jpg); */
     background-size: cover;
     background-position: center;
 }
 
 .home-three .our-usp-sub-sec-5 {
-    background-image: url(../images/banner/our-commitment-bg.jpg);
+    /* background-image: url(../images/banner/our-commitment-bg.jpg); */
     background-size: cover;
     background-position: center;
 }

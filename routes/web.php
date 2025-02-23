@@ -60,6 +60,12 @@ Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddlewar
     // ==== About Us
     Route::get('about-us', [FrontendHomeController::class, 'aboutUs'])->name('frontend.about-us');
 
+    // ==== Projects
+    Route::get('projects/{project_id}', [FrontendHomeController::class, 'projects'])->name('frontend.projects');
+
+    // ==== Project Details
+    Route::get('project-details/{project_slug}', [FrontendHomeController::class, 'projectDetails'])->name('frontend.project-details');
+
     // === Mission & Vision
     Route::get('mission-vision', [FrontendHomeController::class, 'missionVision'])->name('frontend.mission-vision');
 
@@ -77,10 +83,16 @@ Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddlewar
 
     // ==== Media & Events
     Route::get('media-events', [FrontendHomeController::class, 'mediaEvents'])->name('frontend.media-events');
+    Route::get('media-events/{slug}', [FrontendHomeController::class, 'mediaEventsDetails'])->name('frontend.media-events-details');
 
     // ==== Contact Us
     Route::get('contact', [FrontendHomeController::class, 'contact'])->name('frontend.contact');
 
+    // ==== Under Construction
+    Route::get('under-construction', [FrontendHomeController::class, 'underConstruction'])->name('frontend.under-construction');
+
+    // ==== Thank You
+    Route::get('thank-you', [FrontendHomeController::class, 'thankYou'])->name('frontend.thank-you');
 });
 
 

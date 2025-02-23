@@ -125,7 +125,7 @@ J4C Group | Edit Contact Details
 
 @push('scripts')
 {{-- Summernote Editor --}}
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#company_address').summernote({
             placeholder: 'Enter your company address here...',
@@ -133,5 +133,5 @@ J4C Group | Edit Contact Details
             height: 100,
         });
     });
-</script>
+</script> --}}
 @endpush

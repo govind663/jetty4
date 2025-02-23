@@ -20,12 +20,17 @@
                                 <li><a href="{{ route('frontend.our-usp') }}">Our USP</a></li>
                             </ul>
                         </li>
+                        @php
+                            use App\Models\ProjectType;
+
+                            $project_types = ProjectType::orderBy("id","asc")->whereNull('deleted_at')->get();
+                        @endphp
                         <li class="menu-item-has-children">
                             <a href="Javascript:void(0)">Projects<i class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
-                                <li><a href="data-center-projects.html">Data Center Projects</a></li>
-                                <li><a href="#">Commercial Projects</a></li>
-                                <li><a href="#">Residential Projects</a></li>
+                                @foreach($project_types as $project_type)
+                                    <li><a href="{{ route('frontend.projects', ['project_id' => $project_type->id]) }}">{{ $project_type->project_type }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li><a href="{{ route('frontend.sustainability') }}">Sustainability</a></li>

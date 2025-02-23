@@ -15,6 +15,19 @@ use App\Models\OurMission;
 use App\Models\OurVission;
 use App\Models\Award;
 use App\Models\Certification;
+use App\Models\OurUsp;
+use App\Models\UniqueApproach;
+use App\Models\OurManagement;
+use App\Models\AboutSustainability;
+use App\Models\SafetyCommitment;
+use App\Models\SafetyInitiatives;
+use App\Models\AboutCareer;
+use App\Models\CurrentOpening;
+use App\Models\ContactDetails;
+use App\Models\MediaEvents;
+use App\Models\MediaEventsDetails;
+use App\Models\Projects;
+use App\Models\ProjectDetails;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -79,6 +92,42 @@ class HomeController extends Controller
         ]);
     }
 
+    // ==== Projects
+    public function projects(Request $request, $project_id)
+    {
+        // ===== Projects
+        $projects = Projects::with('projectType')
+                            ->where('project_type_id', $project_id)
+                            ->orderBy("id","desc")
+                            ->whereNull('deleted_at')
+                            ->first();
+        // dd($projects);
+
+        return view('frontend.projects',[
+            'projects' => $projects
+        ]);
+    }
+
+    // ==== Project Details
+    public function projectDetails(Request $request, $project_slug)
+    {
+        // ===== Projects
+        $projectDetails = ProjectDetails::with('projectName')->where('project_slug', $project_slug)->orderBy("id","desc")->whereNull('deleted_at')->first();
+        // dd($projectDetails);
+
+        // If no project found, redirect back with an error message
+        if (!$projectDetails) {
+            return redirect()->back()->with('error', 'Project not found');
+        }
+
+        $projectDetails->image = $projectDetails->image ? json_decode($projectDetails->image, true) : [];
+        // dd($projectDetails->image);
+
+        return view('frontend.project-details',[
+            'projectDetails' => $projectDetails
+        ]);
+    }
+
     // === Mission & Vision
     public function missionVision(Request $request)
     {
@@ -112,30 +161,108 @@ class HomeController extends Controller
     // ==== Our USP
     public function ourUsp(Request $request)
     {
-        return view('frontend.our-usp');
+        $ourUsps = OurUsp::orderBy("id", "desc")->whereNull('deleted_at')->first();
+
+        // Decode each JSON column
+        $ourUsps->baner_image = json_decode($ourUsps->baner_image, true);
+        $ourUsps->banner_icon = json_decode($ourUsps->banner_icon, true);
+        $ourUsps->banner_title = json_decode($ourUsps->banner_title, true);
+        $ourUsps->banner_description = json_decode($ourUsps->banner_description, true);
+
+
+        $uniqueApproaches = UniqueApproach::orderBy("id","desc")->whereNull('deleted_at')->first();
+        $uniqueApproaches->service_name = json_decode($uniqueApproaches->service_name, true);
+        $uniqueApproaches->service_description = json_decode($uniqueApproaches->service_description, true);
+
+        $ourManagements = OurManagement::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        $ourManagements->quality_icon = json_decode($ourManagements->quality_icon, true);
+        $ourManagements->quality_title = json_decode($ourManagements->quality_title, true);
+        $ourManagements->quality_description = json_decode($ourManagements->quality_description, true);
+
+        return view('frontend.our-usp', [
+            'ourUsps' => $ourUsps,
+            'uniqueApproaches' => $uniqueApproaches,
+            'ourManagements' => $ourManagements
+        ]);
     }
 
     // === Sustainability
     public function sustainability(Request $request)
     {
-        return view('frontend.sustainability');
+        $aboutSustainability = AboutSustainability::orderBy("id","desc")->whereNull('deleted_at')->first();
+        $aboutSustainability->pillers_title = json_decode($aboutSustainability->pillers_title, true);
+        $aboutSustainability->pillers_description = json_decode($aboutSustainability->pillers_description, true);
+
+        $safetycommitment = SafetyCommitment::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        $safetyinitiatives = SafetyInitiatives::orderBy("id","desc")->whereNull('deleted_at')->get();
+
+        return view('frontend.sustainability',[
+            'aboutSustainability' => $aboutSustainability,
+            'safetycommitment' => $safetycommitment,
+            'safetyinitiatives' => $safetyinitiatives
+        ]);
     }
 
     // === Careers
     public function careers(Request $request)
     {
-        return view('frontend.careers');
+        $about_career = AboutCareer::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        $current_openings = CurrentOpening::orderBy("id","desc")->whereNull('deleted_at')->get();
+
+        return view('frontend.careers',[
+            'about_career' => $about_career,
+            'current_openings' => $current_openings
+        ]);
     }
 
     // === Media & Events
     public function mediaEvents(Request $request)
     {
-        return view('frontend.media-events');
+        $media_events = MediaEvents::orderBy("id","desc")->whereNull('deleted_at')->get();
+
+        return view('frontend.media-events',[
+            'media_events' => $media_events
+        ]);
+    }
+
+    // === Media & Events Details
+    public function mediaEventsDetails(Request $request, $slug)
+    {
+        $media_events_details = MediaEventsDetails::with('mediaEvents')
+                                ->where('slug', $slug)
+                                ->orderBy("id","desc")
+                                ->whereNull('deleted_at')
+                                ->first();
+
+        $media_events_details->event_gallery_images = json_decode($media_events_details->event_gallery_images, true);
+
+        return view('frontend.media-events-details',[
+            'media_events_details' => $media_events_details
+        ]);
     }
 
     // === Contact Us
     public function contact(Request $request)
     {
-        return view('frontend.contact');
+        $contactDetails = ContactDetails::orderBy("id","desc")->whereNull('deleted_at')->first();
+
+        return view('frontend.contact',[
+            'contactDetails' => $contactDetails
+        ]);
+    }
+
+    // === Under Construction
+    public function underConstruction(Request $request)
+    {
+        return view('frontend.under-construction');
+    }
+
+    // === Thank You
+    public function thankYou(Request $request)
+    {
+        return view('frontend.thank-you');
     }
 }

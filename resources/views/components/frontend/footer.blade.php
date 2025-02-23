@@ -26,6 +26,10 @@
                 </div>
             </div>
         </div>
+        @php
+            use App\Models\ContactDetails;
+            $contactDetails = ContactDetails::orderBy("id","desc")->whereNull('deleted_at')->first();
+        @endphp
         <div class="row add-footer-class">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <!--  <div class="footer-logo">
@@ -39,13 +43,14 @@
               <h4>Contact</h4>
               </div> -->
                     <ul>
-                        <li><i class="fa fa-map-marker"></i> 1109, Lodha Supremus, Opp MTNL Office, Sakivihar Road, Near
-                            Tunga Village, Chandivali, Powai, 400072.<br>
-                            <a href="https://maps.app.goo.gl/QySVY3ZqBjKHDiVM8" class="view_map" target="_blank">View
+                        <li><i class="fa fa-map-marker"></i>
+                            {{ $contactDetails->company_address }}<br>
+                            <a href="{{ $contactDetails->location_map_link }}" class="view_map" target="_blank">View
                                 Map <i class="fa fa-angle-right"></i></a>
                         </li>
-                        <li><i class="fa fa-phone"></i> <a href="tel:02249710456">+022-4971-0456</a></li>
-                        <li><i class="fa fa-envelope"></i> <a href="mailto:info@jett4.com">info@jett4.com</a></li>
+                        <li><i class="fa fa-phone"></i> <a href="tel:{{ $contactDetails->company_mobile_no }}">{{ $contactDetails->company_mobile_no }}</a></li>
+                        <li><i class="fa fa-envelope"></i> <a href="mailto:{{ $contactDetails->company_email }}">{{ $contactDetails->company_email }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>

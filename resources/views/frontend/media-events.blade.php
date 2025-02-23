@@ -1,16 +1,15 @@
 @extends('frontend.layouts.master')
 
 @section('title')
-J4C Group | Media & Events
+    J4C Group | Media & Events
 @endsection
 
 @push('styles')
-
 @endpush
 
 @section('content')
-   <!--breadcrumb section start-->
-   <div class="breadcumb-area" style="background-image:url(frontend/assets/images/banner/about_bg.jpg)">
+    <!--breadcrumb section start-->
+    <div class="breadcumb-area" style="background-image:url(frontend/assets/images/banner/about_bg.jpg)">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
@@ -18,10 +17,6 @@ J4C Group | Media & Events
                         <div class="breadcumb-title">
                             <h4>Media & Events</h4>
                         </div>
-                        <!--<ul>-->
-                        <!--  <li><a href="index.html">Home</a></li>-->
-                        <!--  <li>Media & Events</li>-->
-                        <!--</ul>-->
                     </div>
                 </div>
             </div>
@@ -42,7 +37,40 @@ J4C Group | Media & Events
         </div>
     </div>
     <!--breadcrumb section end-->
-    <section class="bg-grey-sec"></section>
+
+    <div class="blog-grid-area">
+        <div class="container">
+
+            <div class="row">
+                @foreach ($media_events as $key => $value)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="single-blog-box">
+                            <div class="single-blog-thumb">
+                                <img src="{{ asset('/j4c_Group/media-events/image/' . $value->image) }}" alt="">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-date-sec">
+                                    <ul>
+                                        <li><img src="{{ asset('frontend/assets/images/icons/date-icon.png') }}" alt="Date Icon">{{ $value->event_date }}</li>
+                                        <li><img src="{{ asset('frontend/assets/images/icons/location-icon.png') }}" alt="Location Icon">{{ $value->event_location }}</li>
+                                    </ul>
+                                </div>
+                                <a href="{{ route('frontend.media-events-details', $value->slug) }}">{{ $value->title }}</a>
+                                {!! $value->description !!}
+                                <div class="blog-service-button-sec">
+                                    <a href="{{ route('frontend.media-events-details', $value->slug) }}" class="blog-service-btn">
+                                        Read More
+                                        <img src="{{ asset('frontend/assets/images/icons/up-right-arrow.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
