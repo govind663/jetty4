@@ -55,7 +55,6 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
-                                            <th>Image</th>
                                             <th>Project Name</th>
                                             <th>Built up Area</th>
                                             <th>IT Load</th>
@@ -71,12 +70,6 @@
                                         @foreach ($projectDetails as $key => $value)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
-
-                                                <td class="text-wrap text-justify">
-                                                    @if($value->image)
-                                                        <img src="{{ asset('/j4c_Group/project_details/image/' . $value->image) }}" alt="Banner Image" style="width: 100%; height: 100px;">
-                                                    @endif
-                                                </td>
 
                                                 <td class="text-wrap text-justify">
                                                     {{ $value->projectName?->project_name ?? '' }}
@@ -98,7 +91,7 @@
                                                     {{ $value->client_name ?? '' }}
                                                 </td>
 
-                                                <td class="text-wrap text-justify"></td>
+                                                <td class="text-wrap text-justify">
                                                     {{ $value->structural_consultant ?? '' }}
                                                 </td>
 

@@ -75,7 +75,7 @@ J4C Group | Edit Our Management
                                             <div id="file-preview"></div>
                                         </div>
                                         @if(!empty($ourManagement->image))
-                                            <img src="{{ asset('/j4c_Group/our-managements/image/' . $ourManagement->image) }}" alt="Banner Image" style="width: 400px; height: 200px;">
+                                            <img src="{{ asset('/j4c_Group/our-managements/image/' . $ourManagement->image) }}" alt="Banner Image" style="width: 350px; height: 200px;">
                                         @endif
                                     </div>
                                 </div>

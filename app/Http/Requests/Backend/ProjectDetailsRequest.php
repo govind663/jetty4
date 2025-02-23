@@ -24,8 +24,8 @@ class ProjectDetailsRequest extends FormRequest
         if ($this->id){
             $rule = [
                 'image.*' => ['nullable', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
-                'project_name' => ['required', 'string', 'max:255'],
-                'project_slug' => ['required', 'string', 'max:255'],
+                'projects_id' => ['required', 'string', 'max:255'],
+                'slug' => ['required', 'string', 'max:255'],
                 'built_up_area' => ['required', 'string', 'max:255'],
                 'it_load' => ['required', 'string', 'max:255'],
                 'developers' => ['required', 'string', 'max:255'],
@@ -36,8 +36,8 @@ class ProjectDetailsRequest extends FormRequest
         }else{
             $rule = [
                 'image.*' => ['required', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
-                'project_name' => ['required', 'string', 'max:255'],
-                'project_slug' => ['required', 'string', 'max:255'],
+                'projects_id' => ['required', 'string', 'max:255'],
+                'slug' => ['required', 'string', 'max:255'],
                 'built_up_area' => ['required', 'string', 'max:255'],
                 'it_load' => ['required', 'string', 'max:255'],
                 'developers' => ['required', 'string', 'max:255'],
@@ -48,7 +48,7 @@ class ProjectDetailsRequest extends FormRequest
         }
         return $rule;
     }
-    
+
     public function messages()
     {
         return [
@@ -56,13 +56,13 @@ class ProjectDetailsRequest extends FormRequest
             'image.*.mimes' => 'Project Image must be a file of type: jpeg, png, jpg, webp',
             'image.*.max' => 'The size of project image should not exceed 2 MB',
 
-            'project_name.required' => 'Project Name is required',
-            'project_name.string' => 'Please enter a valid project name',
-            'project_name.max' => 'The project name should not exceed 255 characters',
+            'projects_id.required' => 'Project Name is required',
+            'projects_id.string' => 'Please enter a valid project name',
+            'projects_id.max' => 'The project name should not exceed 255 characters',
 
-            'project_slug.required' => 'Project slug is required',
-            'project_slug.string' => 'Please enter a valid slug',
-            'project_slug.max' => 'The slug should not exceed 255 characters',
+            'slug.required' => 'Project slug is required',
+            'slug.string' => 'Please enter a valid slug',
+            'slug.max' => 'The slug should not exceed 255 characters',
 
             'built_up_area.required' => 'Built up area is required',
             'built_up_area.string' => 'Please enter a valid built up area',
@@ -79,6 +79,14 @@ class ProjectDetailsRequest extends FormRequest
             'client_name.required' => 'Client Name is required',
             'client_name.string' => 'Please enter a valid client name',
             'client_name.max' => 'The client name should not exceed 255 characters',
+
+            'structural_consultant.required' => 'Structural Consultant is required',
+            'structural_consultant.string' => 'Please enter a valid structural consultant',
+            'structural_consultant.max' => 'The structural consultant should not exceed 255 characters',
+
+            'architect.required' => 'Architect is required',
+            'architect.string' => 'Please enter a valid architect',
+            'architect.max' => 'The architect should not exceed 255 characters',
         ];
     }
 }

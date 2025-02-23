@@ -217,4 +217,9 @@ J4C Group | Add Media & Events
         }
     }
 </script>
+
+{{-- Select2 JS --}}
+<script type="text/javascript">
+    $(".myselect").select2();
+</script>
 @endpush

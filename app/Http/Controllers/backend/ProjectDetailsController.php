@@ -18,6 +18,7 @@ class ProjectDetailsController extends Controller
     public function index()
     {
         $projectDetails = ProjectDetails::with('projectName')->orderBy("id","desc")->whereNull('deleted_at')->get();
+        // dd($projectDetails);
 
         return view('backend.project-details.index', [
             'projectDetails' => $projectDetails
@@ -61,8 +62,8 @@ class ProjectDetailsController extends Controller
             // Update the image with the new image paths
             $projectDetails->image = json_encode($imagePaths);
 
-            $projectDetails->project_name = $request->project_name;
-            $projectDetails->project_slug = $request->project_slug;
+            $projectDetails->projects_id = $request->projects_id;
+            $projectDetails->project_slug = $request->slug;
             $projectDetails->built_up_area = $request->built_up_area;
             $projectDetails->it_load = $request->it_load;
             $projectDetails->developers = $request->developers;
@@ -115,7 +116,7 @@ class ProjectDetailsController extends Controller
             $projectDetails = ProjectDetails::findOrFail($id);
 
             // Retrieve existing images from request or use an empty array
-            $existingImages = $request->input('existing_images', []);
+            $existingImages = $request->input('existing_project_gallery_images', []);
 
             // Decode stored images from the database (if any)
             $storedImages = json_decode($projectDetails->image, true) ?? [];
@@ -153,8 +154,8 @@ class ProjectDetailsController extends Controller
             // Update the associate record with new images
             $projectDetails->image = json_encode(array_unique($allImages)); // Ensure no duplicates
 
-            $projectDetails->project_name = $request->project_name;
-            $projectDetails->project_slug = $request->project_slug;
+            $projectDetails->projects_id = $request->projects_id;
+            $projectDetails->project_slug = $request->slug;
             $projectDetails->built_up_area = $request->built_up_area;
             $projectDetails->it_load = $request->it_load;
             $projectDetails->developers = $request->developers;

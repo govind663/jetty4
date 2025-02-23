@@ -47,7 +47,7 @@ J4C Group | Add Project Details
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-2"><b>Project Name : <span class="text-danger">*</span></b></label>
                                     <div class="col-sm-4 col-md-4">
-                                        <select name="projects_id" id="projects_id" class="form-control myselect @error('projects_id') is-invalid @enderror" value="{{ old('projects_id') }}">
+                                        <select name="projects_id" id="projects_id" class="form-control myselect @error('projects_id') is-invalid @enderror">
                                             <option value="">Select Project Name</option>
                                             @foreach ($projects as $project)
                                                 <option value="{{ $project->id }}" {{ old('projects_id') == $project->id ? 'selected' : '' }}>{{ $project->project_name }}</option>
@@ -73,37 +73,132 @@ J4C Group | Add Project Details
 
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2"><b>Project Location : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Built up area : <span class="text-danger">*</span></b></label>
                                     <div class="col-sm-4 col-md-4">
-                                        <input type="text" name="project_location" id="project_location" class="form-control @error('project_location') is-invalid @enderror" value="{{ old('project_location') }}" placeholder="Enter Project Location">
-                                        @error('project_location')
+                                        <input type="text" name="built_up_area" id="built_up_area" class="form-control @error('built_up_area') is-invalid @enderror" value="{{ old('built_up_area') }}" placeholder="Enter Built up area">
+                                        @error('built_up_area')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
 
-                                    <label class="col-sm-2"><b>Upload Project Image : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>IT Load : <span class="text-danger">*</span></b></label>
                                     <div class="col-sm-4 col-md-4">
-                                        <input type="file" onchange="agentPreviewFile()" accept=".png, .jpg, .jpeg, .webp" name="image" id="image" class="form-control @error('image') is-invalid @enderror" value="{{old('image')}}" placeholder="Upload Image.">
-                                        <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
-                                        <br>
-                                        <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .webp format can be uploaded .</b></small>
-                                        <br>
-                                        @error('image')
+                                        <input type="text" name="it_load" id="it_load" class="form-control @error('it_load') is-invalid @enderror" value="{{ old('it_load') }}" placeholder="Enter IT Load">
+                                        @error('it_load')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                                        <div id="preview-container">
-                                            <div id="file-preview"></div>
-                                        </div>
                                     </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-2"><b>Developers : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="text" name="developers" id="developers" class="form-control @error('developers') is-invalid @enderror" value="{{ old('developers') }}" placeholder="Enter Developers">
+                                        @error('developers')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <label class="col-sm-2"><b>Client Name : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="text" name="client_name" id="client_name" class="form-control @error('client_name') is-invalid @enderror" value="{{ old('client_name') }}" placeholder="Enter Client Name">
+                                        @error('client_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-2"><b>Structural Consultant : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="text" name="structural_consultant" id="structural_consultant" class="form-control @error('structural_consultant') is-invalid @enderror" value="{{ old('structural_consultant') }}" placeholder="Enter Structural Consultant">
+                                        @error('structural_consultant')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <label class="col-sm-2"><b>Architect : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="text" name="architect" id="architect" class="form-control @error('architect') is-invalid @enderror" value="{{ old('architect') }}" placeholder="Enter architect">
+                                        @error('architect')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3 p-3">
+                                    <table class="table table-bordered p-3" id="dynamicAmenitiesTable">
+                                        <thead>
+                                            <tr>
+                                                <th><b>Uploaded Gallery Image : <span class="text-danger">*</span></b></th>
+                                                <th><b>Action</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(old('image'))
+                                                @foreach(old('image') as $index => $value)
+                                                    <tr>
+                                                        <td>
+                                                            <input type="file" id="image_{{ $index }}" onchange="previewFiles({{ $index }})" accept=".png, .jpg, .jpeg, .webp" name="image[]" class="form-control @error("image.$index") is-invalid @enderror">
+                                                            <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
+                                                            <br>
+                                                            <small class="text-secondary"><b>Note: Only files in .jpg, .jpeg, .png, .webp format can be uploaded.</b></small>
+                                                            <br>
+                                                            <div id="preview-project-gallery-container-{{ $index }}" style="display: none;">
+                                                                <div id="file-project-gallery-preview-{{ $index }}"></div>
+                                                            </div>
+                                                            @error("image.$index")
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger removeRow"><b>Remove</b></button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td>
+                                                        <input type="file" id="image_0" onchange="previewFiles(0)" accept=".png, .jpg, .jpeg, .webp" name="image[]" class="form-control @error("image.0") is-invalid @enderror">
+                                                        <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
+                                                        <br>
+                                                        <small class="text-secondary"><b>Note: Only files in .jpg, .jpeg, .png, .webp format can be uploaded.</b></small>
+                                                        <br>
+                                                        <div id="preview-project-gallery-container-0" style="display: none;">
+                                                            <div id="file-project-gallery-preview-0"></div>
+                                                        </div>
+                                                        @error("image.0")
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary" id="addRow"><b>Add More</b></button>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
                                 </div>
 
                                 <div class="form-group row mt-4">
                                     <label class="col-md-3"></label>
-                                    <div class="col-md-9" style="project-details: flex; justify-content: flex-end;">
+                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
                                         <a href="{{ route('project-details.index') }}" class="btn btn-danger"><b>Cancel</b></a>&nbsp;&nbsp;
                                         <button type="submit" class="btn btn-success"><b>Submit</b></button>
                                     </div>
@@ -195,5 +290,76 @@ J4C Group | Add Project Details
             }
         });
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        let rowId = $('table#dynamicAmenitiesTable tbody tr').length;
+
+        // Add a new row
+        $('#addRow').click(function () {
+            rowId++;
+            const newRow = `
+                <tr>
+                    <td>
+                        <input type="file" id="image_${rowId}" onchange="previewFiles(${rowId}, 'image')" accept=".png, .jpg, .jpeg, .webp" name="image[]" class="form-control">
+                        <small class="text-secondary"><b>Note: The file size should be less than 2MB.</b></small>
+                        <br>
+                        <small class="text-secondary"><b>Note: Only files in .jpg, .jpeg, .png, .webp format can be uploaded.</b></small>
+                        <br>
+                        <div id="preview-project-gallery-container-${rowId}" style="display: none;">
+                            <div id="file-project-gallery-preview-${rowId}"></div>
+                            <small class="text-danger" id="image-error-${rowId}"></small>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger removeRow">Remove</button>
+                    </td>
+                </tr>`;
+            $('#dynamicAmenitiesTable tbody').append(newRow);
+        });
+
+        // Remove a row
+        $(document).on('click', '.removeRow', function () {
+            $(this).closest('tr').remove();
+        });
+    });
+
+    // Preview image
+    function previewFiles(rowId) {
+        const fileInput = document.getElementById(`image_${rowId}`);
+        const previewContainer = document.getElementById(`preview-project-gallery-container-${rowId}`);
+        const filePreview = document.getElementById(`file-project-gallery-preview-${rowId}`);
+        const file = fileInput.files[0];
+
+        if (!fileInput || !previewContainer || !filePreview) return; // Guard clause
+
+        if (file) {
+            const fileType = file.type;
+            const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            const validPdfTypes = ['application/pdf'];
+
+            if (validImageTypes.includes(fileType)) {
+                // Image preview
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" style="width:120px; height:100px;">`;
+                };
+                reader.readAsDataURL(file);
+            } else if (validPdfTypes.includes(fileType)) {
+                // PDF preview
+                filePreview.innerHTML = `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="100px" />`;
+            } else {
+                // Unsupported file type
+                filePreview.innerHTML = '<p>Unsupported file type</p>';
+                filePreview.innerHTML += `<p>Please select a valid image or PDF file.</p>`;
+            }
+
+            previewContainer.style.display = 'block';
+        } else {
+            // No file selected
+            previewContainer.style.display = 'none';
+        }
+    }
 </script>
 @endpush

@@ -13,7 +13,7 @@ class ProjectDetails extends Model
     protected $fillable = [
         'id',
         'projects_id',
-        'project_slug',
+        'slug',
         'image',
         'built_up_area',
         'it_load',
@@ -39,5 +39,5 @@ class ProjectDetails extends Model
     public function projectName()
     {
         return $this->belongsTo(Projects::class, 'projects_id');
-    }   
+    }
 }
