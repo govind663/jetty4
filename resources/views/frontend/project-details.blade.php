@@ -85,6 +85,7 @@
                                         <h3>{{ $projectDetails->projectName->project_location ?? '' }}</h3>
                                     </div>
                                 @endif
+                            </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
