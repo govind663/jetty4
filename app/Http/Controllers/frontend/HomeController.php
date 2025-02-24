@@ -28,7 +28,11 @@ use App\Models\MediaEvents;
 use App\Models\MediaEventsDetails;
 use App\Models\Projects;
 use App\Models\ProjectDetails;
+use App\Models\ContactUs;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Mail\sendContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -252,6 +256,58 @@ class HomeController extends Controller
         return view('frontend.contact',[
             'contactDetails' => $contactDetails
         ]);
+    }
+
+    // === Store Contact Form
+    public function storeContactForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ], [
+            'name.required' => 'Name is required',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'phone.required' => 'Phone is required',
+            'subject.required' => 'Subject is required',
+            'message.required' => 'Message is required',
+        ]);
+
+        $contactUs = new ContactUs();
+        $contactUs->name = $request->name;
+        $contactUs->email = $request->email;
+        $contactUs->phone = $request->phone;
+        $contactUs->subject = $request->subject;
+        $contactUs->message = $request->message;
+        $contactUs->inserted_at = Carbon::now();
+        $contactUs->save();
+
+        $update = [
+            'inserted_by' => $contactUs->id,
+            'inserted_at' => Carbon::now()
+        ];
+
+        ContactUs::where('id', $contactUs->id)->update($update);
+
+        // Send Mail
+        $mailData = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'message' => $request->messege,
+        ];
+
+        // Send Mail codingthunder1997@gmail.com
+        Mail::to('codingthunder1997@gmail.com', 'J4C Group')
+            ->cc(['shweta@matrixbricks.com'])
+            ->send(new sendContactMail($mailData));
+
+        return redirect()->route('frontend.thank-you')->with('success', 'Your message has been sent successfully');
+
     }
 
     // === Under Construction

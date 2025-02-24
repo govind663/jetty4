@@ -93,31 +93,59 @@
                     <div class="section-title left" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                         <h1>Connect With Our Team</h1>
                     </div>
-                    <form action="#" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
+                    <form method="POST" action="{{ route('frontend.store-contact-form') }}" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="single-input-box">
-                                    <input type="text" name="name" placeholder="Enter Your Name*" required="">
+                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"  placeholder="Enter Your Name*" value="{{ old('name') }}">
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="single-input-box">
-                                    <input type="text" name="Email" placeholder="Enter Your Email*" required="">
+                                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Enter Your Email*" value="{{ old('email') }}">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="single-input-box">
-                                    <input type="text" name="Phone" placeholder="Phone Number*" required="">
+                                    <input type="text" name="phone" id="phone" maxlength="10" class="form-control @error('phone') is-invalid @enderror"  placeholder="Enter Your Phone*" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="single-input-box">
-                                    <input type="text" name="Subject" placeholder="Subject*" required="">
+                                    <input type="text" name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror"  placeholder="Subject*" value="{{ old('subject') }}">
+                                    @error('subject')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="single-input-box">
-                                    <textarea name="Massage" placeholder="Write Message"></textarea>
+                                    <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror"  placeholder="Write Message">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">

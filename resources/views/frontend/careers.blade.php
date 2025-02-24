@@ -170,8 +170,6 @@
                                     <a href="#">Submit</a>
                                 </div>
                             </div>
-
-                        </div>
                         </div>
                     </form>
 
