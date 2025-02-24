@@ -121,7 +121,7 @@ class HomeController extends Controller
     public function projectDetails(Request $request, $project_slug)
     {
         // ===== Projects
-        $projectDetails = ProjectDetails::with('projectName')->where('project_slug', $project_slug)->orderBy("id","desc")->whereNull('deleted_at')->first();
+        $projectDetails = ProjectDetails::with('projectName')->where('slug', $project_slug)->orderBy("id","desc")->whereNull('deleted_at')->first();
         // dd($projectDetails);
 
         // If no project found, redirect back with an error message
