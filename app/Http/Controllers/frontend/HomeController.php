@@ -152,7 +152,8 @@ class HomeController extends Controller
         // dd($projects);
 
         // Project Type Fetch by project_type_id
-        $projectsTypeId = ProjectType::where('id', $project_id)->value('project_type');
+        $projectsTypeName = ProjectType::where('id', $project_id)->pluck('project_type')->first();
+        // dd($projectsTypeName);
 
         // If no project found, redirect back with an error message
         if (!$projects) {
@@ -162,7 +163,7 @@ class HomeController extends Controller
         return view('frontend.projects',[
             'projects' => $projects,
             'projectTypeId' =>  $project_id,
-            'projectTypesId' => $projectsTypeId,
+            'projectsTypeName' => $projectsTypeName,
         ]);
     }
 

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('title')
-    J4C Group | {{ $projectTypesId->projectType->project_type ?? '' }}
+    J4C Group | {{ $projectsTypeName ?? '' }}
 @endsection
 
 @push('styles')
@@ -15,7 +15,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcumb-content">
                         <div class="breadcumb-title">
-                            <h4>{{ $projectTypesId->projectType->project_type ?? '' }}</h4>
+                            <h4>{{ $projectsTypeName ?? '' }}</h4>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="breadcrumb-sub-sec">
                         <ul>
                             <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li>{{ $projectTypesId->projectType->project_type ?? '' }}</li>
+                            <li>{{ $projectsTypeName ?? '' }}</li>
                         </ul>
                     </div>
                 </div>
@@ -123,12 +123,17 @@
                         ->get();
 
                     $projectType = '';
-                    if (!empty($projects->project_status == 1)) {
-                        $projectType = 'Completed Projects';
-                    } elseif (!empty($projects->project_status == 2)) {
-                        $projectType = 'Ongoing Projects';
-                    } elseif (!empty($projects->project_status == 3)) {
-                        $projectType = 'Upcoming Projects';
+
+                    if ($ongoingProjects->isNotEmpty()) {
+                        $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
+
+                        if (isset($statusCounts[1])) {
+                            $projectType = 'Completed Projects';
+                        } elseif (isset($statusCounts[2])) {
+                            $projectType = 'Ongoing Projects';
+                        } elseif (isset($statusCounts[3])) {
+                            $projectType = 'Upcoming Projects';
+                        }
                     }
                 @endphp
 
