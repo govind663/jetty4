@@ -133,15 +133,15 @@
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
-                            @if (!empty($projectDetails->floor))
+                            @if (!empty($projectDetails->developers))
                             <div class="project-info-item">
                                 
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/developers.png') }}" alt="">
                                     </div>
                                     <div class="project-info-content">
-                                        <p>Floor</p>
-                                        <h3>{{ $projectDetails->floor ?? '' }}</h3>
+                                        <p>Developers</p>
+                                        <h3>{{ $projectDetails->developers ?? '' }}</h3>
                                     </div>
                                                                 
                             </div>
@@ -165,7 +165,7 @@
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
-                            @if (!empty($projectDetails->client_company))
+                            @if (!empty($projectDetails->structural_consultant))
                             <div class="project-info-item">
                                 
                                     <div class="icon-box">
