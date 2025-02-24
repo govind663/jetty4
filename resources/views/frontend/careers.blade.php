@@ -84,7 +84,7 @@
                 <div class="col-md-2">
                     <div class="button jd-button" id="button-2" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                         <div id="slide"></div>
-                        <a href="{{ asset('/j4c_Group/current_opening/image' . $value->document_file) }}" target="_blank">Download</a>
+                        <a href="{{ asset('/j4c_Group/about_career/image/' . $value->document_file) }}" target="_blank">Download</a>
                     </div>
                     <div class="button" id="button-2" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                         <div id="slide"></div>
