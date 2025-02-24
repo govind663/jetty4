@@ -5,9 +5,6 @@
 @endsection
 
 @push('styles')
-<!-- Owl Carousel CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 @endpush
 
 @section('content')
@@ -79,85 +76,98 @@
                         <div class="project-info-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/location-icon.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Location</p>
-                                    <h3>{{ $projectDetails->projectName->project_location ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->projectName->project_location))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/location-icon.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Location</p>
+                                        <h3>{{ $projectDetails->projectName->project_location ?? '' }}</h3>
+                                    </div>
+                                @endif
+                            <!-- Portfolio Info Item End -->
+
+                            <!-- Portfolio Info Item Start -->
+                            <div class="project-info-item">
+                                @if (!empty($projectDetails->built_up_area))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/built-up-area.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Built up Area </p>
+                                        <h3>{{ $projectDetails->built_up_area ?? '' }}</h3>
+                                    </div>
+                                @endif
                             </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/built-up-area.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Built up Area </p>
-                                    <h3>{{ $projectDetails->built_up_area ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->it_load))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/it-load.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>IT Load</p>
+                                        <h3>{{ $projectDetails->it_load ?? '' }}</h3>
+                                    </div>
+                                @endif
                             </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/it-load.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>IT Load</p>
-                                    <h3>{{ $projectDetails->it_load ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->floor))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/developers.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Floor</p>
+                                        <h3>{{ $projectDetails->floor ?? '' }}</h3>
+                                    </div>
+                                @endif                                
                             </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/developers.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Developers</p>
-                                    <h3>{{ $projectDetails->developers ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->client_name))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/client-name.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Client Name</p>
+                                        <h3>{{ $projectDetails->client_name ?? '' }}</h3>
+                                    </div>
+                                @endif
                             </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/client-name.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Client Name</p>
-                                    <h3>{{ $projectDetails->client_name ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->client_company))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/structural-consultant.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Structural Consultant</p>
+                                        <h3>{{ $projectDetails->structural_consultant ?? '' }}</h3>
+                                    </div>
+                                @endif
                             </div>
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/structural-consultant.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Structural Consultant</p>
-                                    <h3>{{ $projectDetails->structural_consultant ?? '' }}</h3>
-                                </div>
-                            </div>
-                            <!-- Portfolio Info Item End -->
-
-                            <!-- Portfolio Info Item Start -->
-                            <div class="project-info-item">
-                                <div class="icon-box">
-                                    <img src="{{ asset('frontend/assets/images/icons/architect.png') }}" alt="">
-                                </div>
-                                <div class="project-info-content">
-                                    <p>Architect</p>
-                                    <h3>{{ $projectDetails->architect ?? '' }}</h3>
-                                </div>
+                                @if (!empty($projectDetails->architect))
+                                    <div class="icon-box">
+                                        <img src="{{ asset('frontend/assets/images/icons/architect.png') }}" alt="">
+                                    </div>
+                                    <div class="project-info-content">
+                                        <p>Architect</p>
+                                        <h3>{{ $projectDetails->architect ?? '' }}</h3>
+                                    </div>
+                                @endif
                             </div>
                             <!-- Portfolio Info Item End -->
                         </div>
@@ -231,12 +241,6 @@
 @endsection
 
 @push('scripts')
-<!-- jQuery (Required for Owl Carousel) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
 <script>
     $(document).ready(function() {
         // Main Slider
