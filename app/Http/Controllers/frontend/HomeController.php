@@ -107,6 +107,11 @@ class HomeController extends Controller
                             ->first();
         // dd($projects);
 
+        // If no project found, redirect back with an error message
+        if (!$projects) {
+            return redirect()->back()->with('error', 'Project not found');
+        }
+
         return view('frontend.projects',[
             'projects' => $projects
         ]);
