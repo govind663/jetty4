@@ -63,7 +63,7 @@ class ProjectDetailsController extends Controller
             $projectDetails->image = json_encode($imagePaths);
 
             $projectDetails->projects_id = $request->projects_id;
-            $projectDetails->project_slug = $request->slug;
+            $projectDetails->slug = $request->slug;
             $projectDetails->built_up_area = $request->built_up_area;
             $projectDetails->it_load = $request->it_load;
             $projectDetails->developers = $request->developers;
@@ -155,7 +155,7 @@ class ProjectDetailsController extends Controller
             $projectDetails->image = json_encode(array_unique($allImages)); // Ensure no duplicates
 
             $projectDetails->projects_id = $request->projects_id;
-            $projectDetails->project_slug = $request->slug;
+            $projectDetails->slug = $request->slug;
             $projectDetails->built_up_area = $request->built_up_area;
             $projectDetails->it_load = $request->it_load;
             $projectDetails->developers = $request->developers;
