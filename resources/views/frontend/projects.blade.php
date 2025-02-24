@@ -38,33 +38,34 @@
     </div>
     <!--breadcrumb section end-->
 
+    @php
+        use App\Models\Projects;
+        $completedProjects = Projects::with('projectType')
+            ->where('project_type_id', $projectTypeId)
+            ->where('project_status', 1)
+            ->orderBy('id', 'desc')
+            ->whereNull('deleted_at')
+            ->get();
+
+        $projectsTypes = '';
+
+        if ($completedProjects->isNotEmpty()) {
+            $statusCounts = $completedProjects->groupBy('project_status')->map->count();
+
+            if (isset($statusCounts[1])) {
+                $projectsTypes = 'Completed Projects';
+            } elseif (isset($statusCounts[2])) {
+                $projectsTypes = 'Ongoing Projects';
+            } elseif (isset($statusCounts[3])) {
+                $projectsTypes = 'Upcoming Projects';
+            }
+        }
+    @endphp
+
+    @if(!$completedProjects > 0)
     <div class="data-center-project-main-sec">
         <div class="container">
-            <div class="row">
-                @php
-                    use App\Models\Projects;
-                    $completedProjects = Projects::with('projectType')
-                        ->where('project_type_id', $projectTypeId)
-                        ->where('project_status', 1)
-                        ->orderBy('id', 'desc')
-                        ->whereNull('deleted_at')
-                        ->get();
-
-                    $projectsTypes = '';
-
-                    if ($completedProjects->isNotEmpty()) {
-                        $statusCounts = $completedProjects->groupBy('project_status')->map->count();
-
-                        if (isset($statusCounts[1])) {
-                            $projectsTypes = 'Completed Projects';
-                        } elseif (isset($statusCounts[2])) {
-                            $projectsTypes = 'Ongoing Projects';
-                        } elseif (isset($statusCounts[3])) {
-                            $projectsTypes = 'Upcoming Projects';
-                        }
-                    }
-                @endphp
-
+            <div class="row">            
                 <div class="col-lg-12">
                     <div class="dcpm-title-sec">
                         <h1>{{ $projectsTypes }}</h1>
@@ -109,34 +110,36 @@
             </div>
         </div>
     </div>
+    @endif
 
 
+    @php
+        $ongoingProjects = Projects::with('projectType')
+            ->where('project_type_id', $projectTypeId)
+            ->where('project_status', 2)
+            ->orderBy('id', 'desc')
+            ->whereNull('deleted_at')
+            ->get();
+
+        $projectType = '';
+
+        if ($ongoingProjects->isNotEmpty()) {
+            $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
+
+            if (isset($statusCounts[1])) {
+                $projectType = 'Completed Projects';
+            } elseif (isset($statusCounts[2])) {
+                $projectType = 'Ongoing Projects';
+            } elseif (isset($statusCounts[3])) {
+                $projectType = 'Upcoming Projects';
+            }
+        }
+    @endphp
+
+    @if(!$ongoingProjects > 0)
     <div class="data-center-project-main-sec ongoing-project-listing-sec">
         <div class="container">
-            <div class="row">
-                @php
-                    $ongoingProjects = Projects::with('projectType')
-                        ->where('project_type_id', $projectTypeId)
-                        ->where('project_status', 2)
-                        ->orderBy('id', 'desc')
-                        ->whereNull('deleted_at')
-                        ->get();
-
-                    $projectType = '';
-
-                    if ($ongoingProjects->isNotEmpty()) {
-                        $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
-
-                        if (isset($statusCounts[1])) {
-                            $projectType = 'Completed Projects';
-                        } elseif (isset($statusCounts[2])) {
-                            $projectType = 'Ongoing Projects';
-                        } elseif (isset($statusCounts[3])) {
-                            $projectType = 'Upcoming Projects';
-                        }
-                    }
-                @endphp
-
+            <div class="row">                
                 <div class="col-lg-12">
                     <div class="dcpm-title-sec">
                         <h1>{{ $projectType }}</h1>
@@ -183,6 +186,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 
 @push('scripts')
