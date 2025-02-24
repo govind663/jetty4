@@ -116,6 +116,7 @@
             <div class="row">
                 @php
                     $ongoingProjects = Projects::with('projectType')
+                        ->where('project_type_id', $projectTypeId)
                         ->where('project_status', 2)
                         ->orderBy('id', 'desc')
                         ->whereNull('deleted_at')
