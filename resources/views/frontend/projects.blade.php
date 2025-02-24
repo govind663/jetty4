@@ -44,7 +44,6 @@
                 @php
                     use App\Models\Projects;
                     $completedProjects = Projects::with('projectType')
-                        ->where('id', $projects->id)
                         ->where('project_type_id', $projects->project_type_id)
                         ->where('project_status', 1)
                         ->orderBy('id', 'desc')
@@ -123,12 +122,17 @@
                         ->get();
 
                     $projectType = '';
-                    if (!empty($projects->project_status == 1)) {
-                        $projectType = 'Completed Projects';
-                    } elseif (!empty($projects->project_status == 2)) {
-                        $projectType = 'Ongoing Projects';
-                    } elseif (!empty($projects->project_status == 3)) {
-                        $projectType = 'Upcoming Projects';
+
+                    if ($ongoingProjects->isNotEmpty()) {
+                        $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
+
+                        if (isset($statusCounts[1])) {
+                            $projectType = 'Completed Projects';
+                        } elseif (isset($statusCounts[2])) {
+                            $projectType = 'Ongoing Projects';
+                        } elseif (isset($statusCounts[3])) {
+                            $projectType = 'Upcoming Projects';
+                        }
                     }
                 @endphp
 

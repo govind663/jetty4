@@ -91,7 +91,7 @@ class HomeController extends Controller
                             ->orderBy('id', 'desc')
                             ->whereNull('deleted_at')
                             ->get();
-        
+
         $ongoingProjectsStatus = '';
         if ($ongoingProjects->isNotEmpty()) {
             $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
@@ -144,7 +144,7 @@ class HomeController extends Controller
     {
         // ===== Projects
         $projects = Projects::with('projectType')
-                            ->where('project_type_id', $project_id)
+                            ->where('id', $project_id)
                             ->orderBy("id","desc")
                             ->whereNull('deleted_at')
                             ->first();
