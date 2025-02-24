@@ -62,7 +62,7 @@
         }
     @endphp
 
-    @if(!$completedProjects > 0)
+    @if(!empty($completedProjects) && $completedProjects->count() > 0)
     <div class="data-center-project-main-sec">
         <div class="container">
             <div class="row">            
@@ -136,7 +136,7 @@
         }
     @endphp
 
-    @if(!$ongoingProjects > 0)
+    @if(!empty($ongoingProjects) && $ongoingProjects->count() > 0)
     <div class="data-center-project-main-sec ongoing-project-listing-sec">
         <div class="container">
             <div class="row">                
