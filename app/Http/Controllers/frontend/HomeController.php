@@ -32,6 +32,7 @@ use App\Models\ContactUs;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\sendContactMail;
+use App\Models\ProjectType;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -147,8 +148,11 @@ class HomeController extends Controller
                             ->where('id', $project_id)
                             ->orderBy("id","desc")
                             ->whereNull('deleted_at')
-                            ->first();
+                            ->get();
         // dd($projects);
+
+        // Project Type Fetch by project_type_id
+        $projectsTypeId = ProjectType::where('id', $project_id)->value('project_type');
 
         // If no project found, redirect back with an error message
         if (!$projects) {
@@ -158,6 +162,7 @@ class HomeController extends Controller
         return view('frontend.projects',[
             'projects' => $projects,
             'projectTypeId' =>  $project_id,
+            'projectTypesId' => $projectsTypeId,
         ]);
     }
 

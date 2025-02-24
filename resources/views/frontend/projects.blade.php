@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('title')
-    J4C Group | {{ $projects->projectType->project_type ?? '' }}
+    J4C Group | {{ $projectTypesId->projectType->project_type ?? '' }}
 @endsection
 
 @push('styles')
@@ -15,7 +15,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcumb-content">
                         <div class="breadcumb-title">
-                            <h4>{{ $projects->projectType->project_type ?? '' }}</h4>
+                            <h4>{{ $projectTypesId->projectType->project_type ?? '' }}</h4>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="breadcrumb-sub-sec">
                         <ul>
                             <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li>{{ $projects->projectType->project_type ?? '' }}</li>
+                            <li>{{ $projectTypesId->projectType->project_type ?? '' }}</li>
                         </ul>
                     </div>
                 </div>
