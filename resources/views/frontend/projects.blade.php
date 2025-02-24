@@ -44,6 +44,7 @@
                 @php
                     use App\Models\Projects;
                     $completedProjects = Projects::with('projectType')
+                        ->where('id', $projects->id)
                         ->where('project_type_id', $projects->project_type_id)
                         ->where('project_status', 1)
                         ->orderBy('id', 'desc')

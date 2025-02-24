@@ -65,7 +65,7 @@ J4C Group | Edit Project Details
 
                                     <label class="col-sm-2"><b>Project Slug : <span class="text-danger">*</span></b></label>
                                     <div class="col-sm-4 col-md-4">
-                                        <input type="text" name="slug" id="slug" readonly class="form-control @error('slug') is-invalid @enderror" value="{{ $projectDetails->project_slug }}" placeholder="Enter Event Slug.">
+                                        <input type="text" name="slug" id="slug" readonly class="form-control @error('slug') is-invalid @enderror" value="{{ $projectDetails->slug }}" placeholder="Enter Event Slug.">
                                         @error('slug')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
