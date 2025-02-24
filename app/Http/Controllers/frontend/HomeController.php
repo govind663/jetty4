@@ -156,7 +156,8 @@ class HomeController extends Controller
         }
 
         return view('frontend.projects',[
-            'projects' => $projects
+            'projects' => $projects,
+            'projectTypeId' =>  $project_id,
         ]);
     }
 
