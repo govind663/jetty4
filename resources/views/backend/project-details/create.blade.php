@@ -73,7 +73,7 @@ J4C Group | Add Project Details
 
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2"><b>Built up area : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Built up area : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="built_up_area" id="built_up_area" class="form-control @error('built_up_area') is-invalid @enderror" value="{{ old('built_up_area') }}" placeholder="Enter Built up area">
                                         @error('built_up_area')
@@ -83,7 +83,7 @@ J4C Group | Add Project Details
                                         @enderror
                                     </div>
 
-                                    <label class="col-sm-2"><b>IT Load : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>IT Load : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="it_load" id="it_load" class="form-control @error('it_load') is-invalid @enderror" value="{{ old('it_load') }}" placeholder="Enter IT Load">
                                         @error('it_load')
@@ -95,7 +95,7 @@ J4C Group | Add Project Details
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2"><b>Developers : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Developers : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="developers" id="developers" class="form-control @error('developers') is-invalid @enderror" value="{{ old('developers') }}" placeholder="Enter Developers">
                                         @error('developers')
@@ -105,7 +105,7 @@ J4C Group | Add Project Details
                                         @enderror
                                     </div>
 
-                                    <label class="col-sm-2"><b>Client Name : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Client Name : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="client_name" id="client_name" class="form-control @error('client_name') is-invalid @enderror" value="{{ old('client_name') }}" placeholder="Enter Client Name">
                                         @error('client_name')
@@ -117,7 +117,7 @@ J4C Group | Add Project Details
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2"><b>Structural Consultant : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Structural Consultant : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="structural_consultant" id="structural_consultant" class="form-control @error('structural_consultant') is-invalid @enderror" value="{{ old('structural_consultant') }}" placeholder="Enter Structural Consultant">
                                         @error('structural_consultant')
@@ -127,7 +127,7 @@ J4C Group | Add Project Details
                                         @enderror
                                     </div>
 
-                                    <label class="col-sm-2"><b>Architect : <span class="text-danger">*</span></b></label>
+                                    <label class="col-sm-2"><b>Architect : </b></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="text" name="architect" id="architect" class="form-control @error('architect') is-invalid @enderror" value="{{ old('architect') }}" placeholder="Enter architect">
                                         @error('architect')

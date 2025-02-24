@@ -5,6 +5,8 @@ J4C Group | Home
 @endsection
 
 @push('styles')
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 @endpush
 
 @section('content')
@@ -123,51 +125,29 @@ J4C Group | Home
     <div class="project-area completed-project-area">
         <div class="container">
             <div class="row ongoing_project completed_project">
-                <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6">                              
                     <div class="row">
                         <div class="project-list-1 owl-carousel">
+                            @foreach ($completedProjects as $project)
                             <div class="col-lg-12">
                                 <div class="project_img">
-                                    <img src="frontend/assets/images/projects/data-center-9-chandivali.webp" alt="Data Center 9" width="358"
+                                    <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="{{ $project->image }}" width="358"
                                         height="361" loading="lazy">
                                     <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Data Center 9 </h3>
-                                        <p><i class="fa fa-map-marker"></i> Chandivali, Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
+                                        <h4>{{ $project->projectType->project_type ?? '' }}</h4>
+                                        <h3>{{ $project->project_name ?? '' }}</h3>
+                                        <p><i class="fa fa-map-marker"></i> {{ $project->project_location ?? '' }}</p>
+                                        <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}"><span>&#x2197;</span></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/admin-building-nav-02.webp" alt="Admin Building" width="358"
-                                        height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Admin Building</h3>
-                                        <p><i class="fa fa-map-marker"></i> Airoli, Navi Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/EDGE-DC-KOL-01.webp" alt="Edge DC - KOL 01" width="358"
-                                        height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Edge DC - KOL 01</h3>
-                                        <p><i class="fa fa-map-marker"></i> New Town, Kolkata</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="section-title" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
-                        <h1>Completed Projects</h1>
+                        <h1>{{ $projectsStatus }}</h1>
                         <p>Our accomplished projects highlight our strength, emphasizing a customer-centric approach that
                             defines our commitment to exceeding expectations in every completed construction endeavor.</p>
                     </div>
@@ -181,7 +161,7 @@ J4C Group | Home
             <div class="row ongoing_project">
                 <div class=" col-lg-4 col-md-6">
                     <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
-                        <h1>Ongoing Projects</h1>
+                        <h1>{{ $ongoingProjectsStatus }}</h1>
                         <p>To gain deeper insights into our performance in the current landscape, please explore our current
                             projects in the following slides. These projects exemplify our expertise and showcase our
                             ability.</p>
@@ -190,69 +170,20 @@ J4C Group | Home
                 <div class="col-lg-8 col-md-6">
                     <div class="row">
                         <div class="project-list-1 owl-carousel">
+                            @foreach ($ongoingProjects as $project)
                             <div class="col-lg-12">
                                 <div class="project_img">
-                                    <img src="frontend/assets/images/projects/data-center-10-chandivali.webp" alt="Data Center 10 (DC 10)"
+                                    <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="{{ $project->project_name }}"
                                         width="358" height="361" loading="lazy">
                                     <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Data Center 10 (DC 10)</h3>
-                                        <p><i class="fa fa-map-marker"></i> Chandivali, Mumbai</p>
-                                        <div class="service-button">
-                                            <a href="#"><span>&#x2197;</span></a>
-                                        </div>
+                                        <h4>{{ $project->projectType->project_type ?? '' }}</h4>
+                                        <h3>{{ $project->project_name ?? '' }}</h3>
+                                        <p><i class="fa fa-map-marker"></i> {{ $project->project_location ?? '' }}</p>
+                                        <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}"><span>&#x2197;</span></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/data-center-dc-11.webp" alt="Data Center 11 (DC 11)"
-                                        width="358" height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Data Center 11 (DC 11)</h3>
-                                        <p><i class="fa fa-map-marker"></i> Chandivali, Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/data-center-3-airoli.webp" alt="Data Center 3" width="358"
-                                        height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Data Center 3 </h3>
-                                        <p><i class="fa fa-map-marker"></i> Airoli, Navi Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/bom-10-digital-connexion.webp"
-                                        alt="BOM - 10 (Digital Connexion)" width="358" height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>BOM - 10 (Digital Connexion)</h3>
-                                        <p><i class="fa fa-map-marker"></i> Chandivali, Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="frontend/assets/images/projects/block-d-piramal-agastya-corporate-park.webp"
-                                        alt="Block D, Agastya Piramal Corporate Park" width="358" height="361"
-                                        loading="lazy">
-                                    <div class="project_text">
-                                        <h4>Commercial Project</h4>
-                                        <h3>Block D, Agastya Piramal Corporate Park</h3>
-                                        <p><i class="fa fa-map-marker"></i> Kurla, Mumbai</p>
-                                        <a href="#"><span>&#x2197;</span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -278,7 +209,7 @@ J4C Group | Home
                         {!! $teams->description !!}
                         <div class="button" id="button-2">
                             <div id="slide"></div>
-                            <a href="#">Join Our Team</a>
+                            <a href="{{ route('frontend.careers') }}">Join Our Team</a>
                         </div>
                     </div>
                 </div>
@@ -398,4 +329,5 @@ J4C Group | Home
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 @endpush

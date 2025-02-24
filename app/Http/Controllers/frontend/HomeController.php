@@ -66,6 +66,45 @@ class HomeController extends Controller
         $associate = Associate::orderBy("id","desc")->whereNull('deleted_at')->first(); // Fetch all associates, not just the first
         $associateImages = json_decode($associate->pluck('image')->implode(','), true); // Decode all associate images if necessary
 
+        $completedProjects = Projects::with('projectType')
+                            ->where('project_status', 1)
+                            ->orderBy('id', 'desc')
+                            ->whereNull('deleted_at')
+                            ->get();
+        // dd($completedProjects);
+        $projectsStatus = '';
+
+        if ($completedProjects->isNotEmpty()) {
+            $statusCounts = $completedProjects->groupBy('project_status')->map->count();
+
+            if (isset($statusCounts[1])) {
+                $projectsStatus = 'Completed Projects';
+            } elseif (isset($statusCounts[2])) {
+                $projectsStatus = 'Ongoing Projects';
+            } elseif (isset($statusCounts[3])) {
+                $projectsStatus = 'Upcoming Projects';
+            }
+        }
+
+        $ongoingProjects = Projects::with('projectType')
+                            ->where('project_status', 2)
+                            ->orderBy('id', 'desc')
+                            ->whereNull('deleted_at')
+                            ->get();
+        
+        $ongoingProjectsStatus = '';
+        if ($ongoingProjects->isNotEmpty()) {
+            $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
+
+            if (isset($statusCounts[1])) {
+                $ongoingProjectsStatus = 'Completed Projects';
+            } elseif (isset($statusCounts[2])) {
+                $ongoingProjectsStatus = 'Ongoing Projects';
+            } elseif (isset($statusCounts[3])) {
+                $ongoingProjectsStatus = 'Upcoming Projects';
+            }
+        }
+
         return view('frontend.home', [
             'banners' => $banners,
             'statistics' => $statistics,
@@ -77,7 +116,11 @@ class HomeController extends Controller
             'clients' => $clients, // Pass all clients to the view
             'clientsImages' => $clientsImages,
             'associate' => $associate, // Pass all associates to the view
-            'associateImages' => $associateImages
+            'associateImages' => $associateImages,
+            'completedProjects' => $completedProjects,
+            'projectsStatus' => $projectsStatus,
+            'ongoingProjects' => $ongoingProjects,
+            'ongoingProjectsStatus' => $ongoingProjectsStatus,
         ]);
     }
 

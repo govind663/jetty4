@@ -26,24 +26,24 @@ class ProjectDetailsRequest extends FormRequest
                 'image.*' => ['nullable', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
                 'projects_id' => ['required', 'string', 'max:255'],
                 'slug' => ['required', 'string', 'max:255'],
-                'built_up_area' => ['required', 'string', 'max:255'],
-                'it_load' => ['required', 'string', 'max:255'],
-                'developers' => ['required', 'string', 'max:255'],
-                'client_name' => ['required', 'string', 'max:255'],
-                'structural_consultant' => ['required', 'string', 'max:255'],
-                'architect' => ['required', 'string', 'max:255'],
+                'built_up_area' => ['nullable', 'string', 'max:255'],
+                'it_load' => ['nullable', 'string', 'max:255'],
+                'developers' => ['nullable', 'string', 'max:255'],
+                'client_name' => ['nullable', 'string', 'max:255'],
+                'structural_consultant' => ['nullable', 'string', 'max:255'],
+                'architect' => ['nullable', 'string', 'max:255'],
             ];
         }else{
             $rule = [
                 'image.*' => ['required', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
                 'projects_id' => ['required', 'string', 'max:255'],
                 'slug' => ['required', 'string', 'max:255'],
-                'built_up_area' => ['required', 'string', 'max:255'],
-                'it_load' => ['required', 'string', 'max:255'],
-                'developers' => ['required', 'string', 'max:255'],
-                'client_name' => ['required', 'string', 'max:255'],
-                'structural_consultant' => ['required', 'string', 'max:255'],
-                'architect' => ['required', 'string', 'max:255'],
+                'built_up_area' => ['nullable', 'string', 'max:255'],
+                'it_load' => ['nullable', 'string', 'max:255'],
+                'developers' => ['nullable', 'string', 'max:255'],
+                'client_name' => ['nullable', 'string', 'max:255'],
+                'structural_consultant' => ['nullable', 'string', 'max:255'],
+                'architect' => ['nullable', 'string', 'max:255'],
             ];
         }
         return $rule;
