@@ -52,26 +52,35 @@
                 <div class="col-lg-8">
                     <!-- Project Single Content Start -->
                     <div class="product-shop-detail-wrapper">
+                        @php
+                            $images = $projectDetails->image;
+                            $uniqueImages = array_unique($images);
+                        @endphp
+                
                         <!-- Main Slider -->
-                        <div class="owl-carousel main-slider pro-details-slider-sec">
-                            @foreach ($projectDetails->image as $key => $projectImage)
-                                <div class="pro-detail-magic-zoom">
-                                    <img src="{{ asset('/j4c_Group/project_details/image/' . $projectImage) }}" alt="{{ $projectImage }}">
+                        @if(count($uniqueImages) > 0)
+                            <div class="owl-carousel main-slider pro-details-slider-sec">
+                                @foreach ($uniqueImages as $projectImage)
+                                    <div class="pro-detail-magic-zoom">
+                                        <img src="{{ asset('/j4c_Group/project_details/image/' . $projectImage) }}" alt="{{ $projectImage }}">
+                                    </div>
+                                @endforeach
+                            </div>
+                
+                            <!-- Thumbnail Slider (Only Show If More Than One Unique Image) -->
+                            @if(count($uniqueImages) > 1)
+                                <div class="owl-carousel thumbnail-slider pro-details-thumbnail-nav-sec">
+                                    @foreach ($uniqueImages as $projectImage)
+                                        <div class="pro-details-thum-sec">
+                                            <img src="{{ asset('/j4c_Group/project_details/image/' . $projectImage) }}" alt="{{ $projectImage }}">
+                                        </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
-
-                        <!-- Thumbnail Slider -->
-                        <div class="owl-carousel thumbnail-slider pro-details-thumbnail-nav-sec">
-                            @foreach ($projectDetails->image as $key => $projectImage)
-                                <div class="pro-details-thum-sec">
-                                    <img src="{{ asset('/j4c_Group/project_details/image/' . $projectImage) }}" alt="{{ $projectImage }}">
-                                </div>
-                            @endforeach
-                        </div>
+                            @endif
+                        @endif
                     </div>
                     <!-- Project Single Content End -->
-                </div>
+                </div>                
 
                 <div class="col-lg-4">
                     <!-- Project Sidebar Start -->
