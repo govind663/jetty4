@@ -26,4 +26,10 @@ class ProjectType extends Model
         'modified_at',
         'deleted_at',
     ];
+
+    // Define relationship with Projects model
+    public function projects()
+    {
+        return $this->hasMany(Projects::class, 'project_type_id', 'id');
+    }
 }

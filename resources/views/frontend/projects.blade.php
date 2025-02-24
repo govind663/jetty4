@@ -43,8 +43,11 @@
             <div class="row">
                 @php
                     use App\Models\Projects;
+                    use App\Models\ProjectType;
+
+                    $projectTypes = ProjectType::orderBy("id","desc")->whereNull('deleted_at')->get();
+
                     $completedProjects = Projects::with('projectType')
-                        ->where('id', $projects->id)
                         ->where('project_type_id', $projects->project_type_id)
                         ->where('project_status', 1)
                         ->orderBy('id', 'desc')
@@ -111,75 +114,67 @@
         </div>
     </div>
 
-
     <div class="data-center-project-main-sec ongoing-project-listing-sec">
         <div class="container">
             <div class="row">
                 @php
-                    $ongoingProjects = Projects::with('projectType')
-                        ->where('project_status', 2)
-                        ->orderBy('id', 'desc')
-                        ->whereNull('deleted_at')
-                        ->get();
+                    // Fetch all project types with their associated projects
+                    $projectTypes = ProjectType::with(['projects' => function ($query) {
+                        $query->whereNull('deleted_at')->orderBy('id', 'desc');
+                    }])->whereNull('deleted_at')->orderBy('id', 'desc')->get();
 
-                    $projectType = '';
+                    // Flatten all projects into a single collection
+                    $allProjects = $projectTypes->pluck('projects')->flatten();
 
-                    if ($ongoingProjects->isNotEmpty()) {
-                        $statusCounts = $ongoingProjects->groupBy('project_status')->map->count();
+                    // Filter Completed, Ongoing, and Upcoming Projects
+                    $completedProjects = $allProjects->where('project_status', 1);
+                    $ongoingProjects = $allProjects->where('project_status', 2);
+                    $upcomingProjects = $allProjects->where('project_status', 3);
 
-                        if (isset($statusCounts[1])) {
-                            $projectType = 'Completed Projects';
-                        } elseif (isset($statusCounts[2])) {
-                            $projectType = 'Ongoing Projects';
-                        } elseif (isset($statusCounts[3])) {
-                            $projectType = 'Upcoming Projects';
-                        }
+                    // Determine Project Category Title
+                    $projectsTypes = '';
+                    if ($completedProjects->isNotEmpty()) {
+                        $projectsTypes = 'Completed Projects';
+                    } elseif ($ongoingProjects->isNotEmpty()) {
+                        $projectsTypes = 'Ongoing Projects';
+                    } elseif ($upcomingProjects->isNotEmpty()) {
+                        $projectsTypes = 'Upcoming Projects';
                     }
                 @endphp
 
-                <div class="col-lg-12">
-                    <div class="dcpm-title-sec">
-                        <h1>{{ $projectType }}</h1>
+
+                @if ($completedProjects->isNotEmpty())
+                    <div class="col-lg-12">
+                        <div class="dcpm-title-sec">
+                            <h1>{{ $projectsTypes }}</h1>
+                        </div>
                     </div>
-                </div>
 
-                @foreach ($ongoingProjects as $key => $value)
-                    <div class="col-lg-4 col-md-6">
-                        <!-- Project Item Start -->
-                        <div class="data-center-project-item-sec">
-                            <!-- Project Image Start -->
-                            <div class="data-center-project-image-sec">
-                                <a href="{{ route('frontend.project-details', ['project_slug' => $value->slug]) }}">
-                                    <figure>
-                                        <img src="{{ asset('/j4c_Group/projects/image/' . $value->image) }}" alt="">
-                                    </figure>
-                                </a>
-                            </div>
-                            <!-- Project Image End -->
-
-                            <!-- Project Body Start -->
-                            <div class="data-center-project-body-sec">
-                                <!-- Project Body Title Start -->
-                                <div class="data-center-project-title-sec">
-                                    <h3>{{ $value->project_name ?? '' }}</h3>
+                    @foreach ($completedProjects as $project)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="data-center-project-item-sec">
+                                <div class="data-center-project-image-sec">
+                                    <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}">
+                                        <figure>
+                                            <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="">
+                                        </figure>
+                                    </a>
                                 </div>
-                                <!-- Project Body Title End -->
-
-                                <!-- Project Content Start -->
-                                <div class="data-center-project-content-sec">
-                                    <p>{{ $value->project_location ?? '' }}</p>
-                                    <div class="data-center-project-content-footer-sec">
-                                        <a href="{{ route('frontend.project-details', ['project_slug' => $value->slug]) }}" class="readmore-btn">view more</a>
+                                <div class="data-center-project-body-sec">
+                                    <div class="data-center-project-title-sec">
+                                        <h3>{{ $project->project_name ?? '' }}</h3>
+                                    </div>
+                                    <div class="data-center-project-content-sec">
+                                        <p>{{ $project->project_location ?? '' }}</p>
+                                        <div class="data-center-project-content-footer-sec">
+                                            <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}" class="readmore-btn">view more</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Project Content End -->
                             </div>
-                            <!-- Project Body End -->
                         </div>
-                        <!-- Project Item End -->
-                    </div>
-                @endforeach
-
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
