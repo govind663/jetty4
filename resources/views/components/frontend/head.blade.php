@@ -13,6 +13,14 @@
 <meta name="csrf-token" content="content">
 <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
 
+{{-- Robots Meta Tags --}}
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+@if(Route::currentRouteName() === 'frontend.home' || Route::currentRouteName() === 'frontend.about-us' || Route::currentRouteName() === 'frontend.projects' || Route::currentRouteName() === 'frontend.frontend.project-details' || Route::currentRouteName() === 'frontend.mission-vision' || Route::currentRouteName() === 'frontend.contact' || Route::currentRouteName() === 'frontend.mission-vision' || Route::currentRouteName() === 'frontend.awards-certifications' || Route::currentRouteName() === 'frontend.our-usp' || Route::currentRouteName() === 'frontend.sustainability' || Route::currentRouteName() === 'frontend.careers' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.careers-details' || Route::currentRouteName() === 'frontend.media-events' || Route::currentRouteName() === 'frontend.media-events-details')
+{{-- Canonical URL --}}
+<link rel="canonical" href="{{ Request::url() }}" />
+@endif
+
 {{-- Title --}}
 <title>@yield('title')</title>
 
