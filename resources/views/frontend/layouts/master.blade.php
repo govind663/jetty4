@@ -22,7 +22,7 @@
 
     <!-- Start Main Content  -->
     @yield('content')
-    <!-- End Main Content  -->    
+    <!-- End Main Content  -->
 
     <!-- Footer Start -->
     <x-frontend.footer />

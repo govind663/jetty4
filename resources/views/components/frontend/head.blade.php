@@ -17,18 +17,18 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
 @if(in_array(Route::currentRouteName(), [
-    'frontend.home', 
-    'frontend.about-us', 
-    'frontend.projects', 
-    'frontend.project-details', 
-    'frontend.mission-vision', 
-    'frontend.contact', 
-    'frontend.awards-certifications', 
-    'frontend.our-usp', 
-    'frontend.sustainability', 
-    'frontend.careers', 
-    'frontend.careers-details', 
-    'frontend.media-events', 
+    'frontend.home',
+    'frontend.about-us',
+    'frontend.projects',
+    'frontend.project-details',
+    'frontend.mission-vision',
+    'frontend.contact',
+    'frontend.awards-certifications',
+    'frontend.our-usp',
+    'frontend.sustainability',
+    'frontend.careers',
+    'frontend.careers-details',
+    'frontend.media-events',
     'frontend.media-events-details'
 ]))
     {{-- Get the slug if available --}}
@@ -50,6 +50,9 @@
 
 {{-- Font Awesome --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+
+{{-- Google Fonts --}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" type="text/css" media="all">
 
 <!-- bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" type="text/css" media="all">
