@@ -64,6 +64,49 @@
 
 </IfModule>
 
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "no-referrer"
+    Header set Feature-Policy "geolocation 'self'; midi 'self'; sync-xhr 'self'; microphone 'self'; camera 'self'; magnetometer 'self'; gyroscope 'self'; speaker 'self'; fullscreen 'self'; payment 'self';"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; connect-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; media-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; object-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# === improve page speed ===
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript
+</IfModule>
+
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.
 # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
