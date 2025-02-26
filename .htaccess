@@ -86,7 +86,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/css application/json app
 # For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
 <IfModule php8_module>
    php_flag display_errors Off
-   php_value max_execution_time 60
+   php_value max_execution_time 4000
    php_value max_input_time 120
    php_value max_input_vars 2000
    php_value memory_limit 256M
@@ -98,7 +98,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/css application/json app
 </IfModule>
 <IfModule lsapi_module>
    php_flag display_errors Off
-   php_value max_execution_time 60
+   php_value max_execution_time 400
    php_value max_input_time 120
    php_value max_input_vars 2000
    php_value memory_limit 256M

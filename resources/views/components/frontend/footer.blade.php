@@ -61,15 +61,21 @@
                     </div>
                     <div class="footer-widget-menu">
                         <ul>
-                            <li><a href="about-us.html"><i class="fa fa-angle-right"></i>About J4C</a></li>
-                            <li><a href="our-usp.html"><i class="fa fa-angle-right"></i>Our USP</a></li>
-                            <li><a href="sustainability.html"><i class="fa fa-angle-right"></i>Sustainability</a></li>
-                            <li><a href="careers.html"><i class="fa fa-angle-right"></i>Careers</a></li>
-                            <li><a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a></li>
+                            <li><a href="{{ route('frontend.about-us') }}"><i class="fa fa-angle-right"></i>About J4C</a></li>
+                            <li><a href="{{ route('frontend.our-usp') }}"><i class="fa fa-angle-right"></i>Our USP</a></li>
+                            <li><a href="{{ route('frontend.sustainability') }}"><i class="fa fa-angle-right"></i>Sustainability</a></li>
+                            <li><a href="{{ route('frontend.careers') }}"><i class="fa fa-angle-right"></i>Careers</a></li>
+                            <li><a href="{{ route('frontend.contact-us') }}"><i class="fa fa-angle-right"></i>Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+            @php
+                use App\Models\ProjectType;
+
+                $project_types = ProjectType::orderBy("id","asc")->whereNull('deleted_at')->get();
+            @endphp
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-widget-content">
                     <div class="footer-widget-title">
@@ -77,10 +83,14 @@
                     </div>
                     <div class="footer-widget-menu">
                         <ul>
-                            <li><a href="data-center-projects.html"><i class="fa fa-angle-right"></i>Data Center
-                                    Projects</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Commercial Projects</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Residential Projects</a></li>
+                            @foreach($project_types as $project_type)
+                                <li>
+                                    <a href="{{ route('frontend.projects', ['project_id' => $project_type->id]) }}">
+                                        <i class="fa fa-angle-right"></i>
+                                        {{ $project_type->project_type }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
