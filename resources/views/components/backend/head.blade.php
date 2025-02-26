@@ -68,7 +68,7 @@
 <!-- Summernot CSS -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 
-<!-- Toaster Message -->
-<script src="{{ asset('toaster/js/jquery.min.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('toaster/css/toastr.min.css') }}" />
-<script src="{{ asset('toaster/js/toastr.min.js') }}"></script>
+<!-- Toaster CSS / JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

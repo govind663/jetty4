@@ -57,10 +57,10 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}">
 
-    <!-- Toaster Message -->
-    <script src="{{ asset('toaster/js/jquery.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('toaster/css/toastr.min.css') }}" />
-    <script src="{{ asset('toaster/js/toastr.min.js') }}"></script>
+    <!-- Toaster CSS / JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 </head>
 
