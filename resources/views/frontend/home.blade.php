@@ -125,7 +125,7 @@ J4C Group | Home
     <div class="project-area completed-project-area">
         <div class="container">
             <div class="row ongoing_project completed_project">
-                <div class="col-lg-8 col-md-6">                              
+                <div class="col-lg-8 col-md-6">
                     <div class="row">
                         <div class="project-list-1 owl-carousel">
                             @foreach ($completedProjects as $project)
