@@ -65,7 +65,7 @@
                             <li><a href="{{ route('frontend.our-usp') }}"><i class="fa fa-angle-right"></i>Our USP</a></li>
                             <li><a href="{{ route('frontend.sustainability') }}"><i class="fa fa-angle-right"></i>Sustainability</a></li>
                             <li><a href="{{ route('frontend.careers') }}"><i class="fa fa-angle-right"></i>Careers</a></li>
-                            <li><a href="{{ route('frontend.contact-us') }}"><i class="fa fa-angle-right"></i>Contact Us</a></li>
+                            <li><a href="{{ route('frontend.contact') }}"><i class="fa fa-angle-right"></i>Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
