@@ -19,8 +19,37 @@ class PageSpeedOptimization
 
         // Ensure the response is valid HTML
         if ($response instanceof Response && strpos($response->headers->get('Content-Type'), 'text/html') !== false) {
+            
             $output = $response->getContent();
+            $output = str_replace(['<html ', '<head ', '<body '], ['<html data-turbo-permanent="true" ', '<head ', '<body '], $output);
 
+            // Optimize HTML by removing unnecessary attributes
+            $output = preg_replace('/(width|height|background|src|href|style|data|aria|role|tabindex|on|onload|onerror|onfocus|onblur)="[^"]*"/', '', $output);
+            $output = preg_replace('/(<script[^>]*>)(.*?)(<\/script>)/is', '$1$3', $output);
+            $output = preg_replace('/(<style[^>]*>)(.*?)(<\/style>)/is', '$1$3', $output);
+            $output = preg_replace('/(<link[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<img[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<form[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<input[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<button[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<select[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<textarea[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<iframe[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<audio[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<video[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<object[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<embed[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<param[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<source[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<track[^>]*>)/is', '', $output);    
+            $output = preg_replace('/(<canvas[^>]*>)/is', '', $output);    
+            $output = preg_replace('/(<svg[^>]*>)/is', '', $output);    
+            $output = preg_replace('/(<math[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<path[^>]*>)/is', '', $output);
+            $output = preg_replace('/(<svg[^>]*>)/is', '', $output);
+            $output = preg_replace('/<meta[^>]*>/is', '', $output);
+            $output = preg_replace('/<base[^>]*>/is', '', $output);
+            $output = preg_replace('/<noscript[^>]*>/is', '', $output);
 
             // Optimize HTML by removing unnecessary spaces, comments, and quotes
             $output = preg_replace([
