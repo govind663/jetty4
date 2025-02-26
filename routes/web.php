@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\PreventBackHistoryMiddleware;
 use App\Http\Middleware\PreventCitizenBackHistoryMiddleware;
+use App\Http\Middleware\PageSpeedOptimization;
 
 // ===== Frontend Controllers
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
@@ -53,7 +54,7 @@ Route::get('/login', function () {
 
 
 // ==== Frontend
-Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddleware::class]],function(){
+Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddleware::class, PageSpeedOptimization::class]],function(){
 
     // ==== Home
     Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.home');
@@ -117,7 +118,7 @@ Route::get('admin/reset-password/{token}', [ResetPasswordController::class, 'sho
 Route::post('admin/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('admin.password.update');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHistoryMiddleware::class]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHistoryMiddleware::class, PageSpeedOptimization::class]], function () {
 
     // ===== Admin Dashboard
     Route::get('home', [HomeController::class, 'adminHome'])->name('admin.dashboard');
