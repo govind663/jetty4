@@ -85,7 +85,7 @@
                         <ul>
                             @foreach($project_types as $project_type)
                                 <li>
-                                    <a href="{{ route('frontend.projects', ['project_id' => $project_type->id]) }}">
+                                    <a href="{{ route('frontend.projects', ['slug' => $project_type->slug]) }}">
                                         <i class="fa fa-angle-right"></i>
                                         {{ $project_type->project_type }}
                                     </a>

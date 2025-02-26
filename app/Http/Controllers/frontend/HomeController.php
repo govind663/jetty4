@@ -141,8 +141,11 @@ class HomeController extends Controller
     }
 
     // ==== Projects
-    public function projects(Request $request, $project_id)
+    public function projects(Request $request, $slug)
     {
+
+        $project_id = ProjectType::where('slug', $slug)->pluck('id')->first();
+
         // ===== Projects
         $projects = Projects::with('projectType')
                             ->where('id', $project_id)

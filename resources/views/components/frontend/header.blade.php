@@ -29,7 +29,7 @@
                             <a href="Javascript:void(0)">Projects<i class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
                                 @foreach($project_types as $project_type)
-                                    <li><a href="{{ route('frontend.projects', ['project_id' => $project_type->id]) }}">{{ $project_type->project_type }}</a></li>
+                                    <li><a href="{{ route('frontend.projects', ['slug' => $project_type->slug]) }}">{{ $project_type->project_type }}</a></li>
                                 @endforeach
                             </ul>
                         </li>

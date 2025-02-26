@@ -61,7 +61,7 @@ Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddlewar
     Route::get('about-us', [FrontendHomeController::class, 'aboutUs'])->name('frontend.about-us');
 
     // ==== Projects
-    Route::get('projects/{project_id}', [FrontendHomeController::class, 'projects'])->name('frontend.projects');
+    Route::get('projects/{slug}', [FrontendHomeController::class, 'projects'])->name('frontend.projects');
 
     // ==== Project Details
     Route::get('project-details/{project_slug}', [FrontendHomeController::class, 'projectDetails'])->name('frontend.project-details');
