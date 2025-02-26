@@ -25,8 +25,8 @@
 <script src="{{ asset('backend/assets/js/chart/apex-chart/stock-prices.js') }}"></script> --}}
 
 <!-- Range Slider js-->
-<script src="{{ asset('backend/assets/js/range-slider/rSlider.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/rangeslider/rangeslider.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/js/range-slider/rSlider.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/rangeslider/rangeslider.js') }}"></script> --}}
 <script src="{{ asset('backend/assets/js/prism/prism.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/clipboard/clipboard.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/counter/jquery.waypoints.min.js') }}"></script>
