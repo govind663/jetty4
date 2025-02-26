@@ -137,6 +137,7 @@
                 {{-- Projects --}}
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'project-type.index') || (Route::currentRouteName() === 'project-type.create') || (Route::currentRouteName() === 'project-type.edit')
+                        || (Route::currentRouteName() === 'project-status-details.index') || (Route::currentRouteName() === 'project-status-details.create') || (Route::currentRouteName() === 'project-status-details.edit')
                         || (Route::currentRouteName() === 'projects.index') || (Route::currentRouteName() === 'projects.create') || (Route::currentRouteName() === 'projects.edit')
                         || (Route::currentRouteName() === 'project-details.index') || (Route::currentRouteName() === 'project-details.create') || (Route::currentRouteName() === 'project-details.edit')
                         ? 'active' : '' }}" href="javascript:void(0)">
@@ -149,6 +150,8 @@
                         <li>
                             <a href="{{ route('project-type.index') }}" class="{{ (Route::currentRouteName() === 'project-type.index') || (Route::currentRouteName() === 'project-type.create') || (Route::currentRouteName() === 'project-type.edit') ? 'active' : '' }}">Project Type</a>
                         </li>
+                        <li>
+                            <a href="{{ route('project-status-details.index') }}" class="{{ (Route::currentRouteName() === 'project-status-details.index') || (Route::currentRouteName() === 'project-status-details.create') || (Route::currentRouteName() === 'project-status-details.edit') ? 'active' : '' }}">Project Status Details</a>
                         <li>
                             <a href="{{ route('projects.index') }}" class="{{ (Route::currentRouteName() === 'projects.index') || (Route::currentRouteName() === 'projects.create') || (Route::currentRouteName() === 'projects.edit') ? 'active' : '' }}">Project</a>
                         </li>

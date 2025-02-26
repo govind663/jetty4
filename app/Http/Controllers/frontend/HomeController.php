@@ -33,6 +33,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\sendContactMail;
 use App\Models\ProjectType;
+use App\Models\ProjectStatusDetails;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -106,6 +107,9 @@ class HomeController extends Controller
             }
         }
 
+        // ===== Fetching Project Status Details
+        $projectStatusDetails = ProjectStatusDetails::orderBy("id","desc")->whereNull('deleted_at')->get();
+
         return view('frontend.home', [
             'banners' => $banners,
             'statistics' => $statistics,
@@ -122,6 +126,7 @@ class HomeController extends Controller
             'projectsStatus' => $projectsStatus,
             'ongoingProjects' => $ongoingProjects,
             'ongoingProjectsStatus' => $ongoingProjectsStatus,
+            'projectStatusDetails' => $projectStatusDetails,
         ]);
     }
 

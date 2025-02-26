@@ -40,6 +40,7 @@ use App\Http\Controllers\backend\MediaEventsDetailsController;
 use App\Http\Controllers\backend\ProjectTypeController;
 use App\Http\Controllers\backend\ProjectsController;
 use App\Http\Controllers\backend\ProjectDetailsController;
+use App\Http\Controllers\backend\ProjectStatusDetailsController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -203,6 +204,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Projects Management
     Route::resource('projects', ProjectsController::class);
+
+    // ==== Projects Status Details Management
+    Route::resource('project-status-details', ProjectStatusDetailsController::class);
 
     // ==== Project Details Management
     Route::resource('project-details', ProjectDetailsController::class);

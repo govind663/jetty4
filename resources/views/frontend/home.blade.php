@@ -129,18 +129,18 @@ J4C Group | Home
                     <div class="row">
                         <div class="project-list-1 owl-carousel">
                             @foreach ($completedProjects as $project)
-                            <div class="col-lg-12">
-                                <div class="project_img">
-                                    <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="{{ $project->image }}" width="358"
-                                        height="361" loading="lazy">
-                                    <div class="project_text">
-                                        <h4>{{ $project->projectType->project_type ?? '' }}</h4>
-                                        <h3>{{ $project->project_name ?? '' }}</h3>
-                                        <p><i class="fa fa-map-marker"></i> {{ $project->project_location ?? '' }}</p>
-                                        <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}"><span>&#x2197;</span></a>
+                                <div class="col-lg-12">
+                                    <div class="project_img">
+                                        <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="{{ $project->image }}" width="358"
+                                            height="361" loading="lazy">
+                                        <div class="project_text">
+                                            <h4>{{ $project->projectType->project_type ?? '' }}</h4>
+                                            <h3>{{ $project->project_name ?? '' }}</h3>
+                                            <p><i class="fa fa-map-marker"></i> {{ $project->project_location ?? '' }}</p>
+                                            <a href="{{ route('frontend.project-details', ['project_slug' => $project->slug]) }}"><span>&#x2197;</span></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -148,8 +148,11 @@ J4C Group | Home
                 <div class="col-lg-4 col-md-6">
                     <div class="section-title" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $projectsStatus }}</h1>
-                        <p>Our accomplished projects highlight our strength, emphasizing a customer-centric approach that
-                            defines our commitment to exceeding expectations in every completed construction endeavor.</p>
+                        @foreach ($projectStatusDetails as $key => $value)
+                            @if($value->id == '1')
+                            {!! $value->description !!}
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -162,9 +165,11 @@ J4C Group | Home
                 <div class=" col-lg-4 col-md-6">
                     <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $ongoingProjectsStatus }}</h1>
-                        <p>To gain deeper insights into our performance in the current landscape, please explore our current
-                            projects in the following slides. These projects exemplify our expertise and showcase our
-                            ability.</p>
+                        @foreach ($projectStatusDetails as $key => $value)
+                            @if($value->id == '2')
+                            {!! $value->description !!}
+                            @endif
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
