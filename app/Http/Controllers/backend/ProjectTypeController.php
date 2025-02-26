@@ -43,6 +43,7 @@ class ProjectTypeController extends Controller
             $project_types = new ProjectType();
 
             $project_types->project_type = $request->project_type;
+            $project_types->slug = $request->slug;
             $project_types->inserted_at = Carbon::now();
             $project_types->inserted_by = Auth::user()->id;
             $project_types->save();
@@ -87,6 +88,7 @@ class ProjectTypeController extends Controller
             $project_types = ProjectType::find($id);
 
             $project_types->project_type = $request->project_type;
+            $project_types->slug = $request->slug;
             $project_types->modified_at = Carbon::now();
             $project_types->modified_by = Auth::user()->id;
             $project_types->save();

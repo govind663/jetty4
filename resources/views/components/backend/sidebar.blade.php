@@ -23,7 +23,7 @@
             <ul class="sidebar-links" id="simple-bar">
                 <li class="back-btn">
                     <a href="{{ route('admin.dashboard') }}">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/logo/lwhite-logo-mobile.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/logo/white-logo-mobile.png') }}" alt="">
                     </a>
                     <div class="mobile-back text-end">
                         <span>Back </span>

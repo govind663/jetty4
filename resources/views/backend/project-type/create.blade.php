@@ -55,6 +55,16 @@ J4C Group | Add Project Type
                                         </span>
                                         @enderror
                                     </div>
+
+                                    <label class="col-sm-2"><b>Slug : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="text" name="slug" id="slug" readonly class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" placeholder="Enter Slug.">
+                                        @error('slug')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="form-group row mt-4">
@@ -77,4 +87,16 @@ J4C Group | Add Project Type
 @endsection
 
 @push('scripts')
+{{-- Project Type Slug --}}
+<script>
+    document.getElementById('project_type').addEventListener('input', function () {
+        const project_type = this.value;
+        const slug = project_type
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '') // Remove invalid characters
+            .trim()                       // Remove whitespace from both sides
+            .replace(/\s+/g, '-');        // Replace spaces with dashes
+        document.getElementById('slug').value = slug;
+    });
+</script>
 @endpush

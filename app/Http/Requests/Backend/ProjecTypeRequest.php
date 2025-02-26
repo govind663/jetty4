@@ -24,10 +24,12 @@ class ProjecTypeRequest extends FormRequest
         if ($this->id){
             $rule = [
                 'project_type' => ['required', 'string', 'max:255'],
+                'slug' => ['required', 'string', 'max:255'],
             ];
         }else{
             $rule = [
                 'project_type' => ['required', 'string', 'max:255'],
+                'slug' => ['required', 'string', 'max:255'],
             ];
         }
         return $rule;
@@ -39,6 +41,10 @@ class ProjecTypeRequest extends FormRequest
             'project_type.required' => 'Project Type is required',
             'project_type.string' => 'Project Type must be a string',
             'project_type.max' => 'Project Type must not be greater than 255 characters',
+
+            'slug.required' => 'Slug is required',
+            'slug.string' => 'Slug must be a string',
+            'slug.max' => 'Slug must not be greater than 255 characters',
         ];
     }
 }
