@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(PreventCitizenBackHistoryMiddleware::class);
 
         // ==== PageSpeedOptimizationMiddleware
-        $middleware->append(PageSpeedOptimization::class);
+        // $middleware->append(PageSpeedOptimization::class);
 
     })
     ->withExceptions(function (Exceptions $exceptions) {

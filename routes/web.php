@@ -54,7 +54,7 @@ Route::get('/login', function () {
 
 
 // ==== Frontend
-Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddleware::class, PageSpeedOptimization::class]],function(){
+Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddleware::class]],function(){
 
     // ==== Home
     Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.home');
@@ -118,7 +118,7 @@ Route::get('admin/reset-password/{token}', [ResetPasswordController::class, 'sho
 Route::post('admin/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('admin.password.update');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHistoryMiddleware::class, PageSpeedOptimization::class]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHistoryMiddleware::class]], function () {
 
     // ===== Admin Dashboard
     Route::get('home', [HomeController::class, 'adminHome'])->name('admin.dashboard');

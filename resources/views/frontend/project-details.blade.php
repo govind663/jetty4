@@ -54,9 +54,9 @@
                     <div class="product-shop-detail-wrapper">
                         @php
                             $images = $projectDetails->image;
-                            $uniqueImages = array_unique($images);
+                            $uniqueImages = $images;
                         @endphp
-                
+
                         <!-- Main Slider -->
                         @if(count($uniqueImages) > 0)
                             <div class="owl-carousel main-slider pro-details-slider-sec">
@@ -66,7 +66,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                
+
                             <!-- Thumbnail Slider (Only Show If More Than One Unique Image) -->
                             @if(count($uniqueImages) > 1)
                                 <div class="owl-carousel thumbnail-slider pro-details-thumbnail-nav-sec">
@@ -80,7 +80,7 @@
                         @endif
                     </div>
                     <!-- Project Single Content End -->
-                </div>                
+                </div>
 
                 <div class="col-lg-4">
                     <!-- Project Sidebar Start -->
@@ -89,7 +89,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->projectName->project_location))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/location-icon.png') }}" alt="">
                                     </div>
@@ -97,21 +97,21 @@
                                         <p>Location</p>
                                         <h3>{{ $projectDetails->projectName->project_location ?? '' }}</h3>
                                     </div>
-                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
 
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->built_up_area))
-                            <div class="project-info-item">                                
+                            <div class="project-info-item">
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/built-up-area.png') }}" alt="">
                                     </div>
                                     <div class="project-info-content">
                                         <p>Built up Area </p>
                                         <h3>{{ $projectDetails->built_up_area ?? '' }}</h3>
-                                    </div>                                
+                                    </div>
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
@@ -119,7 +119,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->it_load))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/it-load.png') }}" alt="">
                                     </div>
@@ -127,7 +127,7 @@
                                         <p>IT Load</p>
                                         <h3>{{ $projectDetails->it_load ?? '' }}</h3>
                                     </div>
-                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
@@ -135,7 +135,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->developers))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/developers.png') }}" alt="">
                                     </div>
@@ -143,7 +143,7 @@
                                         <p>Developers</p>
                                         <h3>{{ $projectDetails->developers ?? '' }}</h3>
                                     </div>
-                                                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
@@ -151,7 +151,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->client_name))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/client-name.png') }}" alt="">
                                     </div>
@@ -159,7 +159,7 @@
                                         <p>Client Name</p>
                                         <h3>{{ $projectDetails->client_name ?? '' }}</h3>
                                     </div>
-                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
@@ -167,7 +167,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->structural_consultant))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/structural-consultant.png') }}" alt="">
                                     </div>
@@ -175,7 +175,7 @@
                                         <p>Structural Consultant</p>
                                         <h3>{{ $projectDetails->structural_consultant ?? '' }}</h3>
                                     </div>
-                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
@@ -183,7 +183,7 @@
                             <!-- Portfolio Info Item Start -->
                             @if (!empty($projectDetails->architect))
                             <div class="project-info-item">
-                                
+
                                     <div class="icon-box">
                                         <img src="{{ asset('frontend/assets/images/icons/architect.png') }}" alt="">
                                     </div>
@@ -191,7 +191,7 @@
                                         <p>Architect</p>
                                         <h3>{{ $projectDetails->architect ?? '' }}</h3>
                                     </div>
-                                
+
                             </div>
                             @endif
                             <!-- Portfolio Info Item End -->
