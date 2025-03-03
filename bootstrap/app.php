@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Middleware\PageSpeedOptimization;
 use App\Http\Middleware\PreventBackHistoryMiddleware;
 use App\Http\Middleware\PreventCitizenBackHistoryMiddleware;
 use Illuminate\Foundation\Application;
@@ -19,9 +18,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
         // ==== PreventCitizenBackHistoryMiddleware
         $middleware->append(PreventCitizenBackHistoryMiddleware::class);
-
-        // ==== PageSpeedOptimizationMiddleware
-        // $middleware->append(PageSpeedOptimization::class);
 
     })
     ->withExceptions(function (Exceptions $exceptions) {

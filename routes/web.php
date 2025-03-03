@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\PreventBackHistoryMiddleware;
 use App\Http\Middleware\PreventCitizenBackHistoryMiddleware;
-use App\Http\Middleware\PageSpeedOptimization;
 
 // ===== Frontend Controllers
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
