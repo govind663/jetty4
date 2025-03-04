@@ -36,6 +36,7 @@
                     <a class="sidebar-link  {{
                         (Route::currentRouteName() === 'admin.dashboard')
                         || (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit')
+                        || (Route::currentRouteName() === 'breadcrumb.index') || (Route::currentRouteName() === 'breadcrumb.create') || (Route::currentRouteName() === 'breadcrumb.edit')
                         || (Route::currentRouteName() === 'statistics.index') || (Route::currentRouteName() === 'statistics.create') || (Route::currentRouteName() === 'statistics.edit')
                         || (Route::currentRouteName() === 'construction-solutions.index') || (Route::currentRouteName() === 'construction-solutions.create') || (Route::currentRouteName() === 'construction-solutions.edit')
                         || (Route::currentRouteName() === 'teams.index') || (Route::currentRouteName() === 'teams.create') || (Route::currentRouteName() === 'teams.edit')
@@ -51,6 +52,9 @@
                     <ul class="sidebar-submenu">
                         <li>
                             <a href="{{ route('banner.index') }}" class="{{ (Route::currentRouteName() === 'banner.index') || (Route::currentRouteName() === 'banner.create') || (Route::currentRouteName() === 'banner.edit') ? 'active' : '' }}">Banner</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('breadcrumb.index') }}" class="{{ (Route::currentRouteName() === 'breadcrumb.index') || (Route::currentRouteName() === 'breadcrumb.create') || (Route::currentRouteName() === 'breadcrumb.edit') ? 'active' : '' }}">Breadcrumb</a>
                         </li>
                         <li>
                             <a href="{{ route('statistics.index') }}" class="{{ (Route::currentRouteName() === 'statistics.index') || (Route::currentRouteName() === 'statistics.create') || (Route::currentRouteName() === 'statistics.edit') ? 'active' : '' }}">Statistics</a>

@@ -41,6 +41,7 @@ use App\Http\Controllers\backend\ProjectTypeController;
 use App\Http\Controllers\backend\ProjectsController;
 use App\Http\Controllers\backend\ProjectDetailsController;
 use App\Http\Controllers\backend\ProjectStatusDetailsController;
+use App\Http\Controllers\backend\BreadcrumbController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -97,6 +98,7 @@ Route::group(['prefix'=> '', 'middleware' => [PreventCitizenBackHistoryMiddlewar
 
     // ==== Thank You
     Route::get('thank-you', [FrontendHomeController::class, 'thankYou'])->name('frontend.thank-you');
+
 });
 
 
@@ -131,6 +133,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Banner Management
     Route::resource('banner', BannerController::class);
+
+    // ==== Breadcrumb Management
+    Route::resource('breadcrumb', BreadcrumbController::class);
 
     // ==== Statistics Management
     Route::resource('statistics', StatisticsController::class);
