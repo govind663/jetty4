@@ -14,6 +14,7 @@ class ProjectType extends Model
         'id',
         'project_type',
         'slug',
+        'breadcrumbs_image',
         'inserted_by',
         'inserted_at',
         'modified_by',

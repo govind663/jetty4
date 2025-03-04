@@ -67,6 +67,25 @@ J4C Group | Add Project Type
                                     </div>
                                 </div>
 
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-2"><b>Upload Project Breadcrumbs Image : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="file" onchange="agentPreviewFile()" accept=".png, .jpg, .jpeg, .webp" name="breadcrumbs_image" id="breadcrumbs_image" class="form-control @error('breadcrumbs_image') is-invalid @enderror" value="{{old('breadcrumbs_image')}}" placeholder="Upload Project Breadcrumbs Image.">
+                                        <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
+                                        <br>
+                                        <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .webp format can be uploaded .</b></small>
+                                        <br>
+                                        @error('breadcrumbs_image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <div id="preview-container">
+                                            <div id="file-preview"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mt-4">
                                     <label class="col-md-3"></label>
                                     <div class="col-md-9" style="display: flex; justify-content: flex-end;">
@@ -98,5 +117,43 @@ J4C Group | Add Project Type
             .replace(/\s+/g, '-');        // Replace spaces with dashes
         document.getElementById('slug').value = slug;
     });
+</script>
+
+{{-- Project Type Breadcrumbs Image --}}
+<script>
+    // Existing function for agent image/PDF preview (if needed)
+    function agentPreviewFile() {
+        const fileInput = document.getElementById('breadcrumbs_image');
+        const previewContainer = document.getElementById('preview-container');
+        const filePreview = document.getElementById('file-preview');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const fileType = file.type;
+            const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            const validPdfTypes = ['application/pdf'];
+
+            if (validImageTypes.includes(fileType)) {
+                // Image preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" style="height: auto; width: 100%;">`;
+                };
+                reader.readAsDataURL(file);
+            } else if (validPdfTypes.includes(fileType)) {
+                // PDF preview using an embed element
+                filePreview.innerHTML =
+                    `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="150px" />`;
+            } else {
+                // Unsupported file type
+                filePreview.innerHTML = '<p>Unsupported file type</p>';
+            }
+
+            previewContainer.style.display = 'block';
+        } else {
+            // No file selected
+            previewContainer.style.display = 'none';
+        }
+    }
 </script>
 @endpush

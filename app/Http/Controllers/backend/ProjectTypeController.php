@@ -42,6 +42,19 @@ class ProjectTypeController extends Controller
 
             $project_types = new ProjectType();
 
+            // ==== Upload (breadcrumbs_image)
+            if ($request->hasFile('breadcrumbs_image')) {
+                $image = $request->file('breadcrumbs_image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/projects/breadcrumbs_image'), $new_name);
+
+                $image_path = "/j4c_Group/projects/breadcrumbs_image/" . $new_name;
+                $project_types->breadcrumbs_image = $new_name;
+            } else {
+                $project_types->breadcrumbs_image = '';
+            }
+
             $project_types->project_type = $request->project_type;
             $project_types->slug = $request->slug;
             $project_types->inserted_at = Carbon::now();
@@ -86,6 +99,26 @@ class ProjectTypeController extends Controller
         try {
 
             $project_types = ProjectType::find($id);
+
+            // Check and upload the breadcrumbs_image
+            if ($request->hasFile('breadcrumbs_image')) {
+                // Delete the old image if it exists
+                if ($project_types->breadcrumbs_image) {
+                    $oldImagePath = public_path('/j4c_Group/projects/breadcrumbs_image/' . $project_types->breadcrumbs_image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath); // Delete the old image file
+                    }
+                }
+
+                // Process the new breadcrumbs_image
+                $image = $request->file('breadcrumbs_image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/projects/breadcrumbs_image'), $new_name);
+
+                // Update the banner object with the new image path
+                $project_types->breadcrumbs_image = $new_name;
+            }
 
             $project_types->project_type = $request->project_type;
             $project_types->slug = $request->slug;

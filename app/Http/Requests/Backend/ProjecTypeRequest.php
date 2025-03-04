@@ -25,11 +25,13 @@ class ProjecTypeRequest extends FormRequest
             $rule = [
                 'project_type' => ['required', 'string', 'max:255'],
                 'slug' => ['required', 'string', 'max:255'],
+                'breadcrumbs_image' => ['nullable', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
             ];
         }else{
             $rule = [
                 'project_type' => ['required', 'string', 'max:255'],
                 'slug' => ['required', 'string', 'max:255'],
+                'breadcrumbs_image' => ['required', 'mimes:jpeg,png,jpg,webp,svg', 'max:2048'],
             ];
         }
         return $rule;
@@ -45,6 +47,10 @@ class ProjecTypeRequest extends FormRequest
             'slug.required' => 'Slug is required',
             'slug.string' => 'Slug must be a string',
             'slug.max' => 'Slug must not be greater than 255 characters',
+
+            'breadcrumbs_image.required' => 'Breadcrumbs Image is required',
+            'breadcrumbs_image.mimes' => 'Breadcrumbs Image must be a file of type: jpeg, png, jpg, webp, svg',
+            'breadcrumbs_image.max' => 'Breadcrumbs Image must not be greater than 2048 kilobytes',
         ];
     }
 }
