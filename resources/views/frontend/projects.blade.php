@@ -9,7 +9,7 @@
 
 @section('content')
     <!--breadcrumb section start-->
-    <div class="breadcumb-area" style="background-image: url({{ asset('frontend/assets/images/banner/about_bg.jpg') }});">
+    <div class="breadcumb-area" style="background-image: url({{ asset('/j4c_Group/projects/breadcrumbs_image/' . $breadcrumbs->breadcrumbs_image) }});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">

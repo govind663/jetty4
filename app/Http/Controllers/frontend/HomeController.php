@@ -34,6 +34,8 @@ use Illuminate\Http\Request;
 use App\Mail\sendContactMail;
 use App\Models\ProjectType;
 use App\Models\ProjectStatusDetails;
+use App\Models\Breadcrumb;
+use App\Models\CarrierDetails;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -133,6 +135,9 @@ class HomeController extends Controller
     // ==== About Us
     public function aboutUs(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 1)->whereNull('deleted_at')->first();
+
         // ===== About J4C
         $aboutj4c = AboutJ4C::orderBy("id","desc")->whereNull('deleted_at')->first();
 
@@ -140,6 +145,7 @@ class HomeController extends Controller
         $whoweare = WhoWeAre::orderBy("id","desc")->whereNull('deleted_at')->first();
 
         return view('frontend.about-us',[
+            'breadcrumbs' => $breadcrumbs,
             'aboutj4c'=> $aboutj4c,
             'whoweare' => $whoweare,
         ]);
@@ -150,6 +156,10 @@ class HomeController extends Controller
     {
 
         $project_id = ProjectType::where('slug', $slug)->pluck('id')->first();
+
+        // ===== Breadcrumbs Images
+        $breadcrumbs = ProjectType::orderBy("id","desc")->where('slug', $slug)->whereNull('deleted_at')->first();
+        // dd($breadcrumbs);        
 
         // ===== Projects
         $projects = Projects::with('projectType')
@@ -169,6 +179,7 @@ class HomeController extends Controller
         }
 
         return view('frontend.projects',[
+            'breadcrumbs' => $breadcrumbs,
             'projects' => $projects,
             'projectTypeId' =>  $project_id,
             'projectsTypeName' => $projectsTypeName,
@@ -198,6 +209,9 @@ class HomeController extends Controller
     // === Mission & Vision
     public function missionVision(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 2)->whereNull('deleted_at')->first();
+
         // ==== Our Mission
         $ourmission = OurMission::orderBy("id","desc")->whereNull('deleted_at')->first();
 
@@ -205,6 +219,7 @@ class HomeController extends Controller
         $ourvision = OurVission::orderBy("id","desc")->whereNull('deleted_at')->first();
 
         return view('frontend.mission-vision',[
+            'breadcrumbs' => $breadcrumbs,
             'ourmission' => $ourmission,
             'ourvision' => $ourvision
         ]);
@@ -213,6 +228,9 @@ class HomeController extends Controller
     // === Awards & Certifications
     public function awardsCertifications(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 3)->whereNull('deleted_at')->first();
+
         // ==== Awards
         $awards = Award::orderBy("id","asc")->whereNull('deleted_at')->get();
 
@@ -220,6 +238,7 @@ class HomeController extends Controller
         $certifications = Certification::orderBy("id","asc")->whereNull('deleted_at')->get();
 
         return view('frontend.awards-certifications',[
+            'breadcrumbs' => $breadcrumbs,
             'awards' => $awards,
             'certifications' => $certifications
         ]);
@@ -228,6 +247,9 @@ class HomeController extends Controller
     // ==== Our USP
     public function ourUsp(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 4)->whereNull('deleted_at')->first();
+
         $ourUsps = OurUsp::orderBy("id", "desc")->whereNull('deleted_at')->first();
 
         // Decode each JSON column
@@ -248,6 +270,7 @@ class HomeController extends Controller
         $ourManagements->quality_description = json_decode($ourManagements->quality_description, true);
 
         return view('frontend.our-usp', [
+            'breadcrumbs' => $breadcrumbs,
             'ourUsps' => $ourUsps,
             'uniqueApproaches' => $uniqueApproaches,
             'ourManagements' => $ourManagements
@@ -257,6 +280,9 @@ class HomeController extends Controller
     // === Sustainability
     public function sustainability(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 5)->whereNull('deleted_at')->first();
+        
         $aboutSustainability = AboutSustainability::orderBy("id","desc")->whereNull('deleted_at')->first();
         $aboutSustainability->pillers_title = json_decode($aboutSustainability->pillers_title, true);
         $aboutSustainability->pillers_description = json_decode($aboutSustainability->pillers_description, true);
@@ -266,6 +292,7 @@ class HomeController extends Controller
         $safetyinitiatives = SafetyInitiatives::orderBy("id","desc")->whereNull('deleted_at')->get();
 
         return view('frontend.sustainability',[
+            'breadcrumbs' => $breadcrumbs,
             'aboutSustainability' => $aboutSustainability,
             'safetycommitment' => $safetycommitment,
             'safetyinitiatives' => $safetyinitiatives
@@ -275,22 +302,33 @@ class HomeController extends Controller
     // === Careers
     public function careers(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 6)->whereNull('deleted_at')->first();
+
         $about_career = AboutCareer::orderBy("id","desc")->whereNull('deleted_at')->first();
 
         $current_openings = CurrentOpening::orderBy("id","desc")->whereNull('deleted_at')->get();
 
+        $carrier_details = CarrierDetails::orderBy("id","desc")->whereNull('deleted_at')->first();
+
         return view('frontend.careers',[
+            'breadcrumbs' => $breadcrumbs,
             'about_career' => $about_career,
-            'current_openings' => $current_openings
+            'current_openings' => $current_openings,
+            'carrier_details' => $carrier_details
         ]);
     }
 
     // === Media & Events
     public function mediaEvents(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 7)->whereNull('deleted_at')->first();
+
         $media_events = MediaEvents::orderBy("id","desc")->whereNull('deleted_at')->get();
 
         return view('frontend.media-events',[
+            'breadcrumbs' => $breadcrumbs,
             'media_events' => $media_events
         ]);
     }
@@ -314,9 +352,13 @@ class HomeController extends Controller
     // === Contact Us
     public function contact(Request $request)
     {
+        // ===== Breadcrumbs
+        $breadcrumbs = Breadcrumb::orderBy("id","desc")->where('page_type', 8)->whereNull('deleted_at')->first();
+
         $contactDetails = ContactDetails::orderBy("id","desc")->whereNull('deleted_at')->first();
 
         return view('frontend.contact',[
+            'breadcrumbs' => $breadcrumbs,
             'contactDetails' => $contactDetails
         ]);
     }

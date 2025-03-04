@@ -11,13 +11,13 @@
 
 @section('content')
     <!--breadcrumb section start-->
-    <div class="breadcumb-area" style="background-image:url(frontend/assets/images/banner/about_bg.jpg)">
+    <div class="breadcumb-area" style="background-image:url({{ asset('/j4c_Group/breadcrumb_image/' . $breadcrumbs->breadcrumb_image) }})">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
                     <div class="breadcumb-content">
                         <div class="breadcumb-title">
-                            <h4>Sustainability</h4>
+                            <h4>{{ $breadcrumbs->breadcrumb_title }}</h4>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="breadcrumb-sub-sec">
                         <ul>
                             <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li>Sustainability</li>
+                            <li>{{ $breadcrumbs->breadcrumb_title }}</li>
                         </ul>
                     </div>
                 </div>

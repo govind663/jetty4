@@ -9,13 +9,13 @@
 
 @section('content')
     <!--breadcrumb section start-->
-    <div class="breadcumb-area" style="background-image:url(frontend/assets/images/banner/about_bg.jpg)">
+    <div class="breadcumb-area" style="background-image:url({{ asset('/j4c_Group/breadcrumb_image/' . $breadcrumbs->breadcrumb_image) }})">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
                     <div class="breadcumb-content">
                         <div class="breadcumb-title">
-                            <h4>Careers</h4>
+                            <h4>{{ $breadcrumbs->breadcrumb_title }}</h4>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="breadcrumb-sub-sec">
                         <ul>
                             <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li>Careers</li>
+                            <li>{{ $breadcrumbs->breadcrumb_title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -98,15 +98,14 @@
     </section>
 
     {{-- Careers Wrap One --}}
-    <section class="careers-wrap-one" style="background-image:url('{{ asset('frontend/assets/images/careers/career-img-bg.jpg') }}');">
+    <section class="careers-wrap-one" style="background-image:url('{{ asset('/j4c_Group/carrier_details/image/' . $carrier_details->image) }}');">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="career-title-one" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                        <h3>Ready to Elevate Your Career<span>?</span></h3>
-                        <h5>We’re looking for talented individuals who are driven, detail-oriented, and passionate about
-                            creating quality solutions.</h5>
-                        <p>Fill out the form or share your resume at <a href="#">hr@j4cgroup.com</a> </p>
+                        <h3>{{ $carrier_details->title }}</h3>
+                        <h5>{!! $carrier_details->description !!}</h5>
+                        {!! $carrier_details->other_description !!}
                     </div>
                 </div>
             </div>
