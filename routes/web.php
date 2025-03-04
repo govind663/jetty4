@@ -42,6 +42,7 @@ use App\Http\Controllers\backend\ProjectsController;
 use App\Http\Controllers\backend\ProjectDetailsController;
 use App\Http\Controllers\backend\ProjectStatusDetailsController;
 use App\Http\Controllers\backend\BreadcrumbController;
+use App\Http\Controllers\backend\CarrierDetailsController;
 
 Route::get('/login', function () {
     // check if the user session expire web guard then redirect to admin.login page else redirect to frontend.login page
@@ -184,6 +185,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', PreventBackHisto
 
     // ==== Our Current Openings Management
     Route::resource('current-opening', CurrentOpeningController::class);
+
+    // ==== Carrier Details Management
+    Route::resource('carrier-details', CarrierDetailsController::class);
 
     // ==== About Sustainability Management
     Route::resource('about-sustainability', AboutSustainabilityController::class);

@@ -195,6 +195,7 @@
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title {{ (Route::currentRouteName() === 'about-career.index') || (Route::currentRouteName() === 'about-career.create') || (Route::currentRouteName() === 'about-career.edit')
                         || (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit')
+                        || (Route::currentRouteName() === 'carrier-details.index') || (Route::currentRouteName() === 'carrier-details.create') || (Route::currentRouteName() === 'carrier-details.edit')
                         ? 'active' : '' }}" href="javascript:void(0)">
                         <span>
                             <i class="icon-bag"></i>
@@ -207,6 +208,9 @@
                         </li>
                         <li>
                             <a href="{{ route('current-opening.index') }}" class="{{ (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit') ? 'active' : ''  }}">Current Openings</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('carrier-details.index') }}" class="{{ (Route::currentRouteName() === 'carrier-details.index') || (Route::currentRouteName() === 'carrier-details.create') || (Route::currentRouteName() === 'carrier-details.edit') ? 'active' : ''  }}">Carrier Details</a>
                         </li>
                     </ul>
                 </li>
