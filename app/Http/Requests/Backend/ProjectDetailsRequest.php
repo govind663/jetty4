@@ -32,6 +32,7 @@ class ProjectDetailsRequest extends FormRequest
                 'client_name' => ['nullable', 'string', 'max:255'],
                 'structural_consultant' => ['nullable', 'string', 'max:255'],
                 'architect' => ['nullable', 'string', 'max:255'],
+                'breadcrumbs_image' => ['nullable', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
             ];
         }else{
             $rule = [
@@ -44,6 +45,7 @@ class ProjectDetailsRequest extends FormRequest
                 'client_name' => ['nullable', 'string', 'max:255'],
                 'structural_consultant' => ['nullable', 'string', 'max:255'],
                 'architect' => ['nullable', 'string', 'max:255'],
+                'breadcrumbs_image' => ['required', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
             ];
         }
         return $rule;
@@ -87,6 +89,10 @@ class ProjectDetailsRequest extends FormRequest
             'architect.required' => 'Architect is required',
             'architect.string' => 'Please enter a valid architect',
             'architect.max' => 'The architect should not exceed 255 characters',
+
+            'breadcrumbs_image.required' => 'Breadcrumbs Image is required',
+            'breadcrumbs_image.mimes' => 'Breadcrumbs Image must be a file of type: jpeg, png, jpg, webp',
+            'breadcrumbs_image.max' => 'The size of breadcrumbs image should not exceed 2 MB',
         ];
     }
 }

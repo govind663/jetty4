@@ -62,6 +62,20 @@ class ProjectDetailsController extends Controller
             // Update the image with the new image paths
             $projectDetails->image = json_encode($imagePaths);
 
+
+            // ==== Upload (breadcrumbs_image)
+            if ($request->hasFile('breadcrumbs_image')) {
+                $image = $request->file('breadcrumbs_image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/project_details/breadcrumbs_image'), $new_name);
+
+                $image_path = "/j4c_Group/project_details/breadcrumbs_image/" . $new_name;
+                $projectDetails->breadcrumbs_image = $new_name;
+            } else {
+                $projectDetails->breadcrumbs_image = '';
+            }
+
             $projectDetails->projects_id = $request->projects_id;
             $projectDetails->slug = $request->slug;
             $projectDetails->built_up_area = $request->built_up_area;
@@ -153,6 +167,26 @@ class ProjectDetailsController extends Controller
 
             // Update the associate record with new images
             $projectDetails->image = json_encode(array_unique($allImages)); // Ensure no duplicates
+
+            // Check and upload the breadcrumbs_image
+            if ($request->hasFile('breadcrumbs_image')) {
+                // Delete the old image if it exists
+                if ($projectDetails->breadcrumbs_image) {
+                    $oldImagePath = public_path('/j4c_Group/project_details/breadcrumbs_image/' . $projectDetails->breadcrumbs_image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath); // Delete the old image file
+                    }
+                }
+
+                // Process the new breadcrumbs_image
+                $image = $request->file('breadcrumbs_image');
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/j4c_Group/project_details/breadcrumbs_image'), $new_name);
+
+                // Update the banner object with the new image path
+                $projectDetails->breadcrumbs_image = $new_name;
+            }
 
             $projectDetails->projects_id = $request->projects_id;
             $projectDetails->slug = $request->slug;

@@ -201,8 +201,13 @@ class HomeController extends Controller
         $projectDetails->image = $projectDetails->image ? json_decode($projectDetails->image, true) : [];
         // dd($projectDetails->image);
 
+        // ===== Breadcrumbs Images
+        $breadcrumbs = ProjectDetails::orderBy("id","desc")->where('slug', $project_slug)->whereNull('deleted_at')->first();
+        // dd($breadcrumbs);
+
         return view('frontend.project-details',[
-            'projectDetails' => $projectDetails
+            'projectDetails' => $projectDetails,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

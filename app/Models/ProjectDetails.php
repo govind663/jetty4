@@ -21,6 +21,7 @@ class ProjectDetails extends Model
         'client_name',
         'structural_consultant',
         'architect',
+        'breadcrumbs_image',
         'inserted_by',
         'inserted_at',
         'modified_by',

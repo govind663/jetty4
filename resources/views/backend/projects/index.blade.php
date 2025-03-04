@@ -107,7 +107,7 @@
                                                         <button class="btn btn-primary btn-sm">
                                                             <b>
                                                                 <i class="icon-pencil-alt"></i>
-                                                                Edit
+                                                                {{-- Edit --}}
                                                             </b>
                                                         </button>
                                                     </a>
@@ -120,7 +120,7 @@
                                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">
                                                             <b>
                                                                 <i class="icon-trash"></i>
-                                                                Delete
+                                                                {{-- Delete --}}
                                                             </b>
                                                         </button>
                                                     </form>

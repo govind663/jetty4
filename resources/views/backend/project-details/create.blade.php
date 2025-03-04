@@ -138,6 +138,25 @@ J4C Group | Add Project Details
                                     </div>
                                 </div>
 
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-2"><b>Upload Breadcrumbs Image : <span class="text-danger">*</span></b></label>
+                                    <div class="col-sm-4 col-md-4">
+                                        <input type="file" onchange="agentPreviewFile()" accept=".png, .jpg, .jpeg, .webp" name="breadcrumbs_image" id="breadcrumbs_image" class="form-control @error('breadcrumbs_image') is-invalid @enderror" value="{{old('breadcrumbs_image')}}" placeholder="Upload Breadcrumbs Image.">
+                                        <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
+                                        <br>
+                                        <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .webp format can be uploaded .</b></small>
+                                        <br>
+                                        @error('breadcrumbs_image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <div id="preview-container">
+                                            <div id="file-preview"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mt-3 p-3">
                                     <table class="table table-bordered p-3" id="dynamicAmenitiesTable">
                                         <thead>
@@ -221,6 +240,7 @@ J4C Group | Add Project Details
     $(".myselect").select2();
 </script>
 
+{{-- Project Gallery Preview --}}
 <script>
     // Existing function for agent image/PDF preview (if needed)
     function agentPreviewFile() {
@@ -292,6 +312,7 @@ J4C Group | Add Project Details
     });
 </script>
 
+{{-- Dynamic Amenities --}}
 <script>
     $(document).ready(function () {
         let rowId = $('table#dynamicAmenitiesTable tbody tr').length;
@@ -353,6 +374,44 @@ J4C Group | Add Project Details
                 // Unsupported file type
                 filePreview.innerHTML = '<p>Unsupported file type</p>';
                 filePreview.innerHTML += `<p>Please select a valid image or PDF file.</p>`;
+            }
+
+            previewContainer.style.display = 'block';
+        } else {
+            // No file selected
+            previewContainer.style.display = 'none';
+        }
+    }
+</script>
+
+{{-- Project Type Breadcrumbs Image --}}
+<script>
+    // Existing function for agent image/PDF preview (if needed)
+    function agentPreviewFile() {
+        const fileInput = document.getElementById('breadcrumbs_image');
+        const previewContainer = document.getElementById('preview-container');
+        const filePreview = document.getElementById('file-preview');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const fileType = file.type;
+            const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            const validPdfTypes = ['application/pdf'];
+
+            if (validImageTypes.includes(fileType)) {
+                // Image preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    filePreview.innerHTML = `<img src="${e.target.result}" alt="File Preview" style="height: auto; width: 100%;">`;
+                };
+                reader.readAsDataURL(file);
+            } else if (validPdfTypes.includes(fileType)) {
+                // PDF preview using an embed element
+                filePreview.innerHTML =
+                    `<embed src="${URL.createObjectURL(file)}" type="application/pdf" width="100%" height="150px" />`;
+            } else {
+                // Unsupported file type
+                filePreview.innerHTML = '<p>Unsupported file type</p>';
             }
 
             previewContainer.style.display = 'block';
