@@ -7,6 +7,45 @@ J4C Group | Home
 @push('styles')
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+    .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .marquee-block {
+        display: flex;
+        animation: scroll 1s linear infinite; /* Increased speed */
+        width: max-content;
+        gap: 20px; /* Reduce gap for a tighter flow */
+    }
+
+    .content-box {
+        display: flex;
+        gap: 20px; /* Reduce gap for a tighter flow */
+    }
+
+    .title {
+        font-size: 18px;
+        margin: 0;
+        padding-right: 10px; /* Reduce padding for closer spacing */
+        display: inline-block;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>
 @endpush
 
 @section('content')
