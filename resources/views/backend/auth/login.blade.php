@@ -29,8 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/font-awesome.css') }}">
 
     <!-- ico-font-->
@@ -61,6 +60,7 @@
     <script src="{{ asset('toaster/js/jquery.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('toaster/css/toastr.min.css') }}" />
     <script src="{{ asset('toaster/js/toastr.min.js') }}"></script>
+    
 
 </head>
 
@@ -68,85 +68,72 @@
     <!-- login page start-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-5">
-                <img class="bg-img-cover bg-center" src="{{ asset('backend/assets/images/login/3.jpg') }}"
-                    alt="looginpage">
-            </div>
-            <div class="col-xl-7 p-0">
+            <div class="col-xl-12 p-0">
                 <div class="login-card login-dark">
-                    <div class="login-main">
-                        <div style="align-items: center; justify-content: center; display: flex;">
-                            <a class="logo text-start" href="{{ route('admin.login') }}">
-                                <img class="img-fluid for-dark"
-                                    src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}"
-                                    alt="looginpage" style="height: 50px; width: 150px;">
-                                <img class="img-fluid for-light"
-                                    src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}"
-                                    alt="looginpage" style="height: 50px; width: 150px;">
+                    <div>
+                        <div>
+                            <a class="logo" style="align-items: center; justify-content: center; display: flex;" href="{{ route('admin.login') }}">
+                                <img class="img-fluid for-dark" src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}" alt="looginpage" style="height: 100px; width: 200px;">
+                                <img class="img-fluid for-light" src="{{ asset('frontend/assets/images/logo/Jett4-hori-logo-png.png') }}" alt="looginpage" style="height: 100px; width: 200px;">
                             </a>
                         </div>
-                        <h4>Sign in to account </h4>
-                        <form class="theme-form " method="POST" action="{{ route('admin.login.store') }}"
-                            aria-label="{{ __('Login') }}" enctype="multipart/form">
-                            @csrf
+                        <div class="login-main">
+                            <form class="theme-form" method="POST" action="{{ route('admin.login.store') }}" aria-label="{{ __('Login') }}" enctype="multipart/form">
+                                @csrf
 
-                            <div class="form-group">
-                                <label class="col-form-label"><b>Email Id : <span
-                                            class="text-danger">*</span></b></label>
-                                <input id="email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" autocomplete="email" autofocus
-                                    placeholder="Enter Email Id">
-                                @error('email')
+                                <h4>Sign in to account</h4>
+                                <p>Enter your email & password to login</p>
+
+                                <div class="form-group">
+                                    <label class="col-form-label"><b>Email Id : <span class="text-danger">*</span></b></label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Id">
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label"><b>Password : <span
-                                            class="text-danger">*</span></b></label>
-                                <div class="form-input position-relative">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        autocomplete="password" placeholder="Enter Password">
-                                    <div class="show-hide">
-                                        <span class="show"> </span>
-                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label"><b>Password : <span class="text-danger">*</span></b></label>
+                                    <div class="form-input position-relative">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="password" placeholder="Enter Password">
+                                        <div class="show-hide">
+                                            <span class="show"> </span>
+                                        </div>
 
-                                    @error('password')
+                                        @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <input class="form-check-input" type="hidden" name="remember_token" id="remember_token"
-                                value="true">
+                                <input class="form-check-input" type="hidden" name="remember_token" id="remember_token" value="true">
 
-                            <div class="col-sm-12 pb-3" style="text-align: right;">
-                                @if (Route::has('admin.forget-password.request'))
+                                <div class="col-sm-12 pb-3" style="text-align: right;">
+                                    @if (Route::has('admin.forget-password.request'))
                                     <a href="{{ route('admin.forget-password.request') }}">
                                         <b>{{ __('Forgot Password?') }}</b>
                                     </a>
-                                @endif
-                            </div>
+                                    @endif
+                                </div>
 
-                            <div class="form-group mb-0">
-                                <button class="btn btn-primary btn-block w-100" type="submit">
-                                    <i class="fa fa-sign-in"></i>
-                                    <b>{{ __('Login') }}</b>
-                                </button>
-                            </div>
+                                <div class="form-group mb-0">
+                                    <button class="btn btn-primary btn-block w-100" type="submit">
+                                        <i class="fa fa-sign-in"></i>
+                                        <b>{{ __('Login') }}</b>
+                                    </button>
+                                </div>
 
-                            {{-- <p class="mt-4 mb-0 text-center">
+                                {{-- <p class="mt-4 mb-0 text-center">
                                 Don't have account?
                                 <a class="ms-2" href="{{ route('admin.register') }}">
-                                    <b>Sign Up</b>
+                                <b>Sign Up</b>
                                 </a>
-                            </p> --}}
-                        </form>
+                                </p> --}}
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,45 +153,47 @@
     <!-- Sidebar jquery-->
     <script src="{{ asset('backend/assets/js/config.js') }}"></script>
 
-    <!-- Theme js-->
-    {{-- <script src="{{ asset('backend/assets/js/script.js') }}"></script> --}}
+    <!-- Plugins JS start-->
+    <script src="{{ asset('backend/assets/js/script.js') }}"></script>
 
     <!-- Toaster JS -->
     <script>
-        $(document).ready(function () {
-            @if (Session::has('success'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                };
-                toastr.success("{{ session('success') }}");
+        $(document).ready(function() {
+            @if(Session::has('success'))
+            toastr.options = {
+                "closeButton": true
+                , "progressBar": true
+            };
+            toastr.success("{{ session('success') }}");
             @endif
 
-            @if (Session::has('error'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                };
-                toastr.error("{{ session('error') }}");
+            @if(Session::has('error'))
+            toastr.options = {
+                "closeButton": true
+                , "progressBar": true
+            };
+            toastr.error("{{ session('error') }}");
             @endif
 
-            @if (Session::has('info'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                };
-                toastr.info("{{ session('info') }}");
+            @if(Session::has('info'))
+            toastr.options = {
+                "closeButton": true
+                , "progressBar": true
+            };
+            toastr.info("{{ session('info') }}");
             @endif
 
-            @if (Session::has('warning'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                };
-                toastr.warning("{{ session('warning') }}");
+            @if(Session::has('warning'))
+            toastr.options = {
+                "closeButton": true
+                , "progressBar": true
+            };
+            toastr.warning("{{ session('warning') }}");
             @endif
         });
+
     </script>
 </body>
 
 </html>
+
