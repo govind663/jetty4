@@ -210,7 +210,7 @@
                             <a href="{{ route('current-opening.index') }}" class="{{ (Route::currentRouteName() === 'current-opening.index') || (Route::currentRouteName() === 'current-opening.create') || (Route::currentRouteName() === 'current-opening.edit') ? 'active' : ''  }}">Current Openings</a>
                         </li>
                         <li>
-                            <a href="{{ route('carrier-details.index') }}" class="{{ (Route::currentRouteName() === 'carrier-details.index') || (Route::currentRouteName() === 'carrier-details.create') || (Route::currentRouteName() === 'carrier-details.edit') ? 'active' : ''  }}">Carrier Details</a>
+                            <a href="{{ route('carrier-details.index') }}" class="{{ (Route::currentRouteName() === 'carrier-details.index') || (Route::currentRouteName() === 'carrier-details.create') || (Route::currentRouteName() === 'carrier-details.edit') ? 'active' : ''  }}">Career Details</a>
                         </li>
                     </ul>
                 </li>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-J4C Group | Edit Carrier Details
+J4C Group | Edit Career Details
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@ J4C Group | Edit Carrier Details
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h4>Edit Carrier Details</h4>
+                    <h4>Edit Career Details</h4>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -25,9 +25,9 @@ J4C Group | Edit Carrier Details
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('carrier-details.index') }}">Carrier Details</a>
+                            <a href="{{ route('carrier-details.index') }}">Career Details</a>
                         </li>
-                        <li class="breadcrumb-item active">Edit Carrier Details</li>
+                        <li class="breadcrumb-item active">Edit Career Details</li>
                     </ol>
                 </div>
             </div>

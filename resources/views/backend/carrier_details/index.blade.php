@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Carrier Details
+    J4C Group | Manaage Career Details
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Carrier Details</h4>
+                        <h4>Manaage Career Details</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Carrier Details</li>
+                            <li class="breadcrumb-item active">Manaage Career Details</li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Carrier Details List</h4>
+                                <h4>All Career Details List</h4>
                             </div>
                             {{-- Add Team Button --}}
                             <a href="{{ route('carrier-details.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Carrier Details
+                                    Career Details
                                 </b>
                             </a>
                         </div>
