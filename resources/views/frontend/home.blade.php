@@ -376,29 +376,36 @@ J4C Group | Home
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let projectList = document.querySelector(".project-list-1");
-        let projects = document.querySelectorAll(".project-list-1 > .col-lg-12");
+    $(document).ready(function () {
+    let projectList = $(".project-list-1");
+    let projects = $(".project-list-1 > .col-lg-12");
 
-        // Ensure only unique project cards exist
-        let seenProjects = new Set();
-        projects.forEach((project) => {
-            let projectName = project.querySelector("h3")?.innerText.trim();
-            if (seenProjects.has(projectName)) {
-                project.remove(); // Remove duplicate project
-            } else {
-                seenProjects.add(projectName);
+    if (projects.length === 1) {
+        // If only one project exists, remove Owl Carousel and show it centered
+        projectList.removeClass("owl-carousel owl-loaded");
+        projectList.addClass("single-project-display"); // Add a custom class for styling
+        projectList.html(projects[0].outerHTML);
+    } else {
+        // Initialize Owl Carousel only if more than one project exists
+        projectList.owlCarousel({
+            loop: projects.length > 1, // Loop only if more than 1 project
+            autoplay: true,
+            autoplayTimeout: 5000,
+            dots: false,
+            nav: true,
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            responsive: {
+                0: { items: 1 },
+                400: { items: 1 },
+                600: { items: 2 },
+                768: { items: 1 },
+                992: { items: 2 },
+                1000: { items: 2 },
+                1920: { items: 2 }
             }
         });
-
-        // Check if only one unique project exists after removing duplicates
-        projects = document.querySelectorAll(".project-list-1 > .col-lg-12");
-        if (projects.length === 1) {
-            projectList.classList.remove("owl-carousel"); // Remove Owl Carousel class
-            projectList.style.display = "flex";
-            projectList.style.justifyContent = "center"; // Center the single project
-        }
-    });
+    }
+});
 </script>
 
 @endpush
