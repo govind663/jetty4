@@ -787,42 +787,26 @@
     }) 
     
     
-    // Project Details slider
-    $('.project-details-list-slider-1').owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        dots: true,
-        nav: false, // Disabled navigation
-        margin: 10, // Default margin for smaller screens
-        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"], // Fixed syntax error
-        responsive: {
-            0: {
-                items: 1,
-                margin: 20 // Smaller margin for mobile screens
-                },
-            400: {
-                items: 1,
-                margin: 15 // Slightly larger margin for small mobile screens
-                },
-            600: {
-                items: 2,
-                margin: 20 // More margin for small tablets
-                },
-            768: {
-                items: 1,
-                margin: 20 // Margin for larger tablets and small screens
-                },
-            1000: {
-                items: 3,
-                margin: 30 // Margin for larger screens (tablets and desktops)
-                },
-            1200: {
-                items: 3,
-                margin: 20 // More margin for desktop screens
-                }
-        }
-    });
+// Project Details slider
+$('.project-details-list-slider-1').owlCarousel({
+    loop: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    dots: true,
+    nav: false, // Navigation disabled
+    margin: 20, 
+    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"], 
+    responsive: {
+         0: { items: 1, margin: 20 },   // Mobile (Portrait)
+        480: { items: 1, margin: 20 }, // Mobile (Landscape)
+        576: { items: 2, margin: 15 }, // Small devices
+        768: { items: 2, margin: 15 }, // Tablets
+        992: { items: 2, margin: 20 }, // Small Laptops
+        1200: { items: 3, margin: 25 }, // Standard Desktop
+        1400: { items: 3, margin: 30 }  // Large Screens
+    }
+});
+
 
 
 
@@ -870,5 +854,3 @@
 AOS.init({
   duration: 1200,
 })
-
-

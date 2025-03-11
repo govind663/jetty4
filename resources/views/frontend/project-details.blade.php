@@ -212,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12 col-md-6">
+                <div class="col-lg-12">
                     @php
                         use App\Models\Projects;
 

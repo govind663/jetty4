@@ -10492,6 +10492,7 @@ ul.social-box li a:hover {
 }
 .project_text {
     position: absolute;
+    top: 170px;
     bottom: 0px;
     padding: 0px 25px;
     /* left: 10%;*/
@@ -10512,7 +10513,7 @@ ul.social-box li a:hover {
 
 .project_text h3 {
     color: #fff;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .project_text p {}
@@ -10607,6 +10608,10 @@ ul.social-box li a:hover {
 }
 
 @media only screen and (max-width: 767px) {
+    .project_text {
+        width: 100%;
+    }
+    
     .project_img img {
         min-height: 290px;
         object-fit: cover;
@@ -13092,6 +13097,10 @@ img{
 }
 
 @media only screen and (max-width:767px) {
+    .page-project-single .project-details-title-sec h1 {
+        font-size: 35px;
+    }
+    
     .project-body-title h3 {
         font-size: 20px
     }
@@ -13152,17 +13161,15 @@ img{
     margin-top: 0;
 }
 
-.project_details_img_sec {
-    position: relative;
-}
-
 .project_details_img_sec img {
     width: 100%;
+   min-height: 360px;
 }
 
 .project_details_img_sec {
     position: relative;
     transition: 0.5s;
+    min-height: 360px;
 }
 
 .project_details_img_sec:before {
