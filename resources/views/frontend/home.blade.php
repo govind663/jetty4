@@ -168,7 +168,7 @@ J4C Group | Home
                     <div class="row">
                         <div class="project-list-1 owl-carousel">
                             @foreach ($completedProjects as $project)
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 single-project">
                                     <div class="project_img">
                                         <img src="{{ asset('/j4c_Group/projects/image/' . $project->image) }}" alt="{{ $project->image }}" width="358"
                                             height="361" loading="lazy">
@@ -187,9 +187,9 @@ J4C Group | Home
                 <div class="col-lg-4 col-md-6">
                     <div class="section-title" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $projectsStatus }}</h1>
-                        @foreach ($projectStatusDetails as $key => $value)
+                        @foreach ($projectStatusDetails as $value)
                             @if($value->id == '1')
-                            {!! $value->description !!}
+                                {!! $value->description !!}
                             @endif
                         @endforeach
                     </div>
@@ -376,54 +376,29 @@ J4C Group | Home
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        // Main Slider
-        $(".main-slider").owlCarousel({
-            items: 1
-            , loop: true
-            , margin: 10
-            , nav: false
-            , navText: ["<span class='arrow-prev'>&#x2039;</span>", "<span class='arrow-next'>&#x203A;</span>"]
-            , dots: false
-            , thumbs: true
-            , thumbImage: false
-            , thumbContainerClass: "owl-thumbs"
-            , thumbItemClass: "owl-thumb-item"
-        , });
+    document.addEventListener("DOMContentLoaded", function () {
+        let projectList = document.querySelector(".project-list-1");
+        let projects = document.querySelectorAll(".project-list-1 > .col-lg-12");
 
-        // Thumbnail Slider
-        $(".thumbnail-slider").owlCarousel({
-            items: 6, // Default items for larger screens
-            margin: 10, // Space between items
-            nav: false, // Navigation disabled for thumbnails
-            dots: false, // Dots disabled for thumbnails
-            center: false, // No centering for thumbnails
-            loop: false, // Infinite loop
-            responsive: {
-                0: {
-                    items: 4
-                    , margin: 10
-                }, // 2 items for mobile screens with reduced margin
-                480: {
-                    items: 3
-                    , margin: 15
-                }, // 3 items for small tablets
-                768: {
-                    items: 4
-                    , margin: 20
-                }, // 4 items for tablets and up
-                1200: {
-                    items: 6
-                    , margin: 10
-                }, // 5 items for desktops
+        // Ensure only unique project cards exist
+        let seenProjects = new Set();
+        projects.forEach((project) => {
+            let projectName = project.querySelector("h3")?.innerText.trim();
+            if (seenProjects.has(projectName)) {
+                project.remove(); // Remove duplicate project
+            } else {
+                seenProjects.add(projectName);
             }
-        , });
-
-        // Linking thumbnails to main slider
-        $(".thumbnail-slider .owl-item").on("click", function() {
-            const index = $(this).index();
-            $(".main-slider").trigger("to.owl.carousel", [index, 300]);
         });
+
+        // Check if only one unique project exists after removing duplicates
+        projects = document.querySelectorAll(".project-list-1 > .col-lg-12");
+        if (projects.length === 1) {
+            projectList.classList.remove("owl-carousel"); // Remove Owl Carousel class
+            projectList.style.display = "flex";
+            projectList.style.justifyContent = "center"; // Center the single project
+        }
     });
 </script>
+
 @endpush
