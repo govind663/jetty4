@@ -295,7 +295,7 @@
             nav: false, // Navigation disabled for thumbnails
             dots: false, // Dots disabled for thumbnails
             center: false, // No centering for thumbnails
-            loop: true, // Infinite loop
+            loop: false, // Infinite loop
             responsive: {
                 0: {
                     items: 4
@@ -322,6 +322,6 @@
             $(".main-slider").trigger("to.owl.carousel", [index, 300]);
         });
     });
-
 </script>
+
 @endpush
