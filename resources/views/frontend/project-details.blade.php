@@ -68,7 +68,7 @@
                             </div>
 
                             <!-- Thumbnail Slider (Only Show If More Than One Unique Image) -->
-                            @if(count($uniqueImages) > 1)
+                            {{-- @if(count($uniqueImages) > 1) --}}
                                 <div class="owl-carousel thumbnail-slider pro-details-thumbnail-nav-sec">
                                     @foreach ($uniqueImages as $projectImage)
                                         <div class="pro-details-thum-sec">
@@ -77,7 +77,7 @@
                                     @endforeach
                                 </div>
                             @endif
-                        @endif
+                        {{-- @endif --}}
                     </div>
                     <!-- Project Single Content End -->
                 </div>
