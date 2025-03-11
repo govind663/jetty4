@@ -10611,7 +10611,7 @@ ul.social-box li a:hover {
     .project_text {
         width: 100%;
     }
-    
+
     .project_img img {
         min-height: 290px;
         object-fit: cover;
@@ -13100,7 +13100,7 @@ img{
     .page-project-single .project-details-title-sec h1 {
         font-size: 35px;
     }
-    
+
     .project-body-title h3 {
         font-size: 20px
     }
@@ -14230,4 +14230,11 @@ img{
 
 .thumbnail-slider.owl-carousel .owl-stage-outer {
     text-align: -webkit-center;
+}
+
+.mean-bar .mean-logo-link img {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 136px; /* Adjust as needed */
 }
