@@ -58,7 +58,7 @@
                         @endphp
 
                         <!-- Main Slider -->
-                        {{-- @if(count($uniqueImages) > 0) --}}
+                        @if(count($uniqueImages) > 0)
                             <div class="owl-carousel main-slider pro-details-slider-sec">
                                 @foreach ($uniqueImages as $projectImage)
                                     <div class="pro-detail-magic-zoom">
@@ -76,8 +76,8 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            @endif
-                        {{-- @endif --}}
+                            {{-- @endif --}}
+                        @endif
                     </div>
                     <!-- Project Single Content End -->
                 </div>
