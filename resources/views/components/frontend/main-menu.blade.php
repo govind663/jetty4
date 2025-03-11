@@ -1,5 +1,10 @@
 <div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
     <div class="mobile-menu">
+        <a href="{{ route('frontend.home') }}" class="meanmenu-reveal" style="background:;color:;right:0;left:auto;">
+            <span></span> 
+            <span></span> 
+            <span></span>
+        </a>
         <nav class="header-menu">
             <ul>
                 <li class="menu-item-has-children">

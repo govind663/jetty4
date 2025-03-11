@@ -374,4 +374,56 @@ J4C Group | Home
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Main Slider
+        $(".main-slider").owlCarousel({
+            items: 1
+            , loop: true
+            , margin: 10
+            , nav: false
+            , navText: ["<span class='arrow-prev'>&#x2039;</span>", "<span class='arrow-next'>&#x203A;</span>"]
+            , dots: false
+            , thumbs: true
+            , thumbImage: false
+            , thumbContainerClass: "owl-thumbs"
+            , thumbItemClass: "owl-thumb-item"
+        , });
+
+        // Thumbnail Slider
+        $(".thumbnail-slider").owlCarousel({
+            items: 6, // Default items for larger screens
+            margin: 10, // Space between items
+            nav: false, // Navigation disabled for thumbnails
+            dots: false, // Dots disabled for thumbnails
+            center: false, // No centering for thumbnails
+            loop: false, // Infinite loop
+            responsive: {
+                0: {
+                    items: 4
+                    , margin: 10
+                }, // 2 items for mobile screens with reduced margin
+                480: {
+                    items: 3
+                    , margin: 15
+                }, // 3 items for small tablets
+                768: {
+                    items: 4
+                    , margin: 20
+                }, // 4 items for tablets and up
+                1200: {
+                    items: 6
+                    , margin: 10
+                }, // 5 items for desktops
+            }
+        , });
+
+        // Linking thumbnails to main slider
+        $(".thumbnail-slider .owl-item").on("click", function() {
+            const index = $(this).index();
+            $(".main-slider").trigger("to.owl.carousel", [index, 300]);
+        });
+    });
+</script>
 @endpush
