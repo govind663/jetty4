@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row contact-info-bg">
                 <div class="col-lg-6 col-md-12">
-                    <div class="contact-info-box" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
+                    <div class="contact-info-box">
                         <div class="contact-info-icon">
                             <i class="fa fa-map-marker"></i>
                         </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="contact-info-box" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    <div class="contact-info-box">
                         <div class="contact-info-icon">
                             <i class="fa fa-phone"></i>
                         </div>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="contact-info-box two" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
+                    <div class="contact-info-box two">
                         <div class="contact-info-icon">
                             <i class="fa fa-envelope"></i>
                         </div>
