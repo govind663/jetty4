@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Project Type
+    J4C Group | Manage Project Type
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Project Type</h4>
+                        <h4>Manage Project Type</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Project Type</li>
+                            <li class="breadcrumb-item active">Manage Project Type</li>
                         </ol>
                     </div>
                 </div>

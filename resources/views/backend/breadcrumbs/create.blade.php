@@ -46,9 +46,9 @@
                                 <div class="pd-20 card-box mb-30">
 
                                     <div class="form-group row mt-3">
-                                        <label class="col-sm-2"><b>Upload Breadcrumb Image : </b></label>
+                                        <label class="col-sm-2"><b>Upload Banner Image : </b></label>
                                         <div class="col-sm-4 col-md-4">
-                                            <input type="file" onchange="agentPreviewFile()" accept=".png, .jpg, .jpeg, .webp" name="breadcrumb_image" id="breadcrumb_image" class="form-control @error('breadcrumb_image') is-invalid @enderror" value="{{ old('breadcrumb_image') }}" placeholder="Upload Breadcrumb Image.">
+                                            <input type="file" onchange="agentPreviewFile()" accept=".png, .jpg, .jpeg, .webp" name="breadcrumb_image" id="breadcrumb_image" class="form-control @error('breadcrumb_image') is-invalid @enderror" value="{{ old('breadcrumb_image') }}" placeholder="Upload Banner Image.">
                                             <small class="text-secondary"><b>Note : The file size  should be less than 2MB .</b></small>
                                             <br>
                                             <small class="text-secondary"><b>Note : Only files in .jpg, .jpeg, .png, .webp format can be uploaded .</b></small>
@@ -63,9 +63,9 @@
                                             </div>
                                         </div>
 
-                                        <label class="col-sm-2"><b>Breadcrumb Title : <span class="text-danger">*</span></b></label>
+                                        <label class="col-sm-2"><b>Banner Title : <span class="text-danger">*</span></b></label>
                                         <div class="col-sm-4 col-md-4">
-                                            <input type="text" name="breadcrumb_title" id="breadcrumb_title" class="form-control @error('breadcrumb_title') is-invalid @enderror" value="{{ old('breadcrumb_title') }}" placeholder="Enter Breadcrumb Title.">
+                                            <input type="text" name="breadcrumb_title" id="breadcrumb_title" class="form-control @error('breadcrumb_title') is-invalid @enderror" value="{{ old('breadcrumb_title') }}" placeholder="Enter Banner Title.">
                                             @error('breadcrumb_title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    
+
                                         <label class="col-sm-2"><b>Status : <span class="text-danger">*</span></b></label>
                                         <div class="col-sm-4 col-md-4">
                                             <select name="status" id="status" class="myselect form-control @error('status') is-invalid @enderror">
@@ -112,7 +112,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>                                    
+                                    </div>
 
                                     <div class="form-group row mt-4">
                                         <label class="col-md-3"></label>

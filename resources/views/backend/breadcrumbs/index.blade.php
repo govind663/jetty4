@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Breadcrumb
+    J4C Group | Manage Breadcrumb
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Breadcrumb</h4>
+                        <h4>Manage Breadcrumb</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Breadcrumb</li>
+                            <li class="breadcrumb-item active">Manage Breadcrumb</li>
                         </ol>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                                     <thead>
                                         <tr>
                                             <th>Sr. No.</th>
-                                            <th>Breadcrumb Image</th>
-                                            <th>Breadcrumb Title</th>
+                                            <th>Banner Image</th>
+                                            <th>Banner Title</th>
                                             <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

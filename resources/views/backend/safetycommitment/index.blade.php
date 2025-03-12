@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Safety Commitment
+    J4C Group | Manage Safety Commitment
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Safety Commitment</h4>
+                        <h4>Manage Safety Commitment</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Safety Commitment</li>
+                            <li class="breadcrumb-item active">Manage Safety Commitment</li>
                         </ol>
                     </div>
                 </div>

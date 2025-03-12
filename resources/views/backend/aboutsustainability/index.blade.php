@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage About Sustainability
+    J4C Group | Manage About Sustainability
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage About Sustainability</h4>
+                        <h4>Manage About Sustainability</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage About Sustainability</li>
+                            <li class="breadcrumb-item active">Manage About Sustainability</li>
                         </ol>
                     </div>
                 </div>

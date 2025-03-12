@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Our Vision
+    J4C Group | Manage Our Vision
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Our Vision </h4>
+                        <h4>Manage Our Vision </h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Our Vision  </li>
+                            <li class="breadcrumb-item active">Manage Our Vision  </li>
                         </ol>
                     </div>
                 </div>

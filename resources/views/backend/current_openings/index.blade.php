@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Current Opening
+    J4C Group | Manage Current Opening
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Current Opening</h4>
+                        <h4>Manage Current Opening</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Current Opening</li>
+                            <li class="breadcrumb-item active">Manage Current Opening</li>
                         </ol>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Unique Approach
+    J4C Group | Manage Unique Approach
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Unique Approach</h4>
+                        <h4>Manage Unique Approach</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Unique Approach</li>
+                            <li class="breadcrumb-item active">Manage Unique Approach</li>
                         </ol>
                     </div>
                 </div>

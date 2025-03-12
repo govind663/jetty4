@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manaage Construction Solutions
+    J4C Group | Manage Construction Solutions
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manaage Construction Solutions</h4>
+                        <h4>Manage Construction Solutions</h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manaage Construction Solutions</li>
+                            <li class="breadcrumb-item active">Manage Construction Solutions</li>
                         </ol>
                     </div>
                 </div>
