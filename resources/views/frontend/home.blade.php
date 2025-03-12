@@ -261,7 +261,7 @@ J4C Group | Home
                 <div class="col-lg-9 col-md-12">
                     <div class="section-title left" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $associate->title }}</h1>
-                        <p class="associate-para-area">{!! $associate->description !!}</p>
+                        {!! $associate->description !!}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 asso-desk-sec">
