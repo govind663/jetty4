@@ -7,6 +7,9 @@
 @push('styles')
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+    
+</style>
 @endpush
 
 @section('content')
@@ -153,4 +156,12 @@
     });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+            once: true, // Ensures animation runs once
+            duration: 1000,
+        });
+    });
+</script>
 @endpush

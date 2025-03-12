@@ -11,8 +11,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
-                            <div class="footer-social-icon" data-aos="fade-left" data-aos-duration="1000"
-                                data-aos-once="true">
+                            <div class="footer-social-icon" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" data-aos-delay="500">
                                 <ul>
                                     <li class="text">FOLLOW US :</li>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>

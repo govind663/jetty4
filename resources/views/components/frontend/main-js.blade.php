@@ -15,11 +15,11 @@
 <!-- imagesloaded js -->
 <script src="{{ asset('frontend/assets/js/imagesloaded.pkgd.min.js') }}" ></script>
 <!-- venobox js -->
-<script src="{{ asset('frontend/assets/js/venobox.js') }}}" ></script>
+{{-- <script src="{{ asset('frontend/assets/js/venobox.js') }}}" ></script> --}}
 <!--  animated-text js -->
 <script src="{{ asset('frontend/assets/js/animated-text.js') }}" ></script>
 <!-- venobox min js -->
-<script src="{{ asset('frontend/assets/js/venobox.min.js') }}" ></script>
+{{-- <script src="{{ asset('frontend/assets/js/venobox.min.js') }}" ></script> --}}
 <!-- isotope js -->
 <script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}" ></script>
 <!-- jquery meanmenu js -->

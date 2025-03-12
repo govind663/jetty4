@@ -39,7 +39,7 @@
             center: true,
             animateIn: 'fadeIn',
             animateOut: 'fadeOut'
-            
+
         })
 
         welcomeSlider.on('translate.owl.carousel', function () {
@@ -67,7 +67,7 @@
                 $(this).addClass('animated ' + anim_name).css('opacity', '1');
             });
         });
-    } 
+    }
 
  // single-animal-box box Active js
     $(document).ready(function() {
@@ -99,11 +99,11 @@
     });
 
   // Venubox
-    $('.venobox').venobox({
-        numeratio: true,
-        infinigall: true
+    // $('.venobox').venobox({
+    //     numeratio: true,
+    //     infinigall: true
 
-    });
+    // });
 
     // Loder  //
     $(function () {
@@ -115,12 +115,12 @@
 
     const flexContainer = document.querySelector('.marquee');
     const flexItems = document.querySelectorAll('.marquee .scroll');
-      
+
     let totalWidth = 0;
     flexItems.forEach((item) => {
         totalWidth += item.offsetWidth;
     });
-        
+
 }
 window.addEventListener('load', updateMarqueDivWidth);
 window.addEventListener('resize', updateMarqueDivWidth);
