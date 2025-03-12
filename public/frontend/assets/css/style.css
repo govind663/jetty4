@@ -638,7 +638,7 @@
    <!--Echofy About Area Css-->
 ==================================---*/
 .about-area {
-    background: url(../images/home1/about-bg.jpg);
+    /* background: url(../images/home1/about-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -834,7 +834,7 @@ p.section-desc {
 ==================================---*/
 .service-area {
     padding: 113px 0 125px;
-    background: url(../images/home1/service-bg.jpg);
+    /* background: url(../images/home1/service-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1182,7 +1182,7 @@ span.number {
    <!--Echofy Counter Area Css-->
 ==================================---*/
 .counter-area {
-    background: url(../images/home1/counter-bg.jpg);
+    /* background: url(../images/home1/counter-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     padding: 80px 0 150px;
@@ -1260,7 +1260,7 @@ span.number {
    <!--Echofy Project Area Css-->
 ==================================---*/
 .project-area {
-    background: url(../images/home1/project-bg.jpg);
+    /* background: url(../images/home1/project-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     padding: 70px 0px 120px;
@@ -1463,7 +1463,7 @@ a.project-button:hover i {
     height: 100%;
     right: 84px;
     top: 98px;
-    background: url(../images/home1/process-two-shape-1.png);
+    /* background: url(../images/home1/process-two-shape-1.png); */
     background-repeat: no-repeat;
 }
 
@@ -1472,7 +1472,7 @@ a.project-button:hover i {
 }
 
 .single-process-box-two.style-three:before {
-    background: url(../images/home1/process-two-shape-2.png);
+    /* background: url(../images/home1/process-two-shape-2.png); */
     background-repeat: no-repeat;
 }
 
@@ -1689,7 +1689,7 @@ p.testi-desc {
     border: 1px solid #dbdbdb;
 }
 #brand-bg {
-    background: url(../images/home1/brand-bg.png);
+    /* background: url(../images/home1/brand-bg.png); */
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0px;
@@ -1746,7 +1746,7 @@ p.testi-desc {
 ==================================---*/
 .team-area {
     padding: 192px 0 125px;
-    background: url(../images/home1/team-bg.jpg);
+    /* background: url(../images/home1/team-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -82px;
@@ -2225,7 +2225,7 @@ p.footer-desc {
    <!--Echofy Hero Area Home Two-->
 ==================================---*/
 .hero-area.home-two {
-    background: url(../images/home2/hero-bg.jpg);
+    /* background: url(../images/home2/hero-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 860px;
@@ -2436,7 +2436,7 @@ p.footer-desc {
    <!--Echofy Servics Title Area Home Two-->
 ==================================---*/
 .service-title-area {
-    background: url(../images/home2/services-title-bg.jpg);
+    /* background: url(../images/home2/services-title-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2624,7 +2624,7 @@ p.footer-desc {
 }
 
 .home-two .row.fade-de {
-    background: url(../images/home2/counter-bg.jpg);
+    /* background: url(../images/home2/counter-bg.jpg); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -2761,7 +2761,7 @@ p.footer-desc {
    <!--Echofy Faqs Area Home Two-->
 ==================================---*/
 .faqs-area {
-    background: url(../images/home2/faqs-bg.jpg);
+    /* background: url(../images/home2/faqs-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     padding: 124px 0 196px;
@@ -2903,7 +2903,7 @@ p.footer-desc {
    <!--Echofy Donatione Title Area Home Two-->
 ===================================================---*/
 .donation-title-area {
-    background: url(../images/home2/services-title-bg.jpg);
+    /* background: url(../images/home2/services-title-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -3042,7 +3042,7 @@ span.price {
    <!--Echofy Testimonial Area Home Two-->
 ==================================---*/
 .home-two.testimonial-area {
-    background: url(../images/home2/testi-bg.jpg);
+    /* background: url(../images/home2/testi-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

@@ -60,14 +60,14 @@ J4C Group | Home
         <div class="inner-container">
             <div class="marquee">
                 <div class="marquee-block">
+                    @foreach ($statistics as $value)
                     <div class="content-box">
-                        @foreach ($statistics as $value)
-                            <h6 class="title">
-                                <span>{{ $value->description }}</span>
-                                {{ $value->title }}
-                            </h6>
-                        @endforeach
+                        <h6 class="title">
+                            <span>{{ $value->description }}</span>
+                            {{ $value->title }}
+                        </h6>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -373,5 +373,22 @@ J4C Group | Home
         });
     }
 });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const marquee = document.querySelector(".echofy-text-section .marquee");
+        const marqueeBlock = document.querySelector(".echofy-text-section .marquee-block");
+
+        // Get the width of the original marqueeBlock
+        const blockWidth = marqueeBlock.offsetWidth;
+
+        // Clone the marqueeBlock to create a seamless effect
+        const clone = marqueeBlock.cloneNode(true);
+        marquee.appendChild(clone);
+
+        // Apply proper width to the marquee container to avoid gaps
+        marquee.style.width = `${blockWidth * 2}px`; // Ensure both blocks fit in one cycle
+    });
 </script>
 @endpush
