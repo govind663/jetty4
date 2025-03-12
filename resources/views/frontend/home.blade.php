@@ -246,12 +246,14 @@ J4C Group | Home
                 </div>
             </div>
             <div class="row">
-                <div class="brand-list-1 owl-carousel">
-                    @foreach($clientsImages as $client)
-                        <div class="single-brand-box">
-                            <img class="d-inline-block" src="{{ asset('/j4c_Group/clients/image/' . $client) }}" alt="{{ $client }}" width="200" height="100" loading="lazy" />
-                        </div>
-                    @endforeach
+                <div class="swiper brand-slider">
+                    <div class="swiper-wrapper">
+                        @foreach($clientsImages as $client)
+                            <div class="swiper-slide single-brand-box">
+                                <img class="d-inline-block" src="{{ asset('/j4c_Group/clients/image/' . $client) }}" alt="{{ $client }}" width="200" height="100" loading="lazy" />
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -275,14 +277,14 @@ J4C Group | Home
                 </div>
             </div>
             <div class="row">
-                <div class="associate-logo owl-carousel">
-                    @foreach($associateImages as $as)
-                        <div class="col-md-12">
-                            <div class="single-brand-box">
+                <div class="swiper associate-slider">
+                    <div class="swiper-wrapper">
+                        @foreach($associateImages as $as)
+                            <div class="swiper-slide single-brand-box">
                                 <img class="d-inline-block" src="{{ asset('/j4c_Group/associates/image/' . $as) }}" alt="{{ $as }}" width="200" height="100" loading="lazy" />
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -346,40 +348,55 @@ J4C Group | Home
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-    let projectList = $(".project-list-1");
-    let projects = $(".project-list-1 > .col-lg-12");
+    $(document).ready(function() {
+        let projectList = $(".project-list-1");
+        let projects = $(".project-list-1 > .col-lg-12");
 
-    if (projects.length === 1) {
-        // If only one project exists, remove Owl Carousel and show it centered
-        projectList.removeClass("owl-carousel owl-loaded");
-        projectList.addClass("single-project-display"); // Add a custom class for styling
-        projectList.html(projects[0].outerHTML);
-    } else {
-        // Initialize Owl Carousel only if more than one project exists
-        projectList.owlCarousel({
-            loop: projects.length > 1, // Loop only if more than 1 project
-            autoplay: true,
-            autoplayTimeout: 5000,
-            dots: false,
-            nav: true,
-            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-            responsive: {
-                0: { items: 1 },
-                400: { items: 1 },
-                600: { items: 2 },
-                768: { items: 1 },
-                992: { items: 2 },
-                1000: { items: 2 },
-                1920: { items: 2 }
-            }
-        });
-    }
-});
+        if (projects.length === 1) {
+            // If only one project exists, remove Owl Carousel and show it centered
+            projectList.removeClass("owl-carousel owl-loaded");
+            projectList.addClass("single-project-display"); // Add a custom class for styling
+            projectList.html(projects[0].outerHTML);
+        } else {
+            // Initialize Owl Carousel only if more than one project exists
+            projectList.owlCarousel({
+                loop: projects.length > 1, // Loop only if more than 1 project
+                autoplay: true
+                , autoplayTimeout: 5000
+                , dots: false
+                , nav: true
+                , navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+                , responsive: {
+                    0: {
+                        items: 1
+                    }
+                    , 400: {
+                        items: 1
+                    }
+                    , 600: {
+                        items: 2
+                    }
+                    , 768: {
+                        items: 1
+                    }
+                    , 992: {
+                        items: 2
+                    }
+                    , 1000: {
+                        items: 2
+                    }
+                    , 1920: {
+                        items: 2
+                    }
+                }
+            });
+        }
+    });
+
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const marquee = document.querySelector(".echofy-text-section .marquee");
         const marqueeBlock = document.querySelector(".echofy-text-section .marquee-block");
 
@@ -393,5 +410,57 @@ J4C Group | Home
         // Apply proper width to the marquee container to avoid gaps
         // marquee.style.width = `${blockWidth * 2}px`; // Ensure both blocks fit in one cycle
     });
+
 </script>
+
+<script>
+    var swiper = new Swiper(".brand-slider", {
+        slidesPerView: 3
+        , spaceBetween: 20
+        , loop: true
+        , autoplay: {
+            delay: 3000
+            , disableOnInteraction: false
+        , }
+        , navigation: {
+            nextEl: ".swiper-button-next"
+            , prevEl: ".swiper-button-prev"
+        , }
+        , breakpoints: {
+            768: {
+                slidesPerView: 4
+            }
+            , 1024: {
+                slidesPerView: 5
+            }
+        }
+    });
+
+</script>
+<script>
+    var swiper = new Swiper(".associate-slider", {
+        slidesPerView: 3
+        , spaceBetween: 20
+        , loop: true
+        , autoplay: {
+            delay: 3000
+            , disableOnInteraction: false
+        , }
+        , navigation: {
+            nextEl: ".swiper-button-next"
+            , prevEl: ".swiper-button-prev"
+        , }
+        , breakpoints: {
+            768: {
+                slidesPerView: 4
+            }
+            , 1024: {
+                slidesPerView: 5
+            }
+        }
+    });
+
+</script>
+
+
 @endpush
