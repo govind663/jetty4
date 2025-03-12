@@ -7,45 +7,6 @@ J4C Group | Home
 @push('styles')
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-<style>
-    .marquee {
-        overflow: hidden;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        position: relative;
-    }
-
-    .marquee-block {
-        display: flex;
-        animation: scroll 1s linear infinite; /* Increased speed */
-        width: max-content;
-        gap: 20px; /* Reduce gap for a tighter flow */
-    }
-
-    .content-box {
-        display: flex;
-        gap: 20px; /* Reduce gap for a tighter flow */
-    }
-
-    .title {
-        font-size: 18px;
-        margin: 0;
-        padding-right: 10px; /* Reduce padding for closer spacing */
-        display: inline-block;
-    }
-
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-</style>
 @endpush
 
 @section('content')
@@ -236,7 +197,7 @@ J4C Group | Home
     </div>
 
     {{-- Our Team  --}}
-    <div class="why-choose-area home-seven" style="background: url('{{ asset('/j4c_Group/teams/image/' . $teams->image) }}');">
+    <div class="why-choose-area home-seven" style="background-image: url('{{ asset('/j4c_Group/teams/image/' . $teams->image) }}');">
         <div class="container">
             <div class="stroke stroke-about lh-base fw-bold position-absolute z-0">Team</div>
             <div class="row align-items-center">
@@ -269,7 +230,7 @@ J4C Group | Home
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-title text-center" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true">
+                    <div class="section-title text-left" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $clients->title }}</h1>
                         <p style="text-align: center;">{!! $clients->description !!}</p>
                     </div>
@@ -407,5 +368,4 @@ J4C Group | Home
     }
 });
 </script>
-
 @endpush

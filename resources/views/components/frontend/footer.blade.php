@@ -119,7 +119,7 @@
             <div class="row footer-bottom">
                 <div class="col-md-12 text-center">
                     <div class="footer-bottom-content">
-                        <p>Copyright {{ date('Y') }} J4C Group | All Rights Reserved | Designed & Developed by <a href="">Matrix Bricks</a></p>
+                        <p>Copyright {{ date('Y') }} J4C Group | All Rights Reserved | Designed & Developed by <a href="https://www.matrixbricks.com/">Matrix Bricks</a></p>
                     </div>
                 </div>
             </div>

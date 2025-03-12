@@ -57,6 +57,7 @@
             <img src="{{ asset('frontend/assets/images/shape/testi-shape.png')  }}" alt="">
         </div>
     </section>
+
     <section class="process-area who_we_are_sec">
         <div class="container">
             <div class="row align-items-center" id="poress-row">

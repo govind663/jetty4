@@ -9292,7 +9292,7 @@ p.blog-list-desc {
     padding: 55px 0px;
     position: relative;
     background-color: #000;
-    background-image: url(../images/our-team-bg.jpg);
+    /* background-image: url(../images/our-team-bg.jpg); */
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10611,7 +10611,7 @@ ul.social-box li a:hover {
     .project_text {
         width: 100%;
     }
-    
+
     .project_img img {
         min-height: 290px;
         object-fit: cover;
@@ -13100,7 +13100,7 @@ img{
     .page-project-single .project-details-title-sec h1 {
         font-size: 35px;
     }
-    
+
     .project-body-title h3 {
         font-size: 20px
     }
