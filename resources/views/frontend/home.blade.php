@@ -7,6 +7,12 @@ J4C Group | Home
 @push('styles')
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+    .brand-area .section-title p {
+        /* text-align: center; */
+        margin-bottom: 0px !important;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -228,7 +234,7 @@ J4C Group | Home
     <!-- Our Clients -->
     <div class="brand-area">
         <div class="container">
-            <div class="row">
+            <div class="row"  style="margin-bottom: 35px !important;">
                 <div class="col-md-12">
                     <div class="section-title text-left" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $clients->title }}</h1>
