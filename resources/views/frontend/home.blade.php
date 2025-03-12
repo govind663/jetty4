@@ -260,7 +260,7 @@ J4C Group | Home
     <!-- Our Associates -->
     <div class="associate-area">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-bottom: 20px !important;">
                 <div class="col-lg-9 col-md-12">
                     <div class="section-title left" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $associate->title }}</h1>
