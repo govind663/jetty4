@@ -12,6 +12,9 @@ J4C Group | Home
         /* text-align: center; */
         margin-bottom: 0px !important;
     }
+    .associate-area .section-title.left {
+        margin-bottom: 0px;
+    }
 </style>
 @endpush
 
@@ -234,7 +237,7 @@ J4C Group | Home
     <!-- Our Clients -->
     <div class="brand-area">
         <div class="container">
-            <div class="row"  style="margin-bottom: 35px !important;">
+            <div class="row"  style="margin-bottom: 20px !important;">
                 <div class="col-md-12">
                     <div class="section-title text-left" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $clients->title }}</h1>
@@ -257,11 +260,11 @@ J4C Group | Home
     <!-- Our Associates -->
     <div class="associate-area">
         <div class="container">
-            <div class="row" style="margin-bottom: 35px !important;">
+            <div class="row">
                 <div class="col-lg-9 col-md-12">
                     <div class="section-title left" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $associate->title }}</h1>
-                        {!! $associate->description !!}
+                        <p class="associate-para-area">{!! $associate->description !!}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 asso-desk-sec">
