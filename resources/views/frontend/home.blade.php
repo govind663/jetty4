@@ -388,7 +388,7 @@ J4C Group | Home
         marquee.appendChild(clone);
 
         // Apply proper width to the marquee container to avoid gaps
-        marquee.style.width = `${blockWidth * 2}px`; // Ensure both blocks fit in one cycle
+        // marquee.style.width = `${blockWidth * 2}px`; // Ensure both blocks fit in one cycle
     });
 </script>
 @endpush
