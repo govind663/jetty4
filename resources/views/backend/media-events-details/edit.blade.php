@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-J4C Group | Edit Media & Eents Details
+J4C Group | Edit Media & Events Details
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@ J4C Group | Edit Media & Eents Details
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h4>Edit Media & Eents Details</h4>
+                    <h4>Edit Media & Events Details</h4>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -25,9 +25,9 @@ J4C Group | Edit Media & Eents Details
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('media-details.index') }}">Media & Eents Details</a>
+                            <a href="{{ route('media-details.index') }}">Media & Events Details</a>
                         </li>
-                        <li class="breadcrumb-item active">Edit Media & Eents Details</li>
+                        <li class="breadcrumb-item active">Edit Media & Events Details</li>
                     </ol>
                 </div>
             </div>

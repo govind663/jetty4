@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    J4C Group | Manage Media & Eents Details
+    J4C Group | Manage Media & Events Details
 @endsection
 
 @push('styles')
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Manage Media & Eents Details </h4>
+                        <h4>Manage Media & Events Details </h4>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -24,7 +24,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">Manage Media & Eents Details  </li>
+                            <li class="breadcrumb-item active">Manage Media & Events Details  </li>
                         </ol>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center p-3">
                             <div class="card-header pb-0 card-no-border">
-                                <h4>All Media & Eents Details List</h4>
+                                <h4>All Media & Events Details List</h4>
                             </div>
                             {{-- Add Team Button --}}
                             <a href="{{ route('media-details.create') }}" class="btn btn-primary">
                                 <b>
                                     <i class="fa fa-plus"></i>
-                                    Media & Eents Details
+                                    Media & Events Details
                                 </b>
                             </a>
                         </div>

@@ -230,7 +230,7 @@
                             <a href="{{ route('media-events.index') }}" class="{{ (Route::currentRouteName() === 'media-events.index') || (Route::currentRouteName() === 'media-events.create') || (Route::currentRouteName() === 'media-events.edit') ? 'active' : '' }}">Media & Events</a>
                         </li>
                         <li>
-                            <a href="{{ route('media-details.index') }}" class="{{ (Route::currentRouteName() === 'media-details.index') || (Route::currentRouteName() === 'media-details.create') || (Route::currentRouteName() === 'media-details.edit') ? 'active' : '' }}">Media & Eents Details</a>
+                            <a href="{{ route('media-details.index') }}" class="{{ (Route::currentRouteName() === 'media-details.index') || (Route::currentRouteName() === 'media-details.create') || (Route::currentRouteName() === 'media-details.edit') ? 'active' : '' }}">Media & Events Details</a>
                         </li>
                     </ul>
                 </li>
