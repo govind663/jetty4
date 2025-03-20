@@ -157,7 +157,7 @@ J4C Group | Edit Safety Initiatives
 </script>
 
 {{-- Summernote Editor --}}
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#description').summernote({
             placeholder: 'Enter your description here...',
@@ -165,7 +165,7 @@ J4C Group | Edit Safety Initiatives
             height: 100,
         });
     });
-</script>
+</script> --}}
 
 <script>
     // Existing function for agent image/PDF preview (if needed)

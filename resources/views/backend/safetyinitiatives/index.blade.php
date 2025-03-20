@@ -85,7 +85,7 @@
                                                 </td>
 
                                                 <td class="text-wrap text-justify">
-                                                    {!! $value->description !!}
+                                                    {{ $value->description ?? '' }}
                                                 </td>
 
                                                 <td>

@@ -107,7 +107,7 @@
                                         <img src="{{ asset('/j4c_Group/safety_initiatives/image/' . $value->image) }}" alt="Image" class="img-responsive">
                                         <div class="services-content">
                                             <h3>{{ $value->title }}</h3>
-                                            {!! $value->description !!}
+                                            <p>{{ $value->description ?? '' }}</p>
                                             <span>
                                                 <img src="{{ asset('/j4c_Group/safety_initiatives/icon/' . $value->icon) }}" alt="Image" class="img-responsive">
                                             </span>
