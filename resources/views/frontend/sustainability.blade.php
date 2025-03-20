@@ -8,7 +8,7 @@
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
-    
+
 </style>
 @endpush
 
@@ -54,7 +54,8 @@
                 </div>
                 <div class="col-md-7">
                     <div class="sustainability_content">
-                        {!! $aboutSustainability->description !!}
+                        <p>{!! $aboutSustainability->description !!}</p>
+
                         <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                             <h1>{{ $aboutSustainability->title }}</h1>
                         </div>
@@ -71,7 +72,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        {!! $aboutSustainability->other_description !!}
+                        <p>{!! $aboutSustainability->other_description !!}</p>
                     </div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
                 <div class="col-md-12">
                     <div class="section-title" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
                         <h1>{{ $safetycommitment->title }}</h1>
-                        {!! $safetycommitment->description !!}
+                        <p>{!! $safetycommitment->description !!}</p>
                     </div>
                 </div>
             </div>

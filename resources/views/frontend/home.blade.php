@@ -31,20 +31,67 @@ J4C Group | Home
 
         <div class="carousel-inner">
             @foreach ($banners as $index => $banner)
-                <div class="carousel-item hero-area {{ $index == 0 ? 'active' : '' }}">
+                @if ($banner->banner_name == 'Banner1')
+                    <div class="carousel-item hero-area {{ $index == 0 ? 'active' : '' }}">
 
-                    @if ($banner->banner_image)
-                        <img src="{{ asset('/j4c_Group/banner/banner_image/' . $banner->banner_image) }}" class="d-block w-100" alt="Banner Image" loading="lazy">
-                    @elseif ($banner->banner_video)
-                        <video width="100%" class="elVideo" loop autoplay playsinline muted>
-                            <source src="{{ asset('/j4c_Group/banner/banner_video/' . $banner->banner_video) }}" type="video/mp4">
-                        </video>
-                    @endif
+                        @if ($banner->banner_image)
+                            <img src="{{ asset('/j4c_Group/banner/banner_image/' . $banner->banner_image) }}" class="d-block w-100" alt="Banner Image" loading="lazy">
+                        @elseif ($banner->banner_video)
+                            <video width="100%" class="elVideo" loop autoplay playsinline muted>
+                                <source src="{{ asset('/j4c_Group/banner/banner_video/' . $banner->banner_video) }}" type="video/mp4">
+                            </video>
+                        @endif
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ $banner->title }}</h5>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                        </div>
                     </div>
-                </div>
+                @elseif ($banner->banner_name == 'Banner2')
+                    <div class="carousel-item hero-area {{ $index == 0 ? 'active' : '' }}">
+
+                        @if ($banner->banner_image)
+                            <img src="{{ asset('/j4c_Group/banner/banner_image/' . $banner->banner_image) }}" class="d-block w-100" alt="Banner Image" loading="lazy">
+                        @elseif ($banner->banner_video)
+                            <video width="100%" class="elVideo" loop autoplay playsinline muted>
+                                <source src="{{ asset('/j4c_Group/banner/banner_video/' . $banner->banner_video) }}" type="video/mp4">
+                            </video>
+                        @endif
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                        </div>
+                    </div>
+                @elseif ($banner->banner_name == 'Banner3')
+                    <div class="carousel-item hero-area {{ $index == 0 ? 'active' : '' }}">
+
+                        @if ($banner->banner_image)
+                            <img src="{{ asset('/j4c_Group/banner/banner_image/' . $banner->banner_image) }}" class="d-block w-100" alt="Banner Image" loading="lazy">
+                        @elseif ($banner->banner_video)
+                            <video width="100%" class="elVideo" loop autoplay playsinline muted>
+                                <source src="{{ asset('/j4c_Group/banner/banner_video/' . $banner->banner_video) }}" type="video/mp4">
+                            </video>
+                        @endif
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                        </div>
+                    </div>
+                @elseif ($banner->banner_name == 'Banner4')
+                    <div class="carousel-item hero-area {{ $index == 0 ? 'active' : '' }}">
+
+                        @if ($banner->banner_image)
+                            <img src="{{ asset('/j4c_Group/banner/banner_image/' . $banner->banner_image) }}" class="d-block w-100" alt="Banner Image" loading="lazy">
+                        @elseif ($banner->banner_video)
+                            <video width="100%" class="elVideo" loop autoplay playsinline muted>
+                                <source src="{{ asset('/j4c_Group/banner/banner_video/' . $banner->banner_video) }}" type="video/mp4">
+                            </video>
+                        @endif
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                        </div>
+                    </div>
+                @endif
             @endforeach
         </div>
 
@@ -64,12 +111,12 @@ J4C Group | Home
             <div class="marquee">
                 <div class="marquee-block">
                     @foreach ($statistics as $value)
-                    <div class="content-box">
-                        <h6 class="title">
-                            <span>{{ $value->description }}</span>
-                            {{ $value->title }}
-                        </h6>
-                    </div>
+                        <div class="content-box">
+                            <h6 class="title">
+                                <span>{{ $value->description }}</span>
+                                {{ $value->title }}
+                            </h6>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -437,6 +484,7 @@ J4C Group | Home
     });
 
 </script>
+
 <script>
     var swiper = new Swiper(".associate-slider", {
         slidesPerView: 3
