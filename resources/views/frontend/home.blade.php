@@ -43,7 +43,7 @@ J4C Group | Home
                         @endif
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ $banner->title }}</h5>
+                            <h5>{!! $banner->title !!}</h5>
                         </div>
                     </div>
                 @elseif ($banner->banner_name == 'Banner2')
@@ -58,7 +58,7 @@ J4C Group | Home
                         @endif
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ $banner->title }}</h5>
+                            <h5>{!! $banner->title !!}</h5>
                         </div>
                     </div>
                 @elseif ($banner->banner_name == 'Banner3')
@@ -73,7 +73,7 @@ J4C Group | Home
                         @endif
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ $banner->title }}</h5>
+                            <h5>{!! $banner->title !!}</h5>
                         </div>
                     </div>
                 @elseif ($banner->banner_name == 'Banner4')
@@ -88,7 +88,7 @@ J4C Group | Home
                         @endif
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ $banner->title }}</h5>
+                            <h5>{!! $banner->title !!}</h5>
                         </div>
                     </div>
                 @endif
