@@ -56,7 +56,7 @@
                                     </ul>
                                 </div>
                                 <a href="{{ route('frontend.media-events-details', $value->slug) }}">{{ $value->title }}</a>
-                                {!! $value->description !!}
+                                <P>{!! $value->description !!}</P>
                                 <div class="blog-service-button-sec">
                                     <a href="{{ route('frontend.media-events-details', $value->slug) }}" class="blog-service-btn">
                                         Read More

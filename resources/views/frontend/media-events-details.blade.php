@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <!-- Lightbox CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+<style>
+    .photo-gallery-box-sec img {
+        width: 100%;
+        height: 300px !important;
+    }
+</style>
 @endpush
 
 @section('content')

@@ -176,7 +176,7 @@ J4C Group | Edit Media & Events
 </script>
 
 {{-- Summernote Editor --}}
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#description').summernote({
             placeholder: 'Enter event description here...',
@@ -184,7 +184,7 @@ J4C Group | Edit Media & Events
             height: 100,
         });
     });
-</script>
+</script> --}}
 
 {{-- Image Preview --}}
 <script>
